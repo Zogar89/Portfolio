@@ -2,6 +2,13 @@ const projects = [
   {
     name: "Stock Central",
     description: "Centralizador de stock de filamentos 3D para AMBA, publicado como experiencia web.",
+    objective: "Ayudar a usuarios de impresion 3D a encontrar rapido proveedor, material, color, marca y formato disponible.",
+    technologies: ["Python", "Svelte", "Vite", "GitHub Actions", "GitHub Pages", "BeautifulSoup", "httpx", "Pillow"],
+    challenges: [
+      "Normalizar catalogos de distintos proveedores sin perder variantes utiles.",
+      "Bloquear publicaciones cuando una fuente falla o los conteos caen de forma sospechosa.",
+      "Separar captura de datos, UI y miniaturas para que cada workflow pueda evolucionar solo.",
+    ],
     html_url: "https://github.com/Zogar89/CentraldeFilamentos",
     homepage: "https://zogar89.github.io/CentraldeFilamentos/",
     language: "Python",
@@ -13,6 +20,13 @@ const projects = [
   {
     name: "Meli Core Dumper",
     description: "Sincronizacion y descarga de informacion operativa de sellers de Mercado Libre.",
+    objective: "Construir un core multitenant para conectar cuentas de Mercado Libre y alimentar modulos internos con datos confiables.",
+    technologies: ["FastAPI", "SQLAlchemy", "Alembic", "PostgreSQL", "Redis", "ARQ", "Jinja2", "Tailwind CSS", "Docker"],
+    challenges: [
+      "Resolver OAuth, webhooks y callbacks publicos sin mezclar entornos locales y productivos.",
+      "Mantener checkpoints, reintentos y runs auditables para ingestas largas.",
+      "Diseñar vistas admin y usuario sobre la misma plataforma sin romper permisos operativos.",
+    ],
     html_url: "https://github.com/Zogar89/MeliCoreDumper",
     homepage: "",
     language: "Python",
@@ -24,6 +38,13 @@ const projects = [
   {
     name: "Silver Usage Report",
     description: "Reportes de uso y consumo para seguimiento operativo con foco en claridad y trazabilidad.",
+    objective: "Permitir reportar uso agregado de IA sin exponer prompts, respuestas, codigo fuente, logs crudos ni claves.",
+    technologies: ["FastAPI", "Jinja2", "HTMX", "SQLAlchemy", "Alembic", "PostgreSQL", "SQLite", "PowerShell", "pytest"],
+    challenges: [
+      "Diseñar un collector one-shot que muestre preview local antes de enviar datos.",
+      "Firmar envios privados con HMAC y conservar sesiones privadas con token.",
+      "Hacer comparables los reportes sin convertirlo en un tracker permanente de gasto.",
+    ],
     html_url: "https://github.com/Zogar89/silver-usage-report",
     homepage: "",
     language: "Python",
@@ -35,6 +56,13 @@ const projects = [
   {
     name: "Monitor de Reviews",
     description: "Monitor para revisar, resumir y seguir senales de reviews desde un panel operativo.",
+    objective: "Dar a vendedores de Mercado Libre un panel para detectar reviews criticas, patrones y acciones prioritarias.",
+    technologies: ["Django", "Django-Q2", "Redis", "PostgreSQL", "django-htmx", "django-allauth", "Mercado Libre API", "Ruff"],
+    challenges: [
+      "Centralizar llamadas a Mercado Libre y mantener sincronizaciones en background.",
+      "Convertir reviews dispersas en etiquetas, alertas y metricas accionables.",
+      "Preparar una base solida para produccion con settings separados, worker y seguridad OAuth.",
+    ],
     html_url: "",
     homepage: "",
     language: "Python",
@@ -68,6 +96,12 @@ function escapeHtml(value) {
 function safeUrl(value) {
   const url = String(value || "");
   return url.startsWith("https://") ? url : "";
+}
+
+function renderList(items) {
+  return items
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join("");
 }
 
 function renderStats(items) {
@@ -107,6 +141,24 @@ function projectCard(repo) {
       <div>
         <h3>${escapeHtml(repo.name)}</h3>
         <p class="project-description">${description}</p>
+        <div class="project-details">
+          <section>
+            <h4>Tecnologias</h4>
+            <div class="tech-list">
+              ${repo.technologies.map((tech) => `<span>${escapeHtml(tech)}</span>`).join("")}
+            </div>
+          </section>
+          <section>
+            <h4>Objetivo</h4>
+            <p>${escapeHtml(repo.objective)}</p>
+          </section>
+          <section>
+            <h4>Desafios</h4>
+            <ul>
+              ${renderList(repo.challenges)}
+            </ul>
+          </section>
+        </div>
         <div class="project-meta">
           <span class="pill language">${language}</span>
           <span class="pill">${kind}</span>
