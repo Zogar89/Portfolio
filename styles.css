@@ -338,10 +338,10 @@ h3 {
 
 .project-card {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.6fr);
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1fr) minmax(190px, 0.42fr);
   gap: 24px;
   align-items: end;
-  min-height: 178px;
+  min-height: 232px;
   padding: 22px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -352,6 +352,25 @@ h3 {
     transform 180ms ease,
     border-color 180ms ease,
     background 180ms ease;
+}
+
+.project-media {
+  align-self: stretch;
+  min-height: 188px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) - 4px);
+  background: #09090b;
+}
+
+.project-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 188px;
+  object-fit: cover;
+  filter: saturate(0.94) contrast(1.04);
+  transform: scale(1.01);
 }
 
 .project-card:hover {
@@ -517,6 +536,11 @@ h3 {
   .project-card,
   .stack-grid {
     grid-template-columns: 1fr;
+  }
+
+  .project-media,
+  .project-media img {
+    min-height: 220px;
   }
 
   .hero {

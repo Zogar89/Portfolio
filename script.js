@@ -7,6 +7,8 @@ const projects = [
     language: "Python",
     updated_at: "2026-06-26T21:35:01Z",
     kind: "Stock",
+    image: "assets/projects/stock-central.png",
+    image_alt: "Vista de Stock Central con catalogo de filamentos y cotizacion movil",
   },
   {
     name: "Meli Core Dumper",
@@ -16,6 +18,8 @@ const projects = [
     language: "Python",
     updated_at: "2026-06-08T22:01:27Z",
     kind: "Meli",
+    image: "assets/projects/meli-core-dumper.png",
+    image_alt: "Panel operativo de Meli Core Dumper con estado de sincronizacion y metricas",
   },
   {
     name: "Silver Usage Report",
@@ -25,6 +29,8 @@ const projects = [
     language: "Python",
     updated_at: "2026-05-05T18:16:27Z",
     kind: "Reportes",
+    image: "assets/projects/silver-usage-report.png",
+    image_alt: "Dashboard de Silver Usage Report con metricas de tokens y privacidad",
   },
   {
     name: "Monitor de Reviews",
@@ -34,6 +40,8 @@ const projects = [
     language: "Python",
     updated_at: "2026-06-28T00:00:00Z",
     kind: "Reviews",
+    image: "assets/projects/monitor-reviews.png",
+    image_alt: "Panel de Monitor de Reviews con insights, reviews criticas y acciones",
   },
 ];
 
@@ -80,6 +88,8 @@ function projectCard(repo) {
   const description = escapeHtml(repo.description);
   const language = escapeHtml(repo.language || "Proyecto");
   const kind = escapeHtml(repo.kind || "Proyecto");
+  const image = safeUrl(repo.image) || escapeHtml(repo.image || "");
+  const imageAlt = escapeHtml(repo.image_alt || `Vista de ${repo.name}`);
   const repoUrl = safeUrl(repo.html_url);
   const homepageUrl = safeUrl(repo.homepage);
   const repoLink = repoUrl
@@ -91,6 +101,9 @@ function projectCard(repo) {
 
   return `
     <article class="project-card">
+      <figure class="project-media">
+        <img src="${image}" alt="${imageAlt}" loading="lazy" width="1600" height="900" />
+      </figure>
       <div>
         <h3>${escapeHtml(repo.name)}</h3>
         <p class="project-description">${description}</p>
