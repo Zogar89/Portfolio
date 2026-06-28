@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio de proyectos de Gabriel en GitHub: herramientas, dashboards, automatizaciones y aplicaciones web."
+    />
+    <title>Gabriel | Portfolio GitHub</title>
+    <link rel="preconnect" href="https://api.github.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Principal">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">Gabriel</a>
+        <div class="nav-links">
+          <a href="#proyectos">Proyectos</a>
+          <a href="#stack">Stack</a>
+          <a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Portfolio de proyectos</p>
+          <h1>Herramientas, dashboards y automatizaciones construidas en público.</h1>
+          <p class="lead">
+            Una vidriera viva de repositorios en GitHub: desde stock de filamentos 3D
+            hasta datos, Python, Streamlit, Django y utilidades para resolver trabajo real.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#proyectos">Ver proyectos</a>
+            <a class="button secondary" href="https://github.com/Zogar89" rel="noreferrer">Perfil GitHub</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Resumen del portfolio">
+          <div>
+            <span class="metric" id="repo-count">--</span>
+            <span class="metric-label">repos públicos</span>
+          </div>
+          <div>
+            <span class="metric" id="language-count">--</span>
+            <span class="metric-label">lenguajes detectados</span>
+          </div>
+          <div>
+            <span class="metric" id="updated-count">--</span>
+            <span class="metric-label">actualizados recientemente</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section" id="proyectos">
+        <div class="section-heading">
+          <p class="eyebrow">Repositorios</p>
+          <h2>Proyectos destacados</h2>
+          <p>
+            El listado se actualiza desde GitHub cuando la página carga. Los proyectos con demo
+            publicada muestran acceso directo.
+          </p>
+        </div>
+
+        <div class="filters" aria-label="Filtros de proyectos">
+          <button class="filter active" type="button" data-filter="all">Todos</button>
+          <button class="filter" type="button" data-filter="Python">Python</button>
+          <button class="filter" type="button" data-filter="HTML">HTML</button>
+          <button class="filter" type="button" data-filter="Jupyter Notebook">BI / Data</button>
+          <button class="filter" type="button" data-filter="JavaScript">JavaScript</button>
+        </div>
+
+        <div class="project-grid" id="project-grid" aria-live="polite">
+          <article class="project-card loading">
+            <span>Cargando proyectos desde GitHub...</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section stack-section" id="stack">
+        <div class="section-heading">
+          <p class="eyebrow">Enfoque</p>
+          <h2>Áreas de trabajo</h2>
+        </div>
+        <div class="stack-grid">
+          <div class="stack-item">
+            <h3>Automatización</h3>
+            <p>Scripts y asistentes para reducir carga operativa y tareas repetitivas.</p>
+          </div>
+          <div class="stack-item">
+            <h3>Datos y BI</h3>
+            <p>Dashboards, notebooks y reportes para convertir información en decisiones.</p>
+          </div>
+          <div class="stack-item">
+            <h3>Aplicaciones web</h3>
+            <p>Proyectos con Python, Django, Flask, Streamlit, HTML, CSS y JavaScript.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Gabriel / Zogar89</span>
+      <a href="https://github.com/Zogar89" rel="noreferrer">github.com/Zogar89</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
