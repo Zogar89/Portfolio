@@ -1,46 +1,45 @@
-const username = "Zogar89";
-const featuredNames = [
-  "CentraldeFilamentos",
-  "chalintrends",
-  "silver-usage-report",
-  "PriceTracker-CAC2023",
-  "HenryTPIntegrador",
-  "notas-tecnicas",
-];
-
-const grid = document.querySelector("#project-grid");
-const filters = document.querySelectorAll(".filter");
-let repositories = [];
-
-const fallbackRepos = [
+const projects = [
   {
-    name: "CentraldeFilamentos",
-    description: "Centralizador de stock de filamentos 3D para AMBA",
+    name: "Stock Central",
+    description: "Centralizador de stock de filamentos 3D para AMBA, publicado como experiencia web.",
     html_url: "https://github.com/Zogar89/CentraldeFilamentos",
     homepage: "https://zogar89.github.io/CentraldeFilamentos/",
     language: "Python",
     updated_at: "2026-06-26T21:35:01Z",
-    stargazers_count: 0,
+    kind: "Stock",
   },
   {
-    name: "chalintrends",
-    description: "ChalinTrends Streamlit dashboard",
-    html_url: "https://github.com/Zogar89/chalintrends",
+    name: "Meli Core Dumper",
+    description: "Sincronizacion y descarga de informacion operativa de sellers de Mercado Libre.",
+    html_url: "https://github.com/Zogar89/MeliCoreDumper",
     homepage: "",
     language: "Python",
-    updated_at: "2026-06-28T15:29:04Z",
-    stargazers_count: 0,
+    updated_at: "2026-06-08T22:01:27Z",
+    kind: "Meli",
   },
   {
-    name: "PriceTracker-CAC2023",
-    description: "Proyecto rastreador de precios para curso Django Codo a Codo 2023",
-    html_url: "https://github.com/Zogar89/PriceTracker-CAC2023",
+    name: "Silver Usage Report",
+    description: "Reportes de uso y consumo para seguimiento operativo con foco en claridad y trazabilidad.",
+    html_url: "https://github.com/Zogar89/silver-usage-report",
     homepage: "",
-    language: "HTML",
-    updated_at: "2024-09-23T01:51:02Z",
-    stargazers_count: 1,
+    language: "Python",
+    updated_at: "2026-05-05T18:16:27Z",
+    kind: "Reportes",
+  },
+  {
+    name: "Monitor de Reviews",
+    description: "Monitor para revisar, resumir y seguir senales de reviews desde un panel operativo.",
+    html_url: "",
+    homepage: "",
+    language: "Python",
+    updated_at: "2026-06-28T00:00:00Z",
+    kind: "Reviews",
   },
 ];
+
+const grid = document.querySelector("#project-grid");
+const filters = document.querySelectorAll(".filter");
+let repositories = [...projects];
 
 function formatDate(value) {
   return new Intl.DateTimeFormat("es-AR", {
@@ -63,21 +62,6 @@ function safeUrl(value) {
   return url.startsWith("https://") ? url : "";
 }
 
-function sortRepos(items) {
-  return [...items]
-    .filter((repo) => !repo.fork && !repo.archived)
-    .sort((a, b) => {
-      const featuredDelta = featuredNames.indexOf(a.name) - featuredNames.indexOf(b.name);
-      const aFeatured = featuredNames.includes(a.name);
-      const bFeatured = featuredNames.includes(b.name);
-
-      if (aFeatured && bFeatured) return featuredDelta;
-      if (aFeatured) return -1;
-      if (bFeatured) return 1;
-      return new Date(b.updated_at) - new Date(a.updated_at);
-    });
-}
-
 function renderStats(items) {
   const languages = new Set(items.map((repo) => repo.language).filter(Boolean));
   const recent = items.filter((repo) => {
@@ -93,10 +77,14 @@ function renderStats(items) {
 }
 
 function projectCard(repo) {
-  const description = escapeHtml(repo.description || "Repositorio público disponible en GitHub.");
-  const language = escapeHtml(repo.language || "Repo");
+  const description = escapeHtml(repo.description);
+  const language = escapeHtml(repo.language || "Proyecto");
+  const kind = escapeHtml(repo.kind || "Proyecto");
   const repoUrl = safeUrl(repo.html_url);
   const homepageUrl = safeUrl(repo.homepage);
+  const repoLink = repoUrl
+    ? `<a href="${repoUrl}" rel="noreferrer">Repositorio</a>`
+    : `<span class="project-note">Repo privado</span>`;
   const homepage = homepageUrl
     ? `<a href="${homepageUrl}" rel="noreferrer">Demo</a>`
     : "";
@@ -108,12 +96,12 @@ function projectCard(repo) {
         <p class="project-description">${description}</p>
         <div class="project-meta">
           <span class="pill language">${language}</span>
+          <span class="pill">${kind}</span>
           <span class="pill">Actualizado ${formatDate(repo.updated_at)}</span>
-          <span class="pill">${repo.stargazers_count} estrellas</span>
         </div>
       </div>
       <div class="project-actions">
-        <a href="${repoUrl}" rel="noreferrer">Repositorio</a>
+        ${repoLink}
         ${homepage}
       </div>
     </article>
@@ -123,29 +111,11 @@ function projectCard(repo) {
 function renderProjects(filter = "all") {
   const visible = filter === "all"
     ? repositories
-    : repositories.filter((repo) => repo.language === filter);
+    : repositories.filter((repo) => repo.kind === filter || repo.language === filter);
 
   grid.innerHTML = visible.length
     ? visible.map(projectCard).join("")
-    : `<article class="project-card loading"><span>No hay proyectos para este filtro.</span></article>`;
-}
-
-async function loadRepositories() {
-  try {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
-    if (!response.ok) throw new Error("GitHub API unavailable");
-    repositories = sortRepos(await response.json());
-  } catch (error) {
-    repositories = sortRepos(fallbackRepos);
-    grid.innerHTML = `
-      <article class="project-card loading">
-        <span>No se pudo contactar GitHub en este momento. Mostrando proyectos guardados.</span>
-      </article>
-    `;
-  }
-
-  renderStats(repositories);
-  renderProjects();
+    : `<article class="project-card loading"><span>No hay proyectos para este filtro</span></article>`;
 }
 
 filters.forEach((button) => {
@@ -156,4 +126,5 @@ filters.forEach((button) => {
   });
 });
 
-loadRepositories();
+renderStats(repositories);
+renderProjects();
