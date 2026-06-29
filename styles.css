@@ -351,7 +351,7 @@ h3 {
 }
 
 .keyword-row span,
-.tech-list span,
+.tech-tags span,
 .case-type {
   display: inline-flex;
   align-items: center;
@@ -567,11 +567,34 @@ h3 {
   padding: 24px;
 }
 
-.tech-list {
+.tech-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.tech-group {
+  min-height: 178px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(245, 245, 245, 0.04), transparent 58%),
+    var(--panel);
+}
+
+.tech-group h3 {
+  margin-bottom: 14px;
+  color: var(--text);
+  font-size: 0.92rem;
+  letter-spacing: 0;
+}
+
+.tech-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 12px;
 }
 
 .signal-list {
@@ -674,6 +697,7 @@ h3 {
   .case-hero,
   .case-grid,
   .case-stack,
+  .tech-matrix,
   .next-projects {
     grid-template-columns: 1fr;
   }
