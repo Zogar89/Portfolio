@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio de Gabriel Garcia. Proyectos publicados en GitHub, automatizaciones, datos y aplicaciones web."
+      content="Portfolio de Gabriel Garcia. Case studies de productos propios con datos, automatizacion, privacidad, observabilidad e integraciones."
     />
-    <title>Gabriel Garcia | Portfolio</title>
-    <link rel="preconnect" href="https://api.github.com" />
+    <title>Gabriel Garcia | Portfolio tecnico</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -20,7 +19,7 @@
         </a>
         <div class="nav-links">
           <a href="#proyectos">Proyectos</a>
-          <a href="#stack">Stack</a>
+          <a href="#criterio">Criterio</a>
           <a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a>
         </div>
       </nav>
@@ -29,13 +28,13 @@
     <main id="inicio">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Portfolio GitHub</p>
-          <h1>Construyo productos chicos que resuelven trabajo real.</h1>
+          <p class="eyebrow">Portfolio tecnico</p>
+          <h1>Datos reales. Codigo operable.</h1>
           <p class="lead">
-            Python, datos, automatizacion y web. Este portfolio se alimenta desde mis repositorios publicos.
+            Automatizacion, privacidad, observabilidad e inteligencia operativa en proyectos propios.
           </p>
           <div class="hero-actions" aria-label="Acciones principales">
-            <a class="button primary" href="#proyectos">Ver proyectos</a>
+            <a class="button primary" href="#proyectos">Ver case studies</a>
             <a class="button secondary" href="https://github.com/Zogar89" rel="noreferrer">Abrir GitHub</a>
           </div>
         </div>
@@ -43,74 +42,173 @@
         <aside class="hero-visual" aria-label="Resumen del portfolio">
           <img
             src="assets/portfolio-hero.png"
-            alt="Composicion abstracta oscura para portfolio tecnico"
+            alt="Composicion oscura con interfaces tecnicas y capas de datos"
             width="1200"
             height="760"
           />
           <div class="stats-panel">
             <div>
-              <span class="metric" id="repo-count">--</span>
-              <span class="metric-label">repos</span>
+              <span class="metric">4</span>
+              <span class="metric-label">case studies</span>
             </div>
             <div>
-              <span class="metric" id="language-count">--</span>
-              <span class="metric-label">lenguajes</span>
+              <span class="metric">3</span>
+              <span class="metric-label">dominios</span>
             </div>
             <div>
-              <span class="metric" id="updated-count">--</span>
-              <span class="metric-label">recientes</span>
+              <span class="metric">1</span>
+              <span class="metric-label">criterio comun</span>
             </div>
           </div>
         </aside>
       </section>
 
+      <section class="section intro-strip" aria-label="Resumen profesional">
+        <p>
+          Me interesan los sistemas que sobreviven al contacto con datos incompletos, APIs con limites, usuarios que necesitan claridad y flujos donde la confianza importa.
+        </p>
+        <div class="keyword-row" aria-label="Palabras clave">
+          <span>Python</span>
+          <span>FastAPI</span>
+          <span>Django</span>
+          <span>PostgreSQL</span>
+          <span>Redis</span>
+          <span>OAuth2</span>
+          <span>Background jobs</span>
+          <span>CI/CD</span>
+          <span>Observability</span>
+          <span>Privacy by design</span>
+        </div>
+      </section>
+
       <section class="section projects-section" id="proyectos">
         <div class="section-heading">
-          <h2>Proyectos seleccionados</h2>
+          <h2>Cuatro proyectos, cuatro argumentos tecnicos.</h2>
           <p>
-            Una seleccion corta de proyectos propios. Algunos repos pueden ser privados, pero igual cuentan como trabajo destacado.
+            Cada pagina baja a tierra arquitectura, decisiones de producto, desafios y tecnologia usada.
           </p>
         </div>
 
-        <div class="filters" aria-label="Filtros de proyectos">
-          <button class="filter active" type="button" data-filter="all">Todos</button>
-          <button class="filter" type="button" data-filter="Stock">Stock</button>
-          <button class="filter" type="button" data-filter="Meli">Meli</button>
-          <button class="filter" type="button" data-filter="Reportes">Reportes</button>
-          <button class="filter" type="button" data-filter="Reviews">Reviews</button>
-          <button class="filter" type="button" data-filter="Python">Python</button>
-        </div>
+        <div class="case-index">
+          <article class="case-card feature">
+            <a href="projects/meli-core-dumper/" aria-label="Abrir case study de Meli Core Dumper">
+              <figure>
+                <img
+                  src="assets/projects/meli-core-dumper.png"
+                  alt="Panel operativo de Meli Core Dumper"
+                  loading="lazy"
+                  width="1600"
+                  height="900"
+                />
+              </figure>
+              <div class="case-card-copy">
+                <span class="case-type">Data platform</span>
+                <h3>Meli Core Dumper</h3>
+                <p>
+                  Core multitenant read-only para sellers de Mercado Libre, con sincronizacion, facts, snapshots, readiness, observabilidad e insights responsables.
+                </p>
+                <span class="text-link">Leer case study</span>
+              </div>
+            </a>
+          </article>
 
-        <div class="project-grid" id="project-grid" aria-live="polite">
-          <article class="project-card loading">
-            <span>Cargando repositorios desde GitHub</span>
+          <article class="case-card">
+            <a href="projects/stock-central/" aria-label="Abrir case study de Stock Central">
+              <figure>
+                <img
+                  src="assets/projects/stock-central.png"
+                  alt="Catalogo de filamentos de Stock Central"
+                  loading="lazy"
+                  width="1600"
+                  height="900"
+                />
+              </figure>
+              <div class="case-card-copy">
+                <span class="case-type">Static data product</span>
+                <h3>Stock Central</h3>
+                <p>
+                  Catalogo estatico generado desde ingesta automatizada, con guardas de calidad y lista de cotizacion local.
+                </p>
+                <span class="text-link">Leer case study</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="case-card">
+            <a href="projects/silver-usage-report/" aria-label="Abrir case study de Silver Usage Report">
+              <figure>
+                <img
+                  src="assets/projects/silver-usage-report.png"
+                  alt="Dashboard privado de Silver Usage Report"
+                  loading="lazy"
+                  width="1600"
+                  height="900"
+                />
+              </figure>
+              <div class="case-card-copy">
+                <span class="case-type">Privacy flow</span>
+                <h3>Silver Usage Report</h3>
+                <p>
+                  Flujo one-shot para reportar uso agregado de Codex sin subir prompts, respuestas, codigo ni credenciales.
+                </p>
+                <span class="text-link">Leer case study</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="case-card">
+            <a href="projects/monitor-reviews/" aria-label="Abrir case study de Monitor de Reviews">
+              <figure>
+                <img
+                  src="assets/projects/monitor-reviews.png"
+                  alt="Panel de Monitor de Reviews con insights operativos"
+                  loading="lazy"
+                  width="1600"
+                  height="900"
+                />
+              </figure>
+              <div class="case-card-copy">
+                <span class="case-type">Operational intelligence</span>
+                <h3>Monitor de Reviews</h3>
+                <p>
+                  Centro operativo para reviews de Mercado Libre, con multi-cuenta, sync background, scoring auditable e IA como enriquecimiento.
+                </p>
+                <span class="text-link">Leer case study</span>
+              </div>
+            </a>
           </article>
         </div>
       </section>
 
-      <section class="section stack-section" id="stack">
-        <div class="stack-intro">
-          <h2>Base de trabajo</h2>
+      <section class="section criteria-section" id="criterio">
+        <div class="section-heading compact">
+          <h2>Lo que quiero que se note.</h2>
           <p>
-            Me enfoco en piezas simples de operar, faciles de leer y conectadas con problemas concretos.
+            Estos proyectos estan elegidos para mostrar ownership tecnico completo, no solo ejecucion de features.
           </p>
         </div>
 
-        <div class="stack-grid">
-          <article class="stack-item">
+        <div class="criteria-grid">
+          <article>
             <span class="stack-index">01</span>
-            <h3>Automatizacion</h3>
-            <p>Asistentes y scripts para bajar carga manual.</p>
+            <h3>Producto con limites claros</h3>
+            <p>
+              Defino que hace el sistema y tambien que no hace. Eso evita scope creep, protege usuarios y vuelve creible la solucion.
+            </p>
           </article>
-          <article class="stack-item">
+          <article>
             <span class="stack-index">02</span>
-            <h3>Datos</h3>
-            <p>Dashboards, notebooks y reportes para decidir mejor.</p>
+            <h3>Datos confiables antes que ruido</h3>
+            <p>
+              Prefiero null explicito, cobertura visible y silencio responsable antes que metricas falsas o insights fabricados.
+            </p>
           </article>
-          <article class="stack-item">
+          <article>
             <span class="stack-index">03</span>
-            <h3>Web</h3>
-            <p>Interfaces y servicios con Python, Streamlit, Django, Flask y JavaScript.</p>
+            <h3>Arquitectura operable</h3>
+            <p>
+              Jobs, checkpoints, auditoria, logs, seguridad y despliegue importan tanto como la pantalla final.
+            </p>
           </article>
         </div>
       </section>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Case study de Monitor de Reviews, centro operativo Django para reviews de Mercado Libre con sync background, scoring auditable e IA asistida."
+    />
+    <title>Monitor de Reviews | Gabriel Garcia</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Principal">
+        <a class="brand" href="../../">
+          <span class="brand-mark">G</span>
+          <span>Gabriel Garcia</span>
+        </a>
+        <div class="nav-links">
+          <a href="../../#proyectos">Proyectos</a>
+          <a href="../../#criterio">Criterio</a>
+          <a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="case-main">
+      <section class="case-hero">
+        <div>
+          <p class="eyebrow">Case study</p>
+          <h1>Monitor de Reviews</h1>
+          <p class="case-lead">
+            Un centro operativo para convertir reviews de Mercado Libre en prioridad, contexto y decisiones accionables.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="../../#proyectos">Ver portfolio</a>
+            <a class="button secondary" href="https://github.com/Zogar89" rel="noreferrer">GitHub</a>
+          </div>
+          <div class="case-meta">
+            <div>
+              <strong>Rol</strong>
+              <span>Backend, producto, sync, seguridad</span>
+            </div>
+            <div>
+              <strong>Dominio</strong>
+              <span>Reviews, reputation, operations</span>
+            </div>
+            <div>
+              <strong>Stack</strong>
+              <span>Django, PostgreSQL, Redis, HTMX</span>
+            </div>
+          </div>
+        </div>
+        <figure class="case-visual">
+          <img
+            src="../../assets/projects/monitor-reviews.png"
+            alt="Panel de Monitor de Reviews con reviews criticas e insights"
+            width="1600"
+            height="900"
+          />
+        </figure>
+      </section>
+
+      <section class="case-section">
+        <h2>El producto no necesitaba mas graficos. Necesitaba una cola de atencion.</h2>
+        <div class="case-grid">
+          <article class="case-block">
+            <h3>Contexto</h3>
+            <p>
+              Las reviews afectan reputacion, conversion y confianza. Pero Mercado Libre no entrega un webhook dedicado y las reviews pueden compartirse por catalogo o familia de productos.
+            </p>
+          </article>
+          <article class="case-block">
+            <h3>Construccion</h3>
+            <p>
+              Arme una base Django con OAuth, multiples cuentas, sync automatico, cliente centralizado de MeLi, modelos de reviews y dashboard de atencion prioritaria.
+            </p>
+          </article>
+          <article class="case-block">
+            <h3>Decision clave</h3>
+            <p>
+              La prioridad no la decide una IA opaca. El score es deterministico y auditable. La IA etiqueta y enriquece contexto en background.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-stack">
+          <div>
+            <h2>Rescatar una base y llevarla a producto operable.</h2>
+            <p class="case-note">
+              La direccion tecnica fue fortalecer fundamentos: settings reales, Gunicorn, Django-Q2, Redis, cliente API unico, filtros por usuario, seguridad OAuth y docs canonicas.
+            </p>
+          </div>
+          <div>
+            <ul class="signal-list">
+              <li>
+                <strong>Multi-account OAuth</strong>
+                Usuarios con varias cuentas de Mercado Libre, tokens renovables y aislamiento por `request.user`.
+              </li>
+              <li>
+                <strong>Background synchronization</strong>
+                Polling cada 24 horas, sync al login si esta stale y sync manual para mantener datos frescos.
+              </li>
+              <li>
+                <strong>Attention units</strong>
+                Agrupacion por familia, grupo funcional o item para no duplicar alertas ni mezclar competidores.
+              </li>
+              <li>
+                <strong>AI-assisted enrichment</strong>
+                Sentimiento, etiquetas y patrones se calculan en background. La UI renderiza evidencia ya procesada.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>Keywords que demuestra este proyecto.</h2>
+        <div class="tech-list">
+          <span>Django 5</span>
+          <span>PostgreSQL 16</span>
+          <span>Django-Q2</span>
+          <span>Redis</span>
+          <span>django-allauth</span>
+          <span>OAuth2</span>
+          <span>Mercado Libre API</span>
+          <span>HTMX</span>
+          <span>Alpine.js</span>
+          <span>Tailwind CSS</span>
+          <span>DaisyUI</span>
+          <span>Gunicorn</span>
+          <span>WhiteNoise</span>
+          <span>Sentry-ready</span>
+        </div>
+        <p class="case-note">
+          Lo valioso para un equipo: criterio para convertir informacion cualitativa en una herramienta operativa, sin esconder la complejidad de la plataforma externa.
+        </p>
+      </section>
+
+      <section class="case-section">
+        <h2>Seguir leyendo.</h2>
+        <div class="next-projects">
+          <a class="next-card" href="../meli-core-dumper/">
+            <h3>Meli Core Dumper</h3>
+            <p>Metricas diarias, readiness e insights para sellers.</p>
+          </a>
+          <a class="next-card" href="../silver-usage-report/">
+            <h3>Silver Usage Report</h3>
+            <p>Reporte de uso agregado con privacidad fuerte.</p>
+          </a>
+          <a class="next-card" href="../stock-central/">
+            <h3>Stock Central</h3>
+            <p>Catalogo estatico con guardas de calidad.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Gabriel Garcia</span>
+      <a href="../../">Volver al portfolio</a>
+    </footer>
+    <script src="../../script.js"></script>
+  </body>
+</html>

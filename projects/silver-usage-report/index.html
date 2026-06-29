@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Case study de Silver Usage Report, flujo privacy-first para reportar uso agregado de Codex con collector PowerShell y submit firmado."
+    />
+    <title>Silver Usage Report | Gabriel Garcia</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Principal">
+        <a class="brand" href="../../">
+          <span class="brand-mark">G</span>
+          <span>Gabriel Garcia</span>
+        </a>
+        <div class="nav-links">
+          <a href="../../#proyectos">Proyectos</a>
+          <a href="https://github.com/Zogar89/silver-usage-report" rel="noreferrer">Repositorio</a>
+          <a href="../../#criterio">Criterio</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="case-main">
+      <section class="case-hero">
+        <div>
+          <p class="eyebrow">Case study</p>
+          <h1>Silver Usage Report</h1>
+          <p class="case-lead">
+            Un flujo privacy-first para reportar uso local agregado de Codex sin pedir credenciales ni instalar agentes permanentes.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/Zogar89/silver-usage-report" rel="noreferrer">Ver repo</a>
+            <a class="button secondary" href="../../#proyectos">Mas proyectos</a>
+          </div>
+          <div class="case-meta">
+            <div>
+              <strong>Rol</strong>
+              <span>Producto, backend, seguridad, collector</span>
+            </div>
+            <div>
+              <strong>Dominio</strong>
+              <span>Telemetry, privacy, reporting</span>
+            </div>
+            <div>
+              <strong>Stack</strong>
+              <span>FastAPI, HTMX, PostgreSQL, PowerShell</span>
+            </div>
+          </div>
+        </div>
+        <figure class="case-visual">
+          <img
+            src="../../assets/projects/silver-usage-report.png"
+            alt="Dashboard de Silver Usage Report con metricas agregadas y privacidad"
+            width="1600"
+            height="900"
+          />
+        </figure>
+      </section>
+
+      <section class="case-section">
+        <h2>El desafio era generar confianza antes de recibir datos.</h2>
+        <div class="case-grid">
+          <article class="case-block">
+            <h3>Contexto</h3>
+            <p>
+              El usuario necesitaba reportar uso agregado de Codex a Silver. El riesgo era cruzar una linea sensible: prompts, respuestas, codigo, logs o secretos no podian salir de la maquina.
+            </p>
+          </article>
+          <article class="case-block">
+            <h3>Construccion</h3>
+            <p>
+              Arme una sesion privada que genera un collector PowerShell auditable. El script lee sesiones locales, muestra preview y solo envia agregados con confirmacion explicita.
+            </p>
+          </article>
+          <article class="case-block">
+            <h3>Decision clave</h3>
+            <p>
+              No hay daemon, instalador ni tracking permanente. Es un flujo one-shot con token privado, firma HMAC y validaciones recursivas contra campos sensibles.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-stack">
+          <div>
+            <h2>Privacidad como requisito de arquitectura, no como nota al pie.</h2>
+            <p class="case-note">
+              El producto esta disenado para que Silver reciba evidencia agregada, no contenido. La confianza se apoya en preview local, submit firmado, ventana temporal corta y rechazo server-side de datos peligrosos.
+            </p>
+          </div>
+          <div>
+            <ul class="signal-list">
+              <li>
+                <strong>Local-first collector</strong>
+                PowerShell lee `%USERPROFILE%\.codex\sessions` y agrega por dia y modelo, sin empaquetar contenido sensible.
+              </li>
+              <li>
+                <strong>Signed submission</strong>
+                HMAC, token privado y timestamp con ventana de 5 minutos para reducir replay y abuso.
+              </li>
+              <li>
+                <strong>Server-side trust model</strong>
+                Hash de token, validacion Pydantic, filtros recursivos y costos calculados con tabla controlada por servidor.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>Keywords que demuestra este proyecto.</h2>
+        <div class="tech-list">
+          <span>Python 3.13</span>
+          <span>FastAPI</span>
+          <span>Jinja2</span>
+          <span>HTMX</span>
+          <span>Pydantic</span>
+          <span>SQLAlchemy</span>
+          <span>Alembic</span>
+          <span>PostgreSQL</span>
+          <span>SQLite fallback</span>
+          <span>PowerShell</span>
+          <span>HMAC</span>
+          <span>Privacy by design</span>
+          <span>pytest</span>
+          <span>Docker Compose</span>
+        </div>
+        <p class="case-note">
+          Lo valioso para un equipo: capacidad para convertir un requerimiento sensible en un producto verificable, auditable y facil de ejecutar.
+        </p>
+      </section>
+
+      <section class="case-section">
+        <h2>Seguir leyendo.</h2>
+        <div class="next-projects">
+          <a class="next-card" href="../meli-core-dumper/">
+            <h3>Meli Core Dumper</h3>
+            <p>Core multitenant para datos e insights de Mercado Libre.</p>
+          </a>
+          <a class="next-card" href="../stock-central/">
+            <h3>Stock Central</h3>
+            <p>Catalogo estatico generado por ingesta automatizada.</p>
+          </a>
+          <a class="next-card" href="../monitor-reviews/">
+            <h3>Monitor de Reviews</h3>
+            <p>Reviews convertidas en cola de atencion operativa.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Gabriel Garcia</span>
+      <a href="../../">Volver al portfolio</a>
+    </footer>
+    <script src="../../script.js"></script>
+  </body>
+</html>

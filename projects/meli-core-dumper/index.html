@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Case study de Meli Core Dumper, core multitenant read-only para sincronizacion, metricas, observabilidad e insights de Mercado Libre."
+    />
+    <title>Meli Core Dumper | Gabriel Garcia</title>
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Principal">
+        <a class="brand" href="../../">
+          <span class="brand-mark">G</span>
+          <span>Gabriel Garcia</span>
+        </a>
+        <div class="nav-links">
+          <a href="../../#proyectos">Proyectos</a>
+          <a href="https://github.com/Zogar89/MeliCoreDumper" rel="noreferrer">Repositorio</a>
+          <a href="../../#criterio">Criterio</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="case-main">
+      <section class="case-hero">
+        <div>
+          <p class="eyebrow">Case study</p>
+          <h1>Meli Core Dumper</h1>
+          <p class="case-lead">
+            Un core multitenant read-only para transformar datos de Mercado Libre en metricas confiables, auditables y listas para insights.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/Zogar89/MeliCoreDumper" rel="noreferrer">Ver repo</a>
+            <a class="button secondary" href="../../#proyectos">Mas proyectos</a>
+          </div>
+          <div class="case-meta">
+            <div>
+              <strong>Rol</strong>
+              <span>Arquitectura, backend, datos, admin</span>
+            </div>
+            <div>
+              <strong>Dominio</strong>
+              <span>Mercado Libre, metricas, insights</span>
+            </div>
+            <div>
+              <strong>Stack</strong>
+              <span>FastAPI, PostgreSQL, Redis, ARQ</span>
+            </div>
+          </div>
+        </div>
+        <figure class="case-visual">
+          <img
+            src="../../assets/projects/meli-core-dumper.png"
+            alt="Panel operativo de Meli Core Dumper con estado de sincronizacion"
+            width="1600"
+            height="900"
+          />
+        </figure>
+      </section>
+
+      <section class="case-section">
+        <h2>No alcanza con traer datos. Hay que saber si se pueden creer.</h2>
+        <div class="case-grid">
+          <article class="case-block">
+            <h3>Contexto</h3>
+            <p>
+              Un seller necesita entender que paso con cada publicacion: visitas, ventas, ads, preguntas, reviews, stock, precio y conversion. Las fuentes son parciales, rate-limited y cambian en el tiempo.
+            </p>
+          </article>
+          <article class="case-block">
+            <h3>Construccion</h3>
+            <p>
+              Disene una plataforma read-only con OAuth, workers, scheduler, checkpoints, metric sync runs, snapshots diarios y agregados por publicacion.
+            </p>
+          </article>
+          <article class="case-block">
+            <h3>Decision clave</h3>
+            <p>
+              El sistema separa facts, snapshots, aggregates, readiness e insights. Si la cobertura no alcanza, explica el motivo en vez de inventar una conclusion.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <div class="case-stack">
+          <div>
+            <h2>Una arquitectura para sincronizar, auditar y explicar.</h2>
+            <p class="case-note">
+              La prioridad fue que cada dato tenga trazabilidad operativa. Runs, steps, checkpoints y eventos permiten entender que fuente fallo, que rango se proceso y que tan confiable es el resultado.
+            </p>
+          </div>
+          <div>
+            <ul class="signal-list">
+              <li>
+                <strong>Multitenancy and OAuth2</strong>
+                Cuentas conectadas con tokens cifrados, scopes controlados y separacion estricta por tenant.
+              </li>
+              <li>
+                <strong>Background jobs</strong>
+                ARQ, Redis y scheduler para sincronizaciones largas, reintentos, backfills y procesos auditables.
+              </li>
+              <li>
+                <strong>Observability by design</strong>
+                Admin de sync runs, eventos operativos, logs seguros, cobertura diaria y diagnosticos sin filtrar secretos.
+              </li>
+              <li>
+                <strong>Responsible insights</strong>
+                El LLM, cuando aparece, narra evidencia estructurada. No calcula facts ni toma atajos causales.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2>Keywords que demuestra este proyecto.</h2>
+        <div class="tech-list">
+          <span>FastAPI</span>
+          <span>SQLAlchemy 2</span>
+          <span>Alembic</span>
+          <span>PostgreSQL</span>
+          <span>Redis</span>
+          <span>ARQ</span>
+          <span>Jinja2</span>
+          <span>Tailwind CSS</span>
+          <span>DaisyUI</span>
+          <span>Docker</span>
+          <span>OAuth2</span>
+          <span>Webhooks</span>
+          <span>Data readiness</span>
+          <span>Observability</span>
+          <span>Multi-tenant architecture</span>
+        </div>
+        <p class="case-note">
+          Lo valioso para un equipo: criterio para construir una base de datos operativa donde el producto puede crecer sin perder confiabilidad ni trazabilidad.
+        </p>
+      </section>
+
+      <section class="case-section">
+        <h2>Seguir leyendo.</h2>
+        <div class="next-projects">
+          <a class="next-card" href="../stock-central/">
+            <h3>Stock Central</h3>
+            <p>Catalogo estatico con ingesta automatizada y guardas de calidad.</p>
+          </a>
+          <a class="next-card" href="../silver-usage-report/">
+            <h3>Silver Usage Report</h3>
+            <p>Reporte privado de telemetria local agregada.</p>
+          </a>
+          <a class="next-card" href="../monitor-reviews/">
+            <h3>Monitor de Reviews</h3>
+            <p>Centro operativo para priorizar reviews criticas.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Gabriel Garcia</span>
+      <a href="../../">Volver al portfolio</a>
+    </footer>
+    <script src="../../script.js"></script>
+  </body>
+</html>
