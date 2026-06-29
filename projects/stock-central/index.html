@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Case study de Stock Central, catalogo estatico de stock de filamentos con ingesta automatizada, guardas de calidad y GitHub Pages."
+      content="Case study de Stock Central, plataforma comunitaria de stock de filamentos 3D con ingesta automatizada, chequeos de integridad, GitHub Actions y GitHub Pages."
     />
     <title>Stock Central | Gabriel Garcia</title>
     <link rel="stylesheet" href="../../styles.css" />
@@ -31,7 +31,7 @@
           <p class="eyebrow">Case study</p>
           <h1>Stock Central</h1>
           <p class="case-lead">
-            Un catalogo estatico para convertir stock disperso de filamentos 3D en una consulta clara, rapida y accionable.
+            Una plataforma comunitaria para centralizar stock de filamentos 3D y evitar perseguir distribuidores por cada color, material o presentacion.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://zogar89.github.io/CentraldeFilamentos/" rel="noreferrer">Ver demo</a>
@@ -44,7 +44,7 @@
             </div>
             <div>
               <strong>Dominio</strong>
-              <span>Catalogo, scraping, data quality</span>
+              <span>Impresion 3D, stock, comunidad</span>
             </div>
             <div>
               <strong>Stack</strong>
@@ -63,24 +63,24 @@
       </section>
 
       <section class="case-section">
-        <h2>El problema no era mostrar productos. Era publicar disponibilidad sin mentir.</h2>
+        <h2>Nacio de una friccion real del mercado 3D.</h2>
         <div class="case-grid">
           <article class="case-block">
-            <h3>Contexto</h3>
+            <h3>Origen</h3>
             <p>
-              Los makers comparan filamentos entre proveedores, marcas, materiales, colores y formatos. La informacion vive distribuida, cambia seguido y no siempre llega limpia.
+              Imprimo y vendo impresiones 3D en Mercado Libre. El filamento tiene muchas variantes: colores, materiales, presentaciones y marcas.
             </p>
           </article>
           <article class="case-block">
-            <h3>Construccion</h3>
+            <h3>Dolor</h3>
             <p>
-              Arme una ingesta en Python que normaliza catalogos y genera JSON estatico para una UI Svelte servida por GitHub Pages. No hay backend en runtime.
+              Para un comprador mayorista era desgastante preguntar a cada distribuidor si habia entrado una variante. Con desabastecimiento e importaciones trabadas, ese problema se volvio cotidiano.
             </p>
           </article>
           <article class="case-block">
-            <h3>Decision clave</h3>
+            <h3>Producto</h3>
             <p>
-              El producto no intenta vender ni cerrar pedidos. Es una herramienta de consulta y cotizacion local, con copy que obliga a confirmar stock y precio final.
+              Algunos distribuidores empezaron a publicar stock online. Centralice esas fuentes y sume busqueda, ayuda para armar pedidos y avisos sobre variantes necesarias.
             </p>
           </article>
         </div>
@@ -89,24 +89,28 @@
       <section class="case-section">
         <div class="case-stack">
           <div>
-            <h2>Arquitectura pensada para operar barato y fallar con cuidado.</h2>
+            <h2>Backend en jobs. Runtime estatico.</h2>
             <p class="case-note">
-              La separacion entre captura, UI y miniaturas permite publicar cambios de datos sin arrastrar todo el sitio. Los workflows de GitHub Actions cuidan que una fuente rota no degrade el catalogo publico.
+              La clave tecnica es que todo se sostiene sobre GitHub Pages. No hay servidor propio en runtime: la logica de backend vive encapsulada en jobs de GitHub que actualizan el sitio 4 veces al dia.
             </p>
           </div>
           <div>
             <ul class="signal-list">
               <li>
-                <strong>Data quality guardrails</strong>
-                Bloqueos ante catalogo vacio, caidas sospechosas de conteo o proveedor con stock inconsistente.
+                <strong>Multi-source ingestion</strong>
+                Toma stocks desde distintas fuentes publicas, normaliza variantes y prepara datos consumibles por el frontend.
               </li>
               <li>
-                <strong>Static site generation</strong>
-                JSON versionado, frontend estatico y despliegue por GitHub Pages sin servidores que mantener.
+                <strong>Official color and image data</strong>
+                Usa imagenes y colores de la pagina oficial de Grilon3 para mejorar la lectura visual de materiales y variantes.
               </li>
               <li>
-                <strong>Human-in-the-loop</strong>
-                Curacion de imagenes y miniaturas con reglas para no romper asociaciones de color, producto o marca.
+                <strong>Integrity checks before publish</strong>
+                Ejecuta comprobaciones, optimizaciones y guardas de integridad antes de publicar nuevos datos.
+              </li>
+              <li>
+                <strong>Community-first infrastructure</strong>
+                Mantiene costo operativo muy bajo: GitHub Actions para actualizar, GitHub Pages para servir, cero backend permanente.
               </li>
             </ul>
           </div>
@@ -127,10 +131,13 @@
           <span>Pillow</span>
           <span>pytest</span>
           <span>Static data pipeline</span>
+          <span>Scheduled jobs</span>
+          <span>Data integrity checks</span>
+          <span>Community tooling</span>
           <span>CI/CD</span>
         </div>
         <p class="case-note">
-          Resultado: un producto util sin sobredisenar infraestructura, cuidando datos, UX y publicacion automatizada.
+          Resultado: una herramienta barata de mantener, util para compradores y makers, con logica de backend automatizada y una experiencia publica 100% estatica.
         </p>
       </section>
 
