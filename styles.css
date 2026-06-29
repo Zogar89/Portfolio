@@ -218,14 +218,12 @@ h3 {
 
 .button:hover,
 .case-card:hover,
-.criteria-grid article:hover,
 .next-card:hover {
   transform: translateY(-2px);
 }
 
 .button:active,
 .case-card:active,
-.criteria-grid article:active,
 .next-card:active {
   transform: translateY(1px);
 }
@@ -322,7 +320,6 @@ h3 {
 .section-heading p,
 .intro-strip p,
 .case-card p,
-.criteria-grid p,
 .case-lead,
 .case-block p,
 .case-stack p,
@@ -442,17 +439,6 @@ h3 {
   font-weight: 700;
 }
 
-.criteria-section {
-  border-top: 1px solid var(--line);
-}
-
-.criteria-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.95fr 0.95fr;
-  gap: 12px;
-}
-
-.criteria-grid article,
 .case-block,
 .case-stack,
 .next-card {
@@ -461,32 +447,12 @@ h3 {
   background: var(--panel);
 }
 
-.criteria-grid article {
-  min-height: 280px;
-  padding: 22px;
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease;
-}
-
-.criteria-grid article:first-child {
-  min-height: 360px;
-  background:
-    linear-gradient(135deg, rgba(138, 215, 255, 0.12), transparent 46%),
-    var(--panel);
-}
-
 .stack-index {
   display: block;
   margin-bottom: 88px;
   color: var(--soft);
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   font-size: 0.78rem;
-}
-
-.criteria-grid article:first-child .stack-index {
-  margin-bottom: 168px;
 }
 
 .footer {
@@ -699,7 +665,6 @@ h3 {
   .hero,
   .intro-strip,
   .case-index,
-  .criteria-grid,
   .case-hero,
   .case-grid,
   .case-stack,
@@ -727,13 +692,7 @@ h3 {
     height: 260px;
   }
 
-  .criteria-grid article:first-child,
-  .criteria-grid article {
-    min-height: 240px;
-  }
-
-  .stack-index,
-  .criteria-grid article:first-child .stack-index {
+  .stack-index {
     margin-bottom: 72px;
   }
 }
