@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Case study de Stock Central, plataforma comunitaria de stock de filamentos 3D con ingesta automatizada, chequeos de integridad, GitHub Actions y GitHub Pages."
+      content="Case study de Stock Central, plataforma comunitaria de stock de filamentos 3D con captura desde Google Sheets, scraping HTML, catalogo Grilon3, quality gates, GitHub Actions y GitHub Pages."
     />
     <title>Stock Central | Gabriel Garcia</title>
     <link rel="stylesheet" href="../../styles.css" />
@@ -48,7 +48,7 @@
             </div>
             <div>
               <strong>Stack</strong>
-              <span>Python, Svelte, Vite, GitHub Actions</span>
+              <span>Python, requests, httpx, BeautifulSoup, Svelte</span>
             </div>
           </div>
         </div>
@@ -98,15 +98,15 @@
             <ul class="signal-list">
               <li>
                 <strong>Multi-source ingestion</strong>
-                Toma stocks desde distintas fuentes publicas, normaliza variantes y prepara datos consumibles por el frontend.
+                Toma stocks desde Google Sheets publicados como CSV y desde HTML de proveedores, con conectores separados por fuente.
               </li>
               <li>
                 <strong>Official color and image data</strong>
-                Usa imagenes y colores de la pagina oficial de Grilon3 para mejorar la lectura visual de materiales y variantes.
+                Lee el catalogo, sitemap y fichas de Grilon3 para enriquecer productos con URL oficial, imagen, Pantone, SKU y EAN.
               </li>
               <li>
                 <strong>Integrity checks before publish</strong>
-                Ejecuta comprobaciones, optimizaciones y guardas de integridad antes de publicar nuevos datos.
+                Valida schema, errores de fuentes, caidas sospechosas de productos y bajas bruscas de stock antes de publicar.
               </li>
               <li>
                 <strong>Community-first infrastructure</strong>
@@ -118,21 +118,51 @@
       </section>
 
       <section class="case-section">
+        <h2>Captura de datos sin backend permanente.</h2>
+        <div class="case-grid">
+          <article class="case-block">
+            <h3>Google Sheets</h3>
+            <p>
+              Los proveedores que publican stock en planillas se leen como export CSV de Google Sheets. El parser detecta columnas de producto, stock y marca, repara mojibake y descarta filas que no son producto.
+            </p>
+          </article>
+          <article class="case-block">
+            <h3>HTML de proveedores</h3>
+            <p>
+              Filamentos3D se captura con <code>httpx</code>, <code>BeautifulSoup</code> y <code>lxml</code>: primero tablas de stock y despues paginas de categoria y detalle para imagenes, SKUs y links de producto.
+            </p>
+          </article>
+          <article class="case-block">
+            <h3>Catalogo Grilon3</h3>
+            <p>
+              Grilon3 usa <code>requests</code> y parsers HTML propios sobre catalogo, sitemap y fichas WooCommerce. De ahi salen imagenes oficiales, Pantone, SKU, EAN y URLs del fabricante.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-section">
         <h2>Stack y señales tecnicas.</h2>
         <div class="tech-list">
           <span>Python 3.12</span>
           <span>Svelte 5</span>
           <span>Vite</span>
+          <span>Google Sheets CSV</span>
+          <span>requests</span>
+          <span>httpx</span>
           <span>GitHub Actions</span>
           <span>GitHub Pages</span>
           <span>BeautifulSoup</span>
-          <span>httpx</span>
           <span>lxml</span>
           <span>Pillow</span>
           <span>pytest</span>
+          <span>WooCommerce parsing</span>
+          <span>Sitemap ingestion</span>
+          <span>CSV parsing</span>
           <span>Static data pipeline</span>
           <span>Scheduled jobs</span>
           <span>Data integrity checks</span>
+          <span>Quality gates</span>
           <span>Community tooling</span>
           <span>CI/CD</span>
         </div>
