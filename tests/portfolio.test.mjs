@@ -74,3 +74,13 @@ for (const page of projectPages) {
     assert.doesNotMatch(html, /class="case-grid"|class="tech-matrix"/);
   });
 }
+
+test("javascript is progressive and exposes the approved interactions", () => {
+  const javascript = read("script.js");
+
+  assert.match(javascript, /IntersectionObserver/);
+  assert.match(javascript, /data-project/);
+  assert.match(javascript, /data-preview/);
+  assert.match(javascript, /documentElement\.classList\.add\("js"\)/);
+  assert.match(javascript, /is-visible/);
+});
