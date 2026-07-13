@@ -5,177 +5,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio de Gabriel Garcia. Case studies de herramientas completas alrededor de problemas reales: inteligencia para sellers, scraping, KPIs y monitoreo operativo."
+      content="Portfolio de Gabriel Garcia: productos digitales construidos desde problemas reales, con decisiones de producto, datos, APIs y sistemas operables."
     />
-    <title>Gabriel Garcia | Portfolio tecnico</title>
+    <title>Gabriel Garcia | Producto e ingeniería</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Principal">
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
-          <span class="brand-mark">G</span>
+          <span class="brand-mark" aria-hidden="true">G</span>
           <span>Gabriel Garcia</span>
         </a>
         <div class="nav-links">
-          <a href="#proyectos">Proyectos</a>
+          <a href="#proyectos">Trabajo seleccionado</a>
           <a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a>
         </div>
       </nav>
     </header>
 
     <main id="inicio">
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Portfolio tecnico</p>
-          <h1>Datos reales. Codigo operable.</h1>
-          <p class="lead">
-            Construyo herramientas completas alrededor de problemas reales: inteligencia para sellers, scraping, KPIs y monitoreo operativo.
-          </p>
-          <div class="hero-actions" aria-label="Acciones principales">
-            <a class="button primary" href="#proyectos">Ver case studies</a>
-            <a class="button secondary" href="https://github.com/Zogar89" rel="noreferrer">Abrir GitHub</a>
-          </div>
+      <section class="editorial-hero">
+        <div class="hero-header" data-reveal>
+          <p class="kicker">Producto × Ingeniería</p>
+          <p class="hero-edition" aria-label="Edición del portfolio">Portfolio / 2026</p>
         </div>
-
-        <aside class="hero-visual" aria-label="Resumen del portfolio">
-          <img
-            src="assets/portfolio-hero.png"
-            alt="Composicion oscura con interfaces tecnicas y capas de datos"
-            width="1200"
-            height="760"
-          />
-          <div class="stats-panel">
-            <div>
-              <span class="metric">4</span>
-              <span class="metric-label">productos propios</span>
-            </div>
-            <div>
-              <span class="metric">APIs</span>
-              <span class="metric-label">servicios reales</span>
-            </div>
-            <div>
-              <span class="metric">Ship</span>
-              <span class="metric-label">repo, demo, deploy</span>
-            </div>
+        <div class="hero-statement" data-reveal>
+          <h1>Problemas reales. Productos que operan.</h1>
+          <div class="hero-aside">
+            <p>
+              Diseño y construyo herramientas donde datos, APIs y decisiones de
+              producto tienen que convivir.
+            </p>
+            <a class="arrow-link" href="#proyectos">Explorar los expedientes <span aria-hidden="true">↘</span></a>
           </div>
-        </aside>
-      </section>
-
-      <section class="section intro-strip" aria-label="Resumen profesional">
-        <div class="intro-copy">
-          <p>
-            Cada proyecto muestra una parte distinta del oficio: entender el dolor, modelar datos, integrar servicios externos, automatizar procesos y cuidar la experiencia final.
-          </p>
-          <p>
-            Nacidos de fricciones concretas: vendedores que necesitan inteligencia, comunidades que necesitan stock, candidatos que necesitan privacidad y productos que necesitan seguimiento.
-          </p>
         </div>
       </section>
 
-      <section class="section projects-section" id="proyectos">
-        <div class="section-heading">
-          <h2>Cuatro proyectos, cuatro argumentos tecnicos.</h2>
-          <p>
-            Cada pagina baja a tierra arquitectura, decisiones de producto, desafios y tecnologia usada.
-          </p>
+      <section class="method" aria-labelledby="method-title" data-reveal>
+        <div class="method-heading">
+          <p class="kicker">Una forma de trabajar</p>
+          <h2 id="method-title">Del ruido inicial a un sistema que queda funcionando.</h2>
         </div>
+        <ol class="method-list">
+          <li><span>01</span><strong>Detectar</strong><small>la fricción</small></li>
+          <li><span>02</span><strong>Diseñar</strong><small>la apuesta</small></li>
+          <li><span>03</span><strong>Construir</strong><small>el sistema</small></li>
+          <li><span>04</span><strong>Operar</strong><small>el producto</small></li>
+        </ol>
+      </section>
 
-        <div class="case-index">
-          <article class="case-card feature">
-            <a href="projects/meli-core-dumper/" aria-label="Abrir case study de Meli Core Dumper">
-              <figure>
-                <img
-                  src="assets/projects/meli-core-dumper.png"
-                  alt="Panel operativo de Meli Core Dumper"
-                  loading="lazy"
-                  width="1600"
-                  height="900"
-                />
-              </figure>
-              <div class="case-card-copy">
-                <span class="case-type">Data platform</span>
+      <section class="selected-work" id="proyectos">
+        <header class="section-intro" data-reveal>
+          <p class="kicker">Trabajo seleccionado / 01–04</p>
+          <h2>Cuatro fricciones convertidas en producto.</h2>
+          <p>
+            Cada expediente conecta el contexto, la decisión y la ingeniería que
+            permitió dejar algo útil en pie.
+          </p>
+        </header>
+
+        <div class="work-index">
+          <div class="work-list">
+            <a
+              class="work-row is-active"
+              data-project="meli"
+              data-reveal
+              href="projects/meli-core-dumper/"
+              aria-label="Leer expediente de Meli Core Dumper"
+            >
+              <span class="work-number">01</span>
+              <div class="work-copy">
+                <span class="work-category">Business intelligence</span>
                 <h3>Meli Core Dumper</h3>
-                <p>
-                  Plataforma de inteligencia de negocios para vendedores de Mercado Libre, con estadistica para detectar patrones, anomalias y tendencias.
-                </p>
-                <span class="text-link">Leer case study</span>
+                <p>De exportar datos a producir inteligencia dentro del producto.</p>
               </div>
+              <span class="work-action">Abrir expediente <span aria-hidden="true">↗</span></span>
+              <img
+                class="work-row-image"
+                src="assets/projects/meli-core-dumper.png"
+                alt="Panel operativo de Meli Core Dumper"
+                width="1600"
+                height="900"
+              />
             </a>
-          </article>
 
-          <article class="case-card">
-            <a href="projects/stock-central/" aria-label="Abrir case study de Stock Central">
-              <figure>
-                <img
-                  src="assets/projects/stock-central.png"
-                  alt="Catalogo de filamentos de Stock Central"
-                  loading="lazy"
-                  width="1600"
-                  height="900"
-                />
-              </figure>
-              <div class="case-card-copy">
-                <span class="case-type">Static data product</span>
+            <a
+              class="work-row"
+              data-project="stock"
+              data-reveal
+              href="projects/stock-central/"
+              aria-label="Leer expediente de Stock Central"
+            >
+              <span class="work-number">02</span>
+              <div class="work-copy">
+                <span class="work-category">Static data product</span>
                 <h3>Stock Central</h3>
-                <p>
-                  Stock de filamentos centralizado desde Sheets, HTML de proveedores y catalogo Grilon3, con quality gates y GitHub Pages como runtime.
-                </p>
-                <span class="text-link">Leer case study</span>
+                <p>Jobs como backend. GitHub Pages como runtime.</p>
               </div>
+              <span class="work-action">Abrir expediente <span aria-hidden="true">↗</span></span>
+              <img
+                class="work-row-image"
+                src="assets/projects/stock-central.png"
+                alt="Catálogo público de filamentos de Stock Central"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
             </a>
-          </article>
 
-          <article class="case-card">
-            <a href="projects/silver-usage-report/" aria-label="Abrir case study de Silver Usage Report">
-              <figure>
-                <img
-                  src="assets/projects/silver-usage-report.png"
-                  alt="Dashboard privado de Silver Usage Report"
-                  loading="lazy"
-                  width="1600"
-                  height="900"
-                />
-              </figure>
-              <div class="case-card-copy">
-                <span class="case-type">Privacy flow</span>
+            <a
+              class="work-row"
+              data-project="silver"
+              data-reveal
+              href="projects/silver-usage-report/"
+              aria-label="Leer expediente de Silver Usage Report"
+            >
+              <span class="work-number">03</span>
+              <div class="work-copy">
+                <span class="work-category">Privacy flow</span>
                 <h3>Silver Usage Report</h3>
-                <p>
-                  Plataforma armada en una tarde para que candidatos puedan enviar datos de uso de IA de forma facil, universal y segura.
-                </p>
-                <span class="text-link">Leer case study</span>
+                <p>Privacidad convertida en una decisión de arquitectura.</p>
               </div>
+              <span class="work-action">Abrir expediente <span aria-hidden="true">↗</span></span>
+              <img
+                class="work-row-image"
+                src="assets/projects/silver-usage-report.png"
+                alt="Flujo privado de Silver Usage Report"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
             </a>
-          </article>
 
-          <article class="case-card">
-            <a href="projects/monitor-reviews/" aria-label="Abrir case study de Monitor de Reviews">
-              <figure>
-                <img
-                  src="assets/projects/monitor-reviews.png"
-                  alt="Panel de Monitor de Reviews con insights operativos"
-                  loading="lazy"
-                  width="1600"
-                  height="900"
-                />
-              </figure>
-              <div class="case-card-copy">
-                <span class="case-type">Operational intelligence</span>
+            <a
+              class="work-row"
+              data-project="reviews"
+              data-reveal
+              href="projects/monitor-reviews/"
+              aria-label="Leer expediente de Monitor de Reviews"
+            >
+              <span class="work-number">04</span>
+              <div class="work-copy">
+                <span class="work-category">Operational intelligence</span>
                 <h3>Monitor de Reviews</h3>
-                <p>
-                  Primera aproximacion fuerte a la API de MeLi para centralizar reviews y trackear como evolucionan los productos publicados.
-                </p>
-                <span class="text-link">Leer case study</span>
+                <p>Una grieta concreta en la operación de sellers.</p>
               </div>
+              <span class="work-action">Abrir expediente <span aria-hidden="true">↗</span></span>
+              <img
+                class="work-row-image"
+                src="assets/projects/monitor-reviews.png"
+                alt="Panel de Monitor de Reviews con señales operativas"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
             </a>
-          </article>
+          </div>
+
+          <div class="work-previews" aria-hidden="true">
+            <figure class="work-preview is-active" data-preview="meli">
+              <img src="assets/projects/meli-core-dumper.png" alt="" width="1600" height="900" />
+              <figcaption><span>01</span> Inteligencia para sellers, dentro del producto.</figcaption>
+            </figure>
+            <figure class="work-preview" data-preview="stock">
+              <img src="assets/projects/stock-central.png" alt="" loading="lazy" width="1600" height="900" />
+              <figcaption><span>02</span> Backend automatizado. Runtime estático.</figcaption>
+            </figure>
+            <figure class="work-preview" data-preview="silver">
+              <img src="assets/projects/silver-usage-report.png" alt="" loading="lazy" width="1600" height="900" />
+              <figcaption><span>03</span> Telemetría útil sin entregar contenido privado.</figcaption>
+            </figure>
+            <figure class="work-preview" data-preview="reviews">
+              <img src="assets/projects/monitor-reviews.png" alt="" loading="lazy" width="1600" height="900" />
+              <figcaption><span>04</span> Reviews dispersas convertidas en seguimiento.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-statement" data-reveal>
+        <p class="kicker">Criterio de trabajo</p>
+        <div>
+          <h2>Producto para decidir.<br />Ingeniería para sostenerlo.</h2>
+          <p>
+            Me interesan los sistemas que nacen de una necesidad concreta, hacen
+            explícitas sus decisiones y siguen siendo operables después del deploy.
+          </p>
+          <a class="arrow-link" href="https://github.com/Zogar89" rel="noreferrer">Ver trabajo en GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <span>Gabriel Garcia</span>
-      <a href="https://github.com/Zogar89" rel="noreferrer">github.com/Zogar89</a>
+      <span>Producto × Ingeniería</span>
+      <a href="#inicio">Volver arriba ↑</a>
     </footer>
 
     <script src="script.js"></script>
