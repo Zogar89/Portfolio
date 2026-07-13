@@ -3,230 +3,107 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Case study de Stock Central, plataforma comunitaria de stock de filamentos 3D con captura desde Google Sheets, scraping HTML, catalogo Grilon3, quality gates, GitHub Actions y GitHub Pages."
-    />
+    <meta name="description" content="Expediente de Stock Central: un producto comunitario que centraliza stock de filamentos con jobs programados y GitHub Pages como runtime estático." />
     <title>Stock Central | Gabriel Garcia</title>
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Principal">
-        <a class="brand" href="../../">
-          <span class="brand-mark">G</span>
-          <span>Gabriel Garcia</span>
-        </a>
+        <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">G</span><span>Gabriel Garcia</span></a>
         <div class="nav-links">
-          <a href="../../#proyectos">Proyectos</a>
-          <a href="https://github.com/Zogar89/CentraldeFilamentos" rel="noreferrer">Repositorio</a>
+          <a href="../../#proyectos">Trabajo seleccionado</a>
           <a href="https://zogar89.github.io/CentraldeFilamentos/" rel="noreferrer">Demo</a>
+          <a href="https://github.com/Zogar89/CentraldeFilamentos" rel="noreferrer">Repositorio</a>
         </div>
       </nav>
     </header>
 
-    <main class="case-main">
-      <section class="case-hero">
-        <div>
-          <p class="eyebrow">Case study</p>
+    <main class="dossier-main">
+      <section class="dossier-hero" data-reveal>
+        <div class="dossier-copy">
+          <p class="dossier-category">Expediente 02 · Static data product</p>
           <h1>Stock Central</h1>
-          <p class="case-lead">
-            Una plataforma comunitaria para centralizar stock de filamentos 3D y evitar perseguir distribuidores por cada color, material o presentacion.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://zogar89.github.io/CentraldeFilamentos/" rel="noreferrer">Ver demo</a>
-            <a class="button secondary" href="https://github.com/Zogar89/CentraldeFilamentos" rel="noreferrer">Ver repo</a>
+          <p class="dossier-thesis">Una fricción real del mercado 3D resuelta con backend automatizado y runtime estático.</p>
+          <div class="dossier-actions">
+            <a class="button primary" href="https://zogar89.github.io/CentraldeFilamentos/" rel="noreferrer">Ver demo ↗</a>
+            <a class="button secondary" href="https://github.com/Zogar89/CentraldeFilamentos" rel="noreferrer">Ver repositorio</a>
           </div>
-          <div class="case-meta">
-            <div>
-              <strong>Rol</strong>
-              <span>Producto, ingesta, frontend, CI/CD</span>
-            </div>
-            <div>
-              <strong>Dominio</strong>
-              <span>Impresion 3D, stock, comunidad</span>
-            </div>
-            <div>
-              <strong>Stack</strong>
-              <span>Python, requests, httpx, BeautifulSoup, Svelte</span>
-            </div>
+          <div class="dossier-meta">
+            <div><span class="meta-label">Rol</span><strong>Producto, ingesta, frontend y CI/CD</strong></div>
+            <div><span class="meta-label">Restricción</span><strong>Fuentes heterogéneas y costo mínimo</strong></div>
+            <div><span class="meta-label">Entrega</span><strong>Herramienta comunitaria 100% estática</strong></div>
           </div>
         </div>
-        <figure class="case-visual">
-          <img
-            src="../../assets/projects/stock-central.png"
-            alt="Vista de Stock Central con catalogo de filamentos y lista de cotizacion"
-            width="1600"
-            height="900"
-          />
-        </figure>
+        <figure class="dossier-visual"><img src="../../assets/projects/stock-central.png" alt="Catálogo de Stock Central con filamentos y lista de cotización" width="1600" height="900" /></figure>
       </section>
 
-      <section class="case-section">
-        <h2>Nacio de una friccion real del mercado 3D.</h2>
-        <div class="case-grid">
-          <article class="case-block">
-            <h3>Origen</h3>
-            <p>
-              Imprimo y vendo impresiones 3D en Mercado Libre. El filamento tiene muchas variantes: colores, materiales, presentaciones y marcas.
-            </p>
-          </article>
-          <article class="case-block">
-            <h3>Dolor</h3>
-            <p>
-              Para un comprador mayorista era desgastante preguntar a cada distribuidor si habia entrado una variante. Con desabastecimiento e importaciones trabadas, ese problema se volvio cotidiano.
-            </p>
-          </article>
-          <article class="case-block">
-            <h3>Producto</h3>
-            <p>
-              Algunos distribuidores empezaron a publicar stock online. Centralice esas fuentes y sume busqueda, ayuda para armar pedidos y avisos sobre variantes necesarias.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="case-section">
-        <div class="case-stack">
-          <div>
-            <h2>Backend en jobs. Runtime estatico.</h2>
-            <p class="case-note">
-              La clave tecnica es que todo se sostiene sobre GitHub Pages. No hay servidor propio en runtime: la logica de backend vive encapsulada en jobs de GitHub que actualizan el sitio 4 veces al dia.
-            </p>
-          </div>
-          <div>
-            <ul class="signal-list">
-              <li>
-                <strong>Multi-source ingestion</strong>
-                Toma stocks desde Google Sheets publicados como CSV y desde HTML de proveedores, con conectores separados por fuente.
-              </li>
-              <li>
-                <strong>Official color and image data</strong>
-                Lee el catalogo, sitemap y fichas de Grilon3 para enriquecer productos con URL oficial, imagen, Pantone, SKU y EAN.
-              </li>
-              <li>
-                <strong>Integrity checks before publish</strong>
-                Valida schema, errores de fuentes, caidas sospechosas de productos y bajas bruscas de stock antes de publicar.
-              </li>
-              <li>
-                <strong>Community-first infrastructure</strong>
-                Mantiene costo operativo muy bajo: GitHub Actions para actualizar, GitHub Pages para servir, cero backend permanente.
-              </li>
-            </ul>
+      <section class="dossier-section dossier-friction" data-reveal>
+        <p class="section-index">01 · La fricción</p>
+        <div>
+          <h2>Encontrar un color podía exigir preguntar proveedor por proveedor.</h2>
+          <p class="story-lead">El filamento combina marcas, materiales, colores y presentaciones. Con desabastecimiento e importaciones trabadas, la búsqueda de stock se convirtió en una tarea repetitiva para compradores y makers.</p>
+          <div class="story-columns">
+            <article><h3>El dato existía</h3><p>Algunos distribuidores publicaban planillas o páginas con stock. La información estaba disponible, pero fragmentada y con formatos distintos.</p></article>
+            <article><h3>El producto faltaba</h3><p>Centralizar las fuentes habilitó búsqueda, comparación, armado de pedidos y avisos sobre variantes necesarias.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="case-section">
-        <h2>Captura de datos sin backend permanente.</h2>
-        <div class="case-grid">
-          <article class="case-block">
-            <h3>Google Sheets</h3>
-            <p>
-              Los proveedores que publican stock en planillas se leen como export CSV de Google Sheets. El parser detecta columnas de producto, stock y marca, repara mojibake y descarta filas que no son producto.
-            </p>
-          </article>
-          <article class="case-block">
-            <h3>HTML de proveedores</h3>
-            <p>
-              Filamentos3D se captura con <code>httpx</code>, <code>BeautifulSoup</code> y <code>lxml</code>: primero tablas de stock y despues paginas de categoria y detalle para imagenes, SKUs y links de producto.
-            </p>
-          </article>
-          <article class="case-block">
-            <h3>Catalogo Grilon3</h3>
-            <p>
-              Grilon3 usa <code>requests</code> y parsers HTML propios sobre catalogo, sitemap y fichas WooCommerce. De ahi salen imagenes oficiales, Pantone, SKU, EAN y URLs del fabricante.
-            </p>
-          </article>
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">02 · Decisiones</p>
+        <div>
+          <h2>La arquitectura debía ser barata antes que sofisticada.</h2>
+          <div class="decision-grid">
+            <article><span class="decision-number">01</span><h3>Mover el backend a jobs</h3><p>La lógica corre cuatro veces al día en GitHub Actions. No existe un servidor permanente esperando tráfico.</p></article>
+            <article><span class="decision-number">02</span><h3>Separar conectores por fuente</h3><p>Sheets, HTML de proveedores y catálogo oficial se procesan con reglas propias y un contrato común de salida.</p></article>
+            <article><span class="decision-number">03</span><h3>Frenar publicaciones sospechosas</h3><p>Quality gates detectan cambios bruscos, errores de schema y caídas anómalas antes de actualizar el sitio público.</p></article>
+          </div>
         </div>
       </section>
 
-      <section class="case-section">
-        <h2>Stack y señales tecnicas.</h2>
-        <div class="tech-matrix">
-          <article class="tech-group">
-            <h3>Frontend</h3>
-            <div class="tech-tags">
-              <span>Svelte 5</span>
-              <span>Vite</span>
-              <span>Static UI</span>
-              <span>Community tooling</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Backend en jobs</h3>
-            <div class="tech-tags">
-              <span>Python 3.12</span>
-              <span>Static data pipeline</span>
-              <span>Scheduled jobs</span>
-              <span>CI/CD</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Scraping / ingesta</h3>
-            <div class="tech-tags">
-              <span>Google Sheets CSV</span>
-              <span>requests</span>
-              <span>httpx</span>
-              <span>BeautifulSoup</span>
-              <span>lxml</span>
-              <span>CSV parsing</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Catalogo / enriquecimiento</h3>
-            <div class="tech-tags">
-              <span>WooCommerce parsing</span>
-              <span>Sitemap ingestion</span>
-              <span>Pantone metadata</span>
-              <span>Pillow</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Infra / deploy</h3>
-            <div class="tech-tags">
-              <span>GitHub Actions</span>
-              <span>GitHub Pages</span>
-              <span>Zero backend runtime</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Calidad de datos</h3>
-            <div class="tech-tags">
-              <span>Data integrity checks</span>
-              <span>Quality gates</span>
-              <span>pytest</span>
-            </div>
-          </article>
+      <section class="dossier-section architecture-section" data-reveal>
+        <p class="section-index">03 · Sistema</p>
+        <div class="architecture-copy">
+          <h2>Un backend que desaparece después de publicar.</h2>
+          <p>La parte dinámica ocurre durante la actualización. El visitante recibe un sitio estático rápido y el costo operativo permanece cerca de cero.</p>
+          <div class="architecture-flow" aria-label="Flujo de publicación de Stock Central">
+            <div class="flow-step"><span class="flow-label">Fuentes</span><strong>Sheets y HTML</strong></div>
+            <div class="flow-step"><span class="flow-label">Ingesta</span><strong>Conectores Python</strong></div>
+            <div class="flow-step"><span class="flow-label">Calidad</span><strong>Integrity gates</strong></div>
+            <div class="flow-step"><span class="flow-label">Build</span><strong>Svelte estático</strong></div>
+            <div class="flow-step"><span class="flow-label">Runtime</span><strong>GitHub Pages</strong></div>
+          </div>
         </div>
-        <p class="case-note">
-          Resultado: una herramienta barata de mantener, util para compradores y makers, con logica de backend automatizada y una experiencia publica 100% estatica.
-        </p>
       </section>
 
-      <section class="case-section">
-        <h2>Seguir leyendo.</h2>
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">04 · Tecnología</p>
+        <div>
+          <h2>Herramientas elegidas para capturar, validar y publicar.</h2>
+          <div class="tech-ledger">
+            <article><h3>Frontend</h3><p>Svelte 5 · Vite · Static UI · Community tooling</p></article>
+            <article><h3>Backend en jobs</h3><p>Python 3.12 · Scheduled jobs · Static data pipeline</p></article>
+            <article><h3>Ingesta</h3><p>Google Sheets CSV · requests · httpx · BeautifulSoup · lxml</p></article>
+            <article><h3>Enriquecimiento</h3><p>WooCommerce parsing · Sitemap ingestion · Pantone metadata · Pillow</p></article>
+            <article><h3>Infra y deploy</h3><p>GitHub Actions · GitHub Pages · Zero backend runtime</p></article>
+            <article><h3>Calidad de datos</h3><p>Schema validation · Suspicious drop detection · pytest</p></article>
+          </div>
+          <p class="result-statement">Resultado: una herramienta comunitaria útil para compradores y makers, actualizada automáticamente y sin backend permanente.</p>
+        </div>
+      </section>
+
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">05 · Continuar</p>
         <div class="next-projects">
-          <a class="next-card" href="../meli-core-dumper/">
-            <h3>Meli Core Dumper</h3>
-            <p>Business intelligence para vendedores de Mercado Libre.</p>
-          </a>
-          <a class="next-card" href="../silver-usage-report/">
-            <h3>Silver Usage Report</h3>
-            <p>Flujo privado para reportar uso agregado de Codex.</p>
-          </a>
-          <a class="next-card" href="../monitor-reviews/">
-            <h3>Monitor de Reviews</h3>
-            <p>Reviews centralizadas para seguir productos publicados.</p>
-          </a>
+          <a class="next-card" href="../meli-core-dumper/"><span>01</span><div><h3>Meli Core Dumper</h3><p>Inteligencia para sellers dentro del producto.</p></div><span aria-hidden="true">↗</span></a>
+          <a class="next-card" href="../silver-usage-report/"><span>03</span><div><h3>Silver Usage Report</h3><p>Privacidad convertida en arquitectura.</p></div><span aria-hidden="true">↗</span></a>
+          <a class="next-card" href="../monitor-reviews/"><span>04</span><div><h3>Monitor de Reviews</h3><p>Reviews dispersas convertidas en seguimiento.</p></div><span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <span>Gabriel Garcia</span>
-      <a href="../../">Volver al portfolio</a>
-    </footer>
+    <footer class="footer"><span>Gabriel Garcia</span><span>Expediente 02 / 04</span><a href="../../">Volver al portfolio ↑</a></footer>
     <script src="../../script.js"></script>
   </body>
 </html>

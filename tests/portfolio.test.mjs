@@ -18,6 +18,8 @@ const projectRoutes = [
   "projects/monitor-reviews/",
 ];
 
+const projectPages = projectRoutes.map((route) => `${route}index.html`);
+
 test("home exposes the editorial project index", () => {
   const html = read("index.html");
 
@@ -52,3 +54,23 @@ test("shared stylesheet defines the approved visual system", () => {
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /@media\s*\(max-width:\s*760px\)/);
 });
+
+for (const page of projectPages) {
+  test(`${page} follows the dossier contract`, () => {
+    const html = read(page);
+    const requiredClasses = [
+      "dossier-hero",
+      "dossier-friction",
+      "decision-grid",
+      "architecture-flow",
+      "tech-ledger",
+    ];
+
+    for (const className of requiredClasses) {
+      assert.match(html, new RegExp(`class="[^"]*${className}`));
+    }
+
+    assert.equal((html.match(/<h1\b/g) ?? []).length, 1);
+    assert.doesNotMatch(html, /class="case-grid"|class="tech-matrix"/);
+  });
+}

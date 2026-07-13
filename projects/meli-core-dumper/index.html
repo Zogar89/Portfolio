@@ -3,206 +3,108 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Case study de Meli Core Dumper, plataforma de inteligencia de negocios para vendedores de Mercado Libre con estadistica, patrones, anomalias y tendencias."
-    />
+    <meta name="description" content="Expediente de Meli Core Dumper: una plataforma de inteligencia de negocios para sellers de Mercado Libre, desde la sincronización operativa hasta las señales para decidir." />
     <title>Meli Core Dumper | Gabriel Garcia</title>
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Principal">
-        <a class="brand" href="../../">
-          <span class="brand-mark">G</span>
-          <span>Gabriel Garcia</span>
-        </a>
+        <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">G</span><span>Gabriel Garcia</span></a>
         <div class="nav-links">
-          <a href="../../#proyectos">Proyectos</a>
+          <a href="../../#proyectos">Trabajo seleccionado</a>
           <a href="https://github.com/Zogar89/MeliCoreDumper" rel="noreferrer">Repositorio</a>
-          <a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a>
         </div>
       </nav>
     </header>
 
-    <main class="case-main">
-      <section class="case-hero">
-        <div>
-          <p class="eyebrow">Case study</p>
+    <main class="dossier-main">
+      <section class="dossier-hero" data-reveal>
+        <div class="dossier-copy">
+          <p class="dossier-category">Expediente 01 · Business intelligence</p>
           <h1>Meli Core Dumper</h1>
-          <p class="case-lead">
-            Una plataforma de inteligencia de negocios para vendedores de Mercado Libre que detecta patrones, anomalias y tendencias en sus publicaciones.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://github.com/Zogar89/MeliCoreDumper" rel="noreferrer">Ver repo</a>
-            <a class="button secondary" href="../../#proyectos">Mas proyectos</a>
+          <p class="dossier-thesis">De exportar datos a producir inteligencia dentro del producto.</p>
+          <div class="dossier-actions">
+            <a class="button primary" href="https://github.com/Zogar89/MeliCoreDumper" rel="noreferrer">Ver repositorio ↗</a>
+            <a class="button secondary" href="../../#proyectos">Volver al índice</a>
           </div>
-          <div class="case-meta">
-            <div>
-              <strong>Rol</strong>
-              <span>Arquitectura, backend, datos, admin</span>
-            </div>
-            <div>
-              <strong>Dominio</strong>
-              <span>Mercado Libre, BI, estadistica</span>
-            </div>
-            <div>
-              <strong>Stack</strong>
-              <span>FastAPI, PostgreSQL, Redis, ARQ</span>
-            </div>
+          <div class="dossier-meta">
+            <div><span class="meta-label">Rol</span><strong>Producto, arquitectura, backend y datos</strong></div>
+            <div><span class="meta-label">Restricción</span><strong>Datos externos y operación multi-tenant</strong></div>
+            <div><span class="meta-label">Entrega</span><strong>Plataforma de decisión operable</strong></div>
           </div>
         </div>
-        <figure class="case-visual">
-          <img
-            src="../../assets/projects/meli-core-dumper.png"
-            alt="Panel operativo de Meli Core Dumper con estado de sincronizacion"
-            width="1600"
-            height="900"
-          />
+        <figure class="dossier-visual">
+          <img src="../../assets/projects/meli-core-dumper.png" alt="Panel operativo de Meli Core Dumper con sincronización y métricas" width="1600" height="900" />
         </figure>
       </section>
 
-      <section class="case-section">
-        <h2>Arranco como un dump. Se convirtio en inteligencia dentro del producto.</h2>
-        <div class="case-grid">
-          <article class="case-block">
-            <h3>Origen</h3>
-            <p>
-              La idea inicial era descargar toda la informacion de la operacion, exportarla a Excel y analizarla afuera, como un backup o volcado de base de datos.
-            </p>
-          </article>
-          <article class="case-block">
-            <h3>Giro de producto</h3>
-            <p>
-              La pregunta clave fue simple: si ya tenemos los datos, por que salir del sistema para analizarlos. El dumper paso a ser una plataforma de decision.
-            </p>
-          </article>
-          <article class="case-block">
-            <h3>Valor actual</h3>
-            <p>
-              En vez de obligar al vendedor a mirar dashboards, el sistema busca la informacion importante: patrones, anomalias, tendencias y senales para actuar.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="case-section">
-        <div class="case-stack">
-          <div>
-            <h2>Business intelligence sobre publicaciones reales, no solo reporting.</h2>
-            <p class="case-note">
-              La plataforma combina sincronizacion operativa con matematica estadistica aplicada para detectar cambios relevantes en todas las publicaciones de un vendedor. El objetivo es liberar tiempo: menos exploracion manual, mas senales listas para decidir.
-            </p>
-          </div>
-          <div>
-            <ul class="signal-list">
-              <li>
-                <strong>Statistical pattern detection</strong>
-                Analisis de comportamiento historico para encontrar cambios que una lectura manual de dashboard puede pasar por alto.
-              </li>
-              <li>
-                <strong>Anomaly and trend analysis</strong>
-                Deteccion de variaciones, caidas, subas y movimientos raros en visitas, ventas, conversion, ads y actividad por publicacion.
-              </li>
-              <li>
-                <strong>Seller-wide intelligence</strong>
-                Vision sobre todas las publicaciones del vendedor, no una pantalla aislada por metrica.
-              </li>
-              <li>
-                <strong>Operational data foundation</strong>
-                OAuth, workers, scheduler, checkpoints, snapshots, agregados diarios y observabilidad para sostener el analisis.
-              </li>
-            </ul>
+      <section class="dossier-section dossier-friction" data-reveal>
+        <p class="section-index">01 · La fricción</p>
+        <div>
+          <h2>El análisis empezaba cuando el producto terminaba.</h2>
+          <p class="story-lead">La idea original era descargar la operación, exportarla a Excel y analizarla afuera. El dato estaba disponible, pero la decisión seguía dependiendo de trabajo manual y contexto disperso.</p>
+          <div class="story-columns">
+            <article><h3>El punto de partida</h3><p>Un dump completo servía como respaldo y materia prima. No resolvía qué mirar primero ni qué cambio merecía atención.</p></article>
+            <article><h3>El giro de producto</h3><p>Si el sistema ya tenía los datos, podía analizarlos donde nacían. El dumper pasó de extracción a inteligencia aplicada.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="case-section">
-        <h2>Stack y señales tecnicas.</h2>
-        <div class="tech-matrix">
-          <article class="tech-group">
-            <h3>Backend / API</h3>
-            <div class="tech-tags">
-              <span>FastAPI</span>
-              <span>SQLAlchemy 2</span>
-              <span>Alembic</span>
-              <span>OAuth2</span>
-              <span>Webhooks</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Datos / DB</h3>
-            <div class="tech-tags">
-              <span>PostgreSQL</span>
-              <span>Multi-tenant architecture</span>
-              <span>Snapshots</span>
-              <span>Daily aggregates</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Jobs / sync</h3>
-            <div class="tech-tags">
-              <span>Redis</span>
-              <span>ARQ</span>
-              <span>Schedulers</span>
-              <span>Checkpoints</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Inteligencia</h3>
-            <div class="tech-tags">
-              <span>Business intelligence</span>
-              <span>Applied statistics</span>
-              <span>Anomaly detection</span>
-              <span>Trend detection</span>
-              <span>Decision intelligence</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Frontend / admin</h3>
-            <div class="tech-tags">
-              <span>Jinja2</span>
-              <span>Tailwind CSS</span>
-              <span>DaisyUI</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Infra / calidad</h3>
-            <div class="tech-tags">
-              <span>Docker</span>
-              <span>Observability</span>
-              <span>Operational dashboards</span>
-            </div>
-          </article>
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">02 · Decisiones</p>
+        <div>
+          <h2>La ingeniería se ordenó alrededor de tres decisiones.</h2>
+          <div class="decision-grid">
+            <article><span class="decision-number">01</span><h3>Analizar dentro del producto</h3><p>Las señales se convierten en una salida principal. La exportación deja de ser el destino del flujo.</p></article>
+            <article><span class="decision-number">02</span><h3>Separar hechos de señales</h3><p>Primero se construye una base operacional confiable; después se calculan agregados, patrones y anomalías.</p></article>
+            <article><span class="decision-number">03</span><h3>Hacer visible la operación</h3><p>Workers, checkpoints, snapshots y observabilidad permiten saber qué está fresco, qué falló y qué debe continuar.</p></article>
+          </div>
         </div>
-        <p class="case-note">
-          Resultado: una idea de exportacion de datos convertida en producto de inteligencia de negocios que reduce ruido y acerca decisiones.
-        </p>
       </section>
 
-      <section class="case-section">
-        <h2>Seguir leyendo.</h2>
+      <section class="dossier-section architecture-section" data-reveal>
+        <p class="section-index">03 · Sistema</p>
+        <div class="architecture-copy">
+          <h2>De la API externa a una señal lista para decidir.</h2>
+          <p>El flujo desacopla sincronización, almacenamiento, cálculo y lectura de negocio. Cada etapa responde a una restricción distinta y puede observarse por separado.</p>
+          <div class="architecture-flow" aria-label="Flujo de datos de Meli Core Dumper">
+            <div class="flow-step"><span class="flow-label">Entrada</span><strong>Mercado Libre API</strong></div>
+            <div class="flow-step"><span class="flow-label">Base</span><strong>Facts y snapshots</strong></div>
+            <div class="flow-step"><span class="flow-label">Cálculo</span><strong>Métricas diarias</strong></div>
+            <div class="flow-step"><span class="flow-label">Lectura</span><strong>Patrones y anomalías</strong></div>
+            <div class="flow-step"><span class="flow-label">Salida</span><strong>Decisión del seller</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">04 · Tecnología</p>
+        <div>
+          <h2>El stack como consecuencia, no como argumento.</h2>
+          <div class="tech-ledger">
+            <article><h3>Backend y API</h3><p>FastAPI · SQLAlchemy 2 · Alembic · OAuth2 · Webhooks</p></article>
+            <article><h3>Datos</h3><p>PostgreSQL · Multi-tenant architecture · Snapshots · Daily aggregates</p></article>
+            <article><h3>Jobs y sync</h3><p>Redis · ARQ · Schedulers · Checkpoints</p></article>
+            <article><h3>Inteligencia</h3><p>Applied statistics · Anomaly detection · Trend detection · Decision intelligence</p></article>
+            <article><h3>Frontend y admin</h3><p>Jinja2 · Tailwind CSS · DaisyUI</p></article>
+            <article><h3>Infra y calidad</h3><p>Docker · Observability · Operational dashboards</p></article>
+          </div>
+          <p class="result-statement">Resultado: una idea de exportación convertida en una plataforma que reduce exploración manual y acerca señales a la decisión.</p>
+        </div>
+      </section>
+
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">05 · Continuar</p>
         <div class="next-projects">
-          <a class="next-card" href="../stock-central/">
-            <h3>Stock Central</h3>
-            <p>Stock de filamentos centralizado con jobs y GitHub Pages.</p>
-          </a>
-          <a class="next-card" href="../silver-usage-report/">
-            <h3>Silver Usage Report</h3>
-            <p>Reporte privado de telemetria local agregada.</p>
-          </a>
-          <a class="next-card" href="../monitor-reviews/">
-            <h3>Monitor de Reviews</h3>
-            <p>Centralizacion de reviews para seguir productos publicados.</p>
-          </a>
+          <a class="next-card" href="../stock-central/"><span>02</span><div><h3>Stock Central</h3><p>Backend automatizado. Runtime estático.</p></div><span aria-hidden="true">↗</span></a>
+          <a class="next-card" href="../silver-usage-report/"><span>03</span><div><h3>Silver Usage Report</h3><p>Privacidad convertida en arquitectura.</p></div><span aria-hidden="true">↗</span></a>
+          <a class="next-card" href="../monitor-reviews/"><span>04</span><div><h3>Monitor de Reviews</h3><p>Reviews dispersas convertidas en seguimiento.</p></div><span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <span>Gabriel Garcia</span>
-      <a href="../../">Volver al portfolio</a>
-    </footer>
+    <footer class="footer"><span>Gabriel Garcia</span><span>Expediente 01 / 04</span><a href="../../">Volver al portfolio ↑</a></footer>
     <script src="../../script.js"></script>
   </body>
 </html>

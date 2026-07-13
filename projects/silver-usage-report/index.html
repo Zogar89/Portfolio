@@ -3,198 +3,106 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Case study de Silver Usage Report, plataforma creada en una tarde para enviar datos de uso de IA de candidatos de forma facil, universal y segura."
-    />
+    <meta name="description" content="Expediente de Silver Usage Report: un flujo auditable para compartir uso agregado de IA sin exponer prompts, respuestas, código ni secretos." />
     <title>Silver Usage Report | Gabriel Garcia</title>
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav" aria-label="Principal">
-        <a class="brand" href="../../">
-          <span class="brand-mark">G</span>
-          <span>Gabriel Garcia</span>
-        </a>
+        <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">G</span><span>Gabriel Garcia</span></a>
         <div class="nav-links">
-          <a href="../../#proyectos">Proyectos</a>
+          <a href="../../#proyectos">Trabajo seleccionado</a>
           <a href="https://github.com/Zogar89/silver-usage-report" rel="noreferrer">Repositorio</a>
-          <a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a>
         </div>
       </nav>
     </header>
 
-    <main class="case-main">
-      <section class="case-hero">
-        <div>
-          <p class="eyebrow">Case study</p>
+    <main class="dossier-main">
+      <section class="dossier-hero" data-reveal>
+        <div class="dossier-copy">
+          <p class="dossier-category">Expediente 03 · Privacy flow</p>
           <h1>Silver Usage Report</h1>
-          <p class="case-lead">
-            Una plataforma creada en una tarde para que candidatos puedan enviar datos de uso de IA de forma facil, universal y segura.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://github.com/Zogar89/silver-usage-report" rel="noreferrer">Ver repo</a>
-            <a class="button secondary" href="../../#proyectos">Mas proyectos</a>
+          <p class="dossier-thesis">Demostrar uso de IA sin entregar el contenido privado que lo produjo.</p>
+          <div class="dossier-actions">
+            <a class="button primary" href="https://github.com/Zogar89/silver-usage-report" rel="noreferrer">Ver repositorio ↗</a>
+            <a class="button secondary" href="../../#proyectos">Volver al índice</a>
           </div>
-          <div class="case-meta">
-            <div>
-              <strong>Rol</strong>
-              <span>Producto, backend, seguridad, collector</span>
-            </div>
-            <div>
-              <strong>Dominio</strong>
-              <span>Telemetry, privacy, reporting</span>
-            </div>
-            <div>
-              <strong>Stack</strong>
-              <span>FastAPI, HTMX, PostgreSQL, PowerShell</span>
-            </div>
+          <div class="dossier-meta">
+            <div><span class="meta-label">Rol</span><strong>Producto, backend, seguridad y collector</strong></div>
+            <div><span class="meta-label">Restricción</span><strong>Datos sensibles de candidatos</strong></div>
+            <div><span class="meta-label">Entrega</span><strong>Flujo one-shot auditable</strong></div>
           </div>
         </div>
-        <figure class="case-visual">
-          <img
-            src="../../assets/projects/silver-usage-report.png"
-            alt="Dashboard de Silver Usage Report con metricas agregadas y privacidad"
-            width="1600"
-            height="900"
-          />
-        </figure>
+        <figure class="dossier-visual"><img src="../../assets/projects/silver-usage-report.png" alt="Dashboard privado de Silver Usage Report con métricas agregadas" width="1600" height="900" /></figure>
       </section>
 
-      <section class="case-section">
-        <h2>Nacio de un desafio real de Silverdev.</h2>
-        <div class="case-grid">
-          <article class="case-block">
-            <h3>El pedido</h3>
-            <p>
-              Gabriel, de Silverdev, conto que las empresas pedian data sobre cuanto usaban IA los candidatos. La solucion tenia que ser facil de enviar y universal.
-            </p>
-          </article>
-          <article class="case-block">
-            <h3>La respuesta</h3>
-            <p>
-              En una tarde arme una plataforma web con sesion privada, collector PowerShell, preview local y envio firmado de datos agregados.
-            </p>
-          </article>
-          <article class="case-block">
-            <h3>El limite</h3>
-            <p>
-              La herramienta no podia transformarse en spyware ni en tracker permanente. Tenia que probar uso de IA sin exponer prompts, respuestas, codigo o secretos.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section class="case-section">
-        <div class="case-stack">
-          <div>
-            <h2>Facil de enviar, dificil de abusar.</h2>
-            <p class="case-note">
-              El producto resuelve una tension concreta: las empresas quieren senales de uso de IA, pero el candidato no deberia entregar contenido privado. Por eso el flujo es one-shot, auditable y basado en agregados.
-            </p>
-          </div>
-          <div>
-            <ul class="signal-list">
-              <li>
-                <strong>Local-first collector</strong>
-                PowerShell lee `%USERPROFILE%\.codex\sessions` y agrega por dia y modelo, sin empaquetar contenido sensible.
-              </li>
-              <li>
-                <strong>Signed submission</strong>
-                HMAC, token privado y timestamp con ventana de 5 minutos para reducir replay y abuso.
-              </li>
-              <li>
-                <strong>Server-side trust model</strong>
-                Hash de token, validacion Pydantic, filtros recursivos y costos calculados con tabla controlada por servidor.
-              </li>
-            </ul>
+      <section class="dossier-section dossier-friction" data-reveal>
+        <p class="section-index">01 · La fricción</p>
+        <div>
+          <h2>Una señal útil podía convertirse demasiado fácil en vigilancia.</h2>
+          <p class="story-lead">Las empresas pedían evidencia sobre cuánto usaban IA los candidatos. La solución debía ser fácil de enviar y universal, pero no podía transformarse en spyware ni recolectar el contenido del trabajo.</p>
+          <div class="story-columns">
+            <article><h3>El pedido</h3><p>Capturar una señal comparable de uso de IA sin exigir una instalación compleja ni depender de una única plataforma.</p></article>
+            <article><h3>El límite</h3><p>No exponer prompts, respuestas, código, nombres de archivos o secretos. El candidato debía poder revisar qué se enviaba.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="case-section">
-        <h2>Stack y señales tecnicas.</h2>
-        <div class="tech-matrix">
-          <article class="tech-group">
-            <h3>Backend / API</h3>
-            <div class="tech-tags">
-              <span>Python 3.13</span>
-              <span>FastAPI</span>
-              <span>Pydantic</span>
-              <span>SQLAlchemy</span>
-              <span>Alembic</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Frontend</h3>
-            <div class="tech-tags">
-              <span>Jinja2</span>
-              <span>HTMX</span>
-              <span>Server-rendered UI</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Datos</h3>
-            <div class="tech-tags">
-              <span>PostgreSQL</span>
-              <span>SQLite fallback</span>
-              <span>Aggregated telemetry</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Collector</h3>
-            <div class="tech-tags">
-              <span>PowerShell</span>
-              <span>Local preview</span>
-              <span>One-shot submission</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Seguridad / privacidad</h3>
-            <div class="tech-tags">
-              <span>HMAC</span>
-              <span>Token hashing</span>
-              <span>Privacy by design</span>
-              <span>Recursive redaction</span>
-            </div>
-          </article>
-          <article class="tech-group">
-            <h3>Infra / calidad</h3>
-            <div class="tech-tags">
-              <span>Docker Compose</span>
-              <span>pytest</span>
-            </div>
-          </article>
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">02 · Decisiones</p>
+        <div>
+          <h2>La privacidad se convirtió en arquitectura.</h2>
+          <div class="decision-grid">
+            <article><span class="decision-number">01</span><h3>Agregar antes de transmitir</h3><p>El collector calcula uso por día y modelo en la máquina local. El servidor nunca necesita el contenido de las sesiones.</p></article>
+            <article><span class="decision-number">02</span><h3>Hacer visible el payload</h3><p>Una preview local permite auditar la información agregada antes del envío.</p></article>
+            <article><span class="decision-number">03</span><h3>Firmar una entrega one-shot</h3><p>HMAC, token privado y timestamp acotado reducen replay y abuso sin instalar un agente permanente.</p></article>
+          </div>
         </div>
-        <p class="case-note">
-          Resultado: un requerimiento sensible convertido en un producto verificable, auditable y facil de ejecutar.
-        </p>
       </section>
 
-      <section class="case-section">
-        <h2>Seguir leyendo.</h2>
+      <section class="dossier-section architecture-section" data-reveal>
+        <p class="section-index">03 · Sistema</p>
+        <div class="architecture-copy">
+          <h2>El dato sensible no cruza el límite de la máquina.</h2>
+          <p>El flujo produce un resumen revisable, lo firma y lo valida en el servidor. Los costos y reglas de confianza permanecen bajo control del backend.</p>
+          <div class="architecture-flow" aria-label="Flujo privado de Silver Usage Report">
+            <div class="flow-step"><span class="flow-label">Local</span><strong>Sesiones Codex</strong></div>
+            <div class="flow-step"><span class="flow-label">Filtro</span><strong>Agregación segura</strong></div>
+            <div class="flow-step"><span class="flow-label">Control</span><strong>Preview local</strong></div>
+            <div class="flow-step"><span class="flow-label">Entrega</span><strong>Payload firmado</strong></div>
+            <div class="flow-step"><span class="flow-label">Servidor</span><strong>Validación y reporte</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">04 · Tecnología</p>
+        <div>
+          <h2>Un producto completo construido alrededor de un límite claro.</h2>
+          <div class="tech-ledger">
+            <article><h3>Backend y API</h3><p>Python 3.13 · FastAPI · Pydantic · SQLAlchemy · Alembic</p></article>
+            <article><h3>Frontend</h3><p>Jinja2 · HTMX · Server-rendered UI</p></article>
+            <article><h3>Datos</h3><p>PostgreSQL · SQLite fallback · Aggregated telemetry</p></article>
+            <article><h3>Collector</h3><p>PowerShell · Local preview · One-shot submission</p></article>
+            <article><h3>Seguridad</h3><p>HMAC · Token hashing · Recursive redaction · Server-side pricing</p></article>
+            <article><h3>Infra y calidad</h3><p>Docker Compose · pytest</p></article>
+          </div>
+          <p class="result-statement">Resultado: un requerimiento sensible convertido en un producto verificable, auditable y fácil de ejecutar en una tarde de trabajo.</p>
+        </div>
+      </section>
+
+      <section class="dossier-section" data-reveal>
+        <p class="section-index">05 · Continuar</p>
         <div class="next-projects">
-          <a class="next-card" href="../meli-core-dumper/">
-            <h3>Meli Core Dumper</h3>
-            <p>Business intelligence para vendedores de Mercado Libre.</p>
-          </a>
-          <a class="next-card" href="../stock-central/">
-            <h3>Stock Central</h3>
-            <p>Herramienta comunitaria para stock de filamentos 3D.</p>
-          </a>
-          <a class="next-card" href="../monitor-reviews/">
-            <h3>Monitor de Reviews</h3>
-            <p>Reviews centralizadas para seguir productos publicados.</p>
-          </a>
+          <a class="next-card" href="../meli-core-dumper/"><span>01</span><div><h3>Meli Core Dumper</h3><p>Inteligencia para sellers dentro del producto.</p></div><span aria-hidden="true">↗</span></a>
+          <a class="next-card" href="../stock-central/"><span>02</span><div><h3>Stock Central</h3><p>Backend automatizado. Runtime estático.</p></div><span aria-hidden="true">↗</span></a>
+          <a class="next-card" href="../monitor-reviews/"><span>04</span><div><h3>Monitor de Reviews</h3><p>Reviews dispersas convertidas en seguimiento.</p></div><span aria-hidden="true">↗</span></a>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <span>Gabriel Garcia</span>
-      <a href="../../">Volver al portfolio</a>
-    </footer>
+    <footer class="footer"><span>Gabriel Garcia</span><span>Expediente 03 / 04</span><a href="../../">Volver al portfolio ↑</a></footer>
     <script src="../../script.js"></script>
   </body>
 </html>
