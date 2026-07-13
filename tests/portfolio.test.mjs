@@ -34,3 +34,21 @@ test("home keeps every public project route", () => {
     assert.match(html, new RegExp(escapeRegExp(route)));
   }
 });
+
+test("shared stylesheet defines the approved visual system", () => {
+  const css = read("styles.css");
+  const tokens = [
+    "--ink: #0c0c0f",
+    "--paper: #f3f0e8",
+    "--signal: #ff7142",
+    "--steel: #73737c",
+  ];
+
+  for (const token of tokens) {
+    assert.match(css, new RegExp(escapeRegExp(token)));
+  }
+
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /prefers-reduced-motion:\s*reduce/);
+  assert.match(css, /@media\s*\(max-width:\s*760px\)/);
+});
