@@ -1015,6 +1015,30 @@ button:focus-visible {
   }
 }
 
+@media (min-width: 1440px) and (min-height: 900px) {
+  .editorial-hero {
+    min-height: clamp(820px, 88dvh, 1200px);
+    justify-content: flex-start;
+    padding-top: clamp(42px, 4vh, 60px);
+    padding-bottom: clamp(54px, 6vh, 76px);
+  }
+
+  .hero-statement {
+    flex: 1;
+    align-content: center;
+    padding-top: clamp(72px, 9vh, 116px);
+  }
+
+  .hero-statement h1 {
+    max-width: 12.5ch;
+  }
+
+  .hero-aside {
+    width: min(100%, 320px);
+    justify-self: end;
+  }
+}
+
 @media (max-width: 760px) {
   :root {
     --page: calc(100% - 28px);

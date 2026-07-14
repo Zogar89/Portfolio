@@ -86,6 +86,18 @@ test("shared stylesheet defines the approved visual system", () => {
   assert.match(css, /@media\s*\(max-width:\s*760px\)/);
 });
 
+test("wide and tall desktops use the balanced editorial hero", () => {
+  const css = read("styles.css");
+
+  assert.match(
+    css,
+    /@media\s*\(min-width:\s*1440px\)\s*and\s*\(min-height:\s*900px\)/,
+  );
+  assert.match(css, /min-height:\s*clamp\(820px,\s*88dvh,\s*1200px\)/);
+  assert.match(css, /justify-content:\s*flex-start/);
+  assert.match(css, /align-content:\s*center/);
+});
+
 for (const page of projectPages) {
   test(`${page} follows the dossier contract`, () => {
     const html = read(page);
