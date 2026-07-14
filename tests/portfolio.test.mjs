@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 
@@ -19,6 +19,19 @@ const projectRoutes = [
 ];
 
 const projectPages = projectRoutes.map((route) => `${route}index.html`);
+const allPages = ["index.html", ...projectPages];
+
+const localReferences = (html) =>
+  [...html.matchAll(/(?:href|src)="([^"]+)"/g)]
+    .map((match) => match[1].split("#")[0].split("?")[0])
+    .filter(
+      (reference) =>
+        reference &&
+        !reference.startsWith("http://") &&
+        !reference.startsWith("https://") &&
+        !reference.startsWith("data:") &&
+        !reference.startsWith("mailto:"),
+    );
 
 test("home exposes the editorial project index", () => {
   const html = read("index.html");
@@ -83,4 +96,19 @@ test("javascript is progressive and exposes the approved interactions", () => {
   assert.match(javascript, /data-preview/);
   assert.match(javascript, /documentElement\.classList\.add\("js"\)/);
   assert.match(javascript, /is-visible/);
+});
+
+test("all local links and image sources resolve", () => {
+  for (const page of allPages) {
+    const html = read(page);
+    const pageDirectory = path.dirname(path.join(root, page));
+
+    for (const reference of localReferences(html)) {
+      const resolved = path.resolve(pageDirectory, reference);
+      const exists =
+        existsSync(resolved) || existsSync(path.join(resolved, "index.html"));
+
+      assert.ok(exists, `${page} references missing local path: ${reference}`);
+    }
+  }
 });
