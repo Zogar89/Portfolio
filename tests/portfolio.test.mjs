@@ -112,3 +112,17 @@ test("all local links and image sources resolve", () => {
     }
   }
 });
+
+test("every page keeps a single heading and stable image geometry", () => {
+  for (const page of allPages) {
+    const html = read(page);
+
+    assert.equal((html.match(/<h1\b/g) ?? []).length, 1, `${page}: h1 count`);
+
+    for (const image of html.matchAll(/<img\b[^>]*>/g)) {
+      assert.match(image[0], /\balt="[^"]*"/, `${page}: image alt`);
+      assert.match(image[0], /\bwidth="\d+"/, `${page}: image width`);
+      assert.match(image[0], /\bheight="\d+"/, `${page}: image height`);
+    }
+  }
+});
