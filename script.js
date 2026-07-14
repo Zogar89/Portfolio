@@ -27,6 +27,43 @@ projectRows.forEach((row) => {
   row.addEventListener("focus", activate);
 });
 
+const sectionLinks = document.querySelectorAll("[data-section-link]");
+const pageSections = document.querySelectorAll("[data-section]");
+
+const setActiveSection = (id) => {
+  sectionLinks.forEach((link) => {
+    const isActive = link.hash === `#${id}`;
+
+    link.classList.toggle("is-active", isActive);
+
+    if (isActive) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+};
+
+if ("IntersectionObserver" in window && sectionLinks.length) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      const visibleSection = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visibleSection) {
+        setActiveSection(visibleSection.target.id);
+      }
+    },
+    {
+      rootMargin: "-20% 0px -55%",
+      threshold: [0, 0.15, 0.35, 0.6],
+    },
+  );
+
+  pageSections.forEach((section) => sectionObserver.observe(section));
+}
+
 const revealNodes = document.querySelectorAll("[data-reveal]");
 
 if ("IntersectionObserver" in window) {

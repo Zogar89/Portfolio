@@ -24,8 +24,33 @@
       </nav>
     </header>
 
-    <main id="inicio">
-      <section class="editorial-hero">
+    <nav class="section-nav" data-section-nav aria-label="Secciones de la página">
+      <a
+        class="section-nav-link is-active"
+        href="#inicio"
+        data-section-link
+        aria-label="Inicio"
+        aria-current="location"
+      >
+        <span aria-hidden="true">01</span>
+        <span class="section-nav-label">Inicio</span>
+      </a>
+      <a class="section-nav-link" href="#metodo" data-section-link aria-label="Método">
+        <span aria-hidden="true">02</span>
+        <span class="section-nav-label">Método</span>
+      </a>
+      <a class="section-nav-link" href="#proyectos" data-section-link aria-label="Proyectos">
+        <span aria-hidden="true">03</span>
+        <span class="section-nav-label">Proyectos</span>
+      </a>
+      <a class="section-nav-link" href="#cierre" data-section-link aria-label="Cierre">
+        <span aria-hidden="true">04</span>
+        <span class="section-nav-label">Cierre</span>
+      </a>
+    </nav>
+
+    <main>
+      <section class="editorial-hero" id="inicio" data-section>
         <div class="hero-header" data-reveal>
           <p class="kicker">Producto × Ingeniería</p>
           <p class="hero-edition" aria-label="Edición del portfolio">Portfolio / 2026</p>
@@ -42,7 +67,7 @@
         </div>
       </section>
 
-      <section class="method" aria-labelledby="method-title" data-reveal>
+      <section class="method" id="metodo" data-section aria-labelledby="method-title" data-reveal>
         <div class="method-heading">
           <p class="kicker">Una forma de trabajar</p>
           <h2 id="method-title">Del ruido inicial a un sistema que queda funcionando.</h2>
@@ -55,7 +80,7 @@
         </ol>
       </section>
 
-      <section class="selected-work" id="proyectos">
+      <section class="selected-work" id="proyectos" data-section>
         <header class="section-intro" data-reveal>
           <p class="kicker">Trabajo seleccionado / 01–04</p>
           <h2>Cuatro fricciones convertidas en producto.</h2>
@@ -184,7 +209,7 @@
         </div>
       </section>
 
-      <section class="closing-statement" data-reveal>
+      <section class="closing-statement" id="cierre" data-section data-reveal>
         <p class="kicker">Criterio de trabajo</p>
         <div>
           <h2>Producto para decidir.<br />Ingeniería para sostenerlo.</h2>

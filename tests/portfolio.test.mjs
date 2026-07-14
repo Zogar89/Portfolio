@@ -50,6 +50,24 @@ test("home keeps every public project route", () => {
   }
 });
 
+test("home exposes accessible desktop section navigation", () => {
+  const html = read("index.html");
+  const css = read("styles.css");
+  const sectionIds = ["inicio", "metodo", "proyectos", "cierre"];
+
+  assert.match(html, /data-section-nav/);
+  assert.match(html, /aria-label="Secciones de la página"/);
+
+  for (const id of sectionIds) {
+    assert.match(html, new RegExp(`id="${id}"[^>]*data-section`));
+    assert.match(html, new RegExp(`href="#${id}"[^>]*data-section-link`));
+  }
+
+  assert.match(css, /@media\s*\(min-width:\s*1180px\)/);
+  assert.match(css, /\.section-nav/);
+  assert.match(css, /scroll-margin-top/);
+});
+
 test("shared stylesheet defines the approved visual system", () => {
   const css = read("styles.css");
   const tokens = [
@@ -96,6 +114,11 @@ test("javascript is progressive and exposes the approved interactions", () => {
   assert.match(javascript, /data-preview/);
   assert.match(javascript, /documentElement\.classList\.add\("js"\)/);
   assert.match(javascript, /is-visible/);
+  assert.match(javascript, /data-section-link/);
+  assert.match(javascript, /data-section/);
+  assert.match(javascript, /aria-current/);
+  assert.match(javascript, /setActiveSection/);
+  assert.doesNotMatch(javascript, /addEventListener\(["']scroll["']/);
 });
 
 test("all local links and image sources resolve", () => {
