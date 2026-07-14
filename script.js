@@ -64,6 +64,36 @@ if ("IntersectionObserver" in window && sectionLinks.length) {
   pageSections.forEach((section) => sectionObserver.observe(section));
 }
 
+const heroOrb = document.querySelector("[data-hero-orb]");
+const heroSection = heroOrb?.closest(".editorial-hero");
+
+if (heroOrb && heroSection) {
+  let heroVisible = true;
+
+  const syncHeroOrb = () => {
+    heroOrb.classList.toggle(
+      "is-ambient-active",
+      heroVisible && !document.hidden,
+    );
+  };
+
+  syncHeroOrb();
+
+  if ("IntersectionObserver" in window) {
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        heroVisible = entry.isIntersecting;
+        syncHeroOrb();
+      },
+      { threshold: 0.15 },
+    );
+
+    heroObserver.observe(heroSection);
+  }
+
+  document.addEventListener("visibilitychange", syncHeroOrb);
+}
+
 const revealNodes = document.querySelectorAll("[data-reveal]");
 
 if ("IntersectionObserver" in window) {

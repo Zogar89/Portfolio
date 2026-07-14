@@ -106,6 +106,34 @@ test("wide and tall desktops use the balanced editorial hero", () => {
   assert.match(css, /align-content:\s*center/);
 });
 
+test("hero exposes a visibility-aware heartbeat orb", () => {
+  const html = read("index.html");
+  const css = read("styles.css");
+  const javascript = read("script.js");
+
+  assert.match(
+    html,
+    /class="hero-heartbeat-orb"[^>]*data-hero-orb[^>]*aria-hidden="true"/,
+  );
+  assert.match(css, /@keyframes\s+hero-heartbeat\s*\{/);
+  assert.match(css, /animation:\s*hero-heartbeat 4\.8s/);
+  assert.match(
+    css,
+    /\.hero-heartbeat-orb\.is-ambient-active[\s\S]*animation-play-state:\s*running/,
+  );
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[\s\S]*\.hero-heartbeat-orb\s*\{[\s\S]*display:\s*none/,
+  );
+  assert.match(
+    css,
+    /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*\.hero-heartbeat-orb[\s\S]*animation:\s*none/,
+  );
+  assert.match(javascript, /querySelector\("\[data-hero-orb\]"\)/);
+  assert.match(javascript, /classList\.toggle\(\s*"is-ambient-active"/);
+  assert.match(javascript, /visibilitychange/);
+});
+
 test("project rows expose the animated accent selection", () => {
   const css = read("styles.css");
 
