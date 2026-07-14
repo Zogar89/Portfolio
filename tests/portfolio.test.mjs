@@ -50,6 +50,14 @@ test("home keeps every public project route", () => {
   }
 });
 
+test("public copy consistently calls case studies projects", () => {
+  for (const file of allPages) {
+    assert.doesNotMatch(read(file), /\bexpedientes?\b/i, file);
+  }
+
+  assert.match(read("index.html"), /Explorar los proyectos/);
+});
+
 test("home exposes accessible desktop section navigation", () => {
   const html = read("index.html");
   const css = read("styles.css");
@@ -96,6 +104,44 @@ test("wide and tall desktops use the balanced editorial hero", () => {
   assert.match(css, /min-height:\s*clamp\(820px,\s*88dvh,\s*1200px\)/);
   assert.match(css, /justify-content:\s*flex-start/);
   assert.match(css, /align-content:\s*center/);
+});
+
+test("project rows expose the animated accent selection", () => {
+  const css = read("styles.css");
+
+  assert.match(css, /\.work-row::before\s*\{/);
+  assert.match(css, /transform-origin:\s*left center/);
+  assert.match(css, /transform:\s*scaleX\(0\)/);
+  assert.match(
+    css,
+    /\.work-row:hover::before,\s*\.work-row:focus-visible::before\s*\{[\s\S]*?transform:\s*scaleX\(1\)/,
+  );
+  assert.doesNotMatch(css, /\.work-row\.is-active/);
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[\s\S]*\.work-row::before\s*\{[\s\S]*content:\s*none/,
+  );
+});
+
+test("project row selection stays geometrically stable and uses the revised CTA", () => {
+  const html = read("index.html");
+  const css = read("styles.css");
+  const activeRowRule = css.match(
+    /\.work-row:hover,\s*\.work-row:focus-visible\s*\{([\s\S]*?)\}/,
+  )?.[1] ?? "";
+
+  assert.equal((html.match(/class="work-action">Ver Proyecto/g) ?? []).length, 4);
+  assert.doesNotMatch(html, /Abrir proyecto/);
+  assert.match(css, /padding:\s*22px 24px 22px 0/);
+  assert.match(
+    css,
+    /transition:\s*transform 750ms cubic-bezier\(0\.4,\s*0,\s*0\.2,\s*1\)/,
+  );
+  assert.match(
+    css,
+    /\.work-number\s*\{[\s\S]*?padding-left:\s*16px/,
+  );
+  assert.doesNotMatch(activeRowRule, /padding/);
 });
 
 for (const page of projectPages) {

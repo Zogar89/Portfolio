@@ -35,7 +35,7 @@ El rediseño conserva la arquitectura estática y el contenido verificado. Cambi
 
 ## Dirección aprobada
 
-La dirección visual se denomina **Expedientes de producto**.
+La dirección visual se denomina **Proyectos de producto**.
 
 Es un lenguaje editorial, sobrio y secuencial. La personalidad surge de la tipografía, la composición y la relación entre problema, decisión y prueba. No depende de efectos decorativos, paneles ficticios ni una estética de dashboard aplicada al portfolio.
 
@@ -81,7 +81,7 @@ Una secuencia breve explica el método común a los proyectos:
 
 Esta secuencia reemplaza el intro strip actual y prepara la lectura de los casos.
 
-### 4. Expediente principal
+### 4. Proyecto principal
 
 Meli Core Dumper ocupa el primer bloque y recibe mayor jerarquía. El bloque combina:
 
@@ -111,7 +111,7 @@ El cierre sintetiza la propuesta: producto para decidir e ingeniería para soste
 
 Las cuatro páginas internas comparten una columna vertebral. El contenido particular de cada proyecto se conserva y se reordena para favorecer la comprensión.
 
-### 1. Portada del expediente
+### 1. Portada del proyecto
 
 Incluye:
 
@@ -145,7 +145,7 @@ La arquitectura aparece como argumento causal, no como inventario de herramienta
 
 ### 6. Resultado y continuidad
 
-El cierre resume qué quedó funcionando sin inventar métricas. Luego ofrece acceso a los otros expedientes mediante un índice compacto.
+El cierre resume qué quedó funcionando sin inventar métricas. Luego ofrece acceso a los otros proyectos mediante un índice compacto.
 
 ## Narrativa por proyecto
 
@@ -212,7 +212,7 @@ El sitio continúa como HTML, CSS y JavaScript estáticos, compatible con GitHub
 ### Archivos principales
 
 - `index.html`: nueva arquitectura editorial de la home.
-- `projects/*/index.html`: estructura compartida de expedientes.
+- `projects/*/index.html`: estructura compartida de proyectos.
 - `styles.css`: tokens, layouts, componentes y responsive compartidos.
 - `script.js`: mejora progresiva para enlaces externos, revelado y evidencia contextual.
 - `.gitignore`: exclusión de `.superpowers/`.

@@ -10,9 +10,11 @@ La interacción conserva el índice editorial existente y evita convertir las fi
 
 - La fila activa recibe un lavado horizontal translúcido con el color `--signal`.
 - Un borde naranja de `4px` funciona como frente visual de la franja.
-- La franja crece desde la izquierda con `scaleX` y una transición de `320ms`.
-- El estado se activa con hover, foco de teclado y la clase persistente `.is-active` que ya sincroniza la captura lateral.
-- El CTA adopta el color naranja y el contenido se desplaza levemente para reforzar la selección.
+- La franja crece desde la izquierda con `scaleX` y una transición simétrica de `750ms`.
+- El estado visual se activa sólo con hover o foco de teclado; `.is-active` queda reservado para sincronizar la captura lateral.
+- El CTA dice “Ver Proyecto”, adopta el color naranja y conserva un margen derecho estable.
+- Ningún elemento cambia de tamaño o posición durante la interacción, evitando saltos de línea.
+- El número conserva un inset izquierdo fijo de `16px` para no superponerse con la barra.
 - En móvil la franja se desactiva para mantener el flujo táctil actual.
 - `prefers-reduced-motion` conserva el estado visual pero elimina la duración perceptible mediante la regla global existente.
 

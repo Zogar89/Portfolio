@@ -14,7 +14,7 @@
 - Mostrar la guía únicamente mediante `@media (min-width: 1180px)`.
 - Mantener funcionalidad básica sin JavaScript.
 - Respetar `prefers-reduced-motion: reduce`.
-- No modificar las páginas de expedientes ni los archivos sin seguimiento existentes.
+- No modificar las páginas de proyectos ni los archivos sin seguimiento existentes.
 
 ---
 

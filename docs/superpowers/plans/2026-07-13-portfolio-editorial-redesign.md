@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Convertir la home y los cuatro case studies en el sistema editorial de expedientes aprobado, conservando rutas, contenido verificado y compatibilidad con GitHub Pages.
+**Goal:** Convertir la home y los cuatro case studies en el sistema editorial de proyectos aprobado, conservando rutas, contenido verificado y compatibilidad con GitHub Pages.
 
 **Architecture:** El sitio sigue siendo HTML, CSS y JavaScript estáticos sin build. `styles.css` contiene tokens y patrones compartidos; cada HTML conserva contenido semántico específico; `script.js` agrega mejoras progresivas sin ocultar contenido cuando JavaScript no está disponible.
 
@@ -22,10 +22,10 @@
 ## File Map
 
 - `index.html`: home editorial e índice de proyectos.
-- `projects/meli-core-dumper/index.html`: expediente de BI y señales.
-- `projects/stock-central/index.html`: expediente de runtime estático y jobs.
-- `projects/silver-usage-report/index.html`: expediente de privacidad y collector.
-- `projects/monitor-reviews/index.html`: expediente de reviews y sincronización.
+- `projects/meli-core-dumper/index.html`: proyecto de BI y señales.
+- `projects/stock-central/index.html`: proyecto de runtime estático y jobs.
+- `projects/silver-usage-report/index.html`: proyecto de privacidad y collector.
+- `projects/monitor-reviews/index.html`: proyecto de reviews y sincronización.
 - `styles.css`: tokens, layouts editoriales, evidencia, responsive y estados.
 - `script.js`: enlaces externos, revelado progresivo y selector de evidencia.
 - `tests/portfolio.test.mjs`: contratos estructurales, enlaces, assets y progressive enhancement.
@@ -127,7 +127,7 @@ git commit -m "feat: reshape portfolio home as editorial index"
 - Modify: `tests/portfolio.test.mjs`
 
 **Interfaces:**
-- Consumes: clases semánticas producidas por Task 1 y las clases de expedientes de Task 3.
+- Consumes: clases semánticas producidas por Task 1 y las clases de proyectos de Task 3.
 - Produces: tokens `--ink`, `--paper`, `--signal`, `--steel`, `--page`; layouts `.editorial-hero`, `.method`, `.work-index`, `.dossier-*`; fallbacks responsive.
 
 - [ ] **Step 1: Agregar tests fallidos del sistema CSS**
@@ -170,7 +170,7 @@ Definir al inicio:
 }
 ```
 
-El archivo debe cubrir navegación, hero, método, índice con preview fijo en escritorio, imagen inline en móvil, portada de expediente, secciones de historia, decisiones, flujo de arquitectura, stack compacto, próximos proyectos y footer. Toda transición debe tener contraparte en `prefers-reduced-motion: reduce`.
+El archivo debe cubrir navegación, hero, método, índice con preview fijo en escritorio, imagen inline en móvil, portada de proyecto, secciones de historia, decisiones, flujo de arquitectura, stack compacto, próximos proyectos y footer. Toda transición debe tener contraparte en `prefers-reduced-motion: reduce`.
 
 - [ ] **Step 4: Ejecutar los tests CSS**
 
@@ -185,7 +185,7 @@ git add styles.css tests/portfolio.test.mjs
 git commit -m "feat: add shared editorial visual system"
 ```
 
-### Task 3: Convertir los cuatro proyectos en expedientes
+### Task 3: Convertir los cuatro casos en proyectos
 
 **Files:**
 - Modify: `projects/meli-core-dumper/index.html`
@@ -198,7 +198,7 @@ git commit -m "feat: add shared editorial visual system"
 - Consumes: `.dossier-*`, `.decision-grid`, `.architecture-flow`, `.tech-ledger` y `.next-projects` de Task 2.
 - Produces: cuatro páginas con el mismo contrato semántico y copy específico.
 
-- [ ] **Step 1: Agregar tests fallidos de expedientes**
+- [ ] **Step 1: Agregar tests fallidos de proyectos**
 
 ```js
 for (const route of projectRoutes) {
@@ -218,13 +218,13 @@ Run: `node --test tests/portfolio.test.mjs`
 
 Expected: FAIL porque las páginas todavía usan `.case-grid` y `.tech-matrix`.
 
-- [ ] **Step 3: Reescribir cada expediente**
+- [ ] **Step 3: Reescribir cada proyecto**
 
 Usar en las cuatro páginas:
 
 ```html
 <main class="dossier-main">
-  <section class="dossier-hero"><div class="dossier-copy"><p class="kicker">Expediente 01</p><h1>Meli Core Dumper</h1><p class="dossier-thesis">De exportar datos a producir decisiones dentro del producto.</p></div><figure class="dossier-visual"><img src="../../assets/projects/meli-core-dumper.png" alt="Panel operativo de Meli Core Dumper" width="1600" height="900"></figure></section>
+  <section class="dossier-hero"><div class="dossier-copy"><p class="kicker">Proyecto 01</p><h1>Meli Core Dumper</h1><p class="dossier-thesis">De exportar datos a producir decisiones dentro del producto.</p></div><figure class="dossier-visual"><img src="../../assets/projects/meli-core-dumper.png" alt="Panel operativo de Meli Core Dumper" width="1600" height="900"></figure></section>
   <section class="dossier-friction dossier-section"><p class="section-index">01 · La fricción</p><div><h2>El análisis empezaba cuando el producto terminaba.</h2><p>Los datos se exportaban para analizarlos afuera.</p></div></section>
   <section class="dossier-section"><p class="section-index">02 · Decisiones</p><div class="decision-grid"><article><span>01</span><h3>Analizar dentro del producto</h3></article><article><span>02</span><h3>Separar hechos de señales</h3></article></div></section>
   <section class="dossier-section architecture-section"><p class="section-index">03 · Sistema</p><div class="architecture-flow"><span>API</span><span>Facts</span><span>Daily metrics</span><span>Signals</span><span>Decision</span></div></section>
@@ -235,7 +235,7 @@ Usar en las cuatro páginas:
 
 Conservar los hechos de cada página y reordenarlos según las tesis del spec. No agregar métricas. Mantener los enlaces a repositorio y demo existentes; Monitor de Reviews conserva sólo los enlaces actuales.
 
-- [ ] **Step 4: Ejecutar los tests de expedientes**
+- [ ] **Step 4: Ejecutar los tests de proyectos**
 
 Run: `node --test tests/portfolio.test.mjs`
 
@@ -344,7 +344,7 @@ Expected: sin errores de whitespace.
 
 - [ ] **Step 4: Revisar el sitio renderizado**
 
-Abrir la home y al menos un expediente en 1440 px, 900 px y 390 px. Confirmar: sin overflow horizontal; navegación visible; imágenes legibles; foco perceptible; imágenes inline en móvil; contenido visible con JavaScript desactivado.
+Abrir la home y al menos un proyecto en 1440 px, 900 px y 390 px. Confirmar: sin overflow horizontal; navegación visible; imágenes legibles; foco perceptible; imágenes inline en móvil; contenido visible con JavaScript desactivado.
 
 - [ ] **Step 5: Commit de correcciones finales si existen**
 

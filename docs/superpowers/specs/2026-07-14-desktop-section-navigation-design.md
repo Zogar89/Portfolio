@@ -81,6 +81,6 @@ La implementación se considerará terminada cuando:
 
 - Implementar scroll-snap obligatorio.
 - Interceptar la rueda o el trackpad.
-- Modificar las páginas de los expedientes.
+- Modificar las páginas de los proyectos.
 - Cambiar el diseño del header.
 - Mostrar la guía en móvil o tablet.

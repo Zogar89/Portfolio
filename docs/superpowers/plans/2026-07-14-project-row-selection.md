@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Añadir una franja naranja animada que identifique la fila activa del índice de proyectos y permanezca sincronizada con la captura lateral.
+**Goal:** Añadir una franja naranja animada que identifique la fila bajo hover o foco sin interferir con la captura lateral seleccionada.
 
-**Architecture:** La interacción reutiliza `.is-active`, hover y `focus-visible`. Un pseudo-elemento CSS genera el lavado sin agregar markup ni JavaScript, mientras un test estructural fija el contrato responsive y de movimiento.
+**Architecture:** La interacción visual usa hover y `focus-visible`; `.is-active` queda reservado para la sincronización de previews. Un pseudo-elemento CSS genera el lavado sin agregar markup ni JavaScript, mientras un test estructural fija el contrato responsive y de movimiento.
 
 **Tech Stack:** CSS nativo, JavaScript existente, Node.js `node:test`.
 
@@ -25,8 +25,8 @@
 - Modify: `styles.css`
 
 **Interfaces:**
-- Consumes: `.work-row`, `.work-row.is-active`, `.work-action`, `--signal` y `setActiveProject()` existentes.
-- Produces: `.work-row::before` como franja visual y estados equivalentes para hover, foco y selección activa.
+- Consumes: `.work-row`, `.work-action`, `--signal` y `setActiveProject()` existentes.
+- Produces: `.work-row::before` como franja visual transitoria para hover y foco.
 
 - [ ] **Step 1: Escribir el test fallido**
 
@@ -39,7 +39,8 @@ test("project rows expose the animated accent selection", () => {
   assert.match(css, /\.work-row::before\s*\{/);
   assert.match(css, /transform-origin:\s*left center/);
   assert.match(css, /transform:\s*scaleX\(0\)/);
-  assert.match(css, /\.work-row\.is-active::before[\s\S]*transform:\s*scaleX\(1\)/);
+  assert.match(css, /\.work-row:hover::before,[\s\S]*transform:\s*scaleX\(1\)/);
+  assert.doesNotMatch(css, /\.work-row\.is-active/);
   assert.match(css, /@media\s*\(max-width:\s*760px\)[\s\S]*\.work-row::before\s*\{[\s\S]*content:\s*none/);
 });
 ```
@@ -75,18 +76,16 @@ Agregar a las reglas existentes de `styles.css`:
   );
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .work-row:hover::before,
-.work-row:focus-visible::before,
-.work-row.is-active::before {
+.work-row:focus-visible::before {
   transform: scaleX(1);
 }
 
 .work-row:hover .work-action,
-.work-row:focus-visible .work-action,
-.work-row.is-active .work-action {
+.work-row:focus-visible .work-action {
   color: var(--signal);
 }
 
