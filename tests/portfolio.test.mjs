@@ -36,7 +36,7 @@ const localReferences = (html) =>
 test("home exposes the editorial project index", () => {
   const html = read("index.html");
 
-  assert.match(html, /Problemas reales\.\s*Productos que hacen su trabajo\./);
+  assert.match(html, /Problemas reales\.\s*Productos que ayudan a decidir\./);
   assert.match(html, /class="work-index"/);
   assert.equal((html.match(/class="work-row(?:\s|\")/g) ?? []).length, 4);
   assert.doesNotMatch(html, /stats-panel|case-card/);
@@ -47,6 +47,7 @@ test("home uses the approved direct and natural copy", () => {
   const normalizedHtml = html.replace(/\s+/g, " ");
 
   const expectedCopy = [
+    "Datos x Producto",
     "Diseño y construyo herramientas combinando datos, APIs y criterio de producto.",
     "Cómo trabajo",
     "Entender qué falla, decidir qué importa y construir una solución que se sostenga.",
@@ -68,6 +69,8 @@ test("home uses the approved direct and natural copy", () => {
   for (const copy of expectedCopy) {
     assert.match(normalizedHtml, new RegExp(escapeRegExp(copy)));
   }
+
+  assert.equal((html.match(/Datos x Producto/g) ?? []).length, 2);
 
   const methodSteps = [
     ["Entender", "el problema"],
@@ -105,10 +108,10 @@ test("public copy consistently calls case studies projects", () => {
   assert.match(read("index.html"), /Explorar los proyectos/);
 });
 
-test("home exposes accessible desktop section navigation", () => {
+test("home navigation excludes the temporarily hidden method section", () => {
   const html = read("index.html");
   const css = read("styles.css");
-  const sectionIds = ["inicio", "metodo", "proyectos", "cierre"];
+  const sectionIds = ["inicio", "proyectos", "cierre"];
 
   assert.match(html, /data-section-nav/);
   assert.match(html, /aria-label="Secciones de la página"/);
@@ -117,6 +120,12 @@ test("home exposes accessible desktop section navigation", () => {
     assert.match(html, new RegExp(`id="${id}"[^>]*data-section`));
     assert.match(html, new RegExp(`href="#${id}"[^>]*data-section-link`));
   }
+
+  assert.match(html, /class="method"[^>]*id="metodo"[^>]*hidden/);
+  assert.doesNotMatch(html, /href="#metodo"/);
+  assert.match(html, /href="#inicio"[\s\S]*?<span aria-hidden="true">01<\/span>/);
+  assert.match(html, /href="#proyectos"[\s\S]*?<span aria-hidden="true">02<\/span>/);
+  assert.match(html, /href="#cierre"[\s\S]*?<span aria-hidden="true">03<\/span>/);
 
   assert.match(css, /@media\s*\(min-width:\s*1180px\)/);
   assert.match(css, /\.section-nav/);
