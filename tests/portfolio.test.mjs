@@ -36,10 +36,57 @@ const localReferences = (html) =>
 test("home exposes the editorial project index", () => {
   const html = read("index.html");
 
-  assert.match(html, /Problemas reales\.\s*Productos que operan\./);
+  assert.match(html, /Problemas reales\.\s*Productos que hacen su trabajo\./);
   assert.match(html, /class="work-index"/);
   assert.equal((html.match(/class="work-row(?:\s|\")/g) ?? []).length, 4);
   assert.doesNotMatch(html, /stats-panel|case-card/);
+});
+
+test("home uses the approved direct and natural copy", () => {
+  const html = read("index.html");
+  const normalizedHtml = html.replace(/\s+/g, " ");
+
+  const expectedCopy = [
+    "Diseño y construyo herramientas combinando datos, APIs y criterio de producto.",
+    "Cómo trabajo",
+    "Entender qué falla, decidir qué importa y construir una solución que se sostenga.",
+    "Una selección de mi trabajo.",
+    "Proyectos en los que combiné definición de producto y ejecución técnica.",
+    "Analítica para sellers",
+    "Sincroniza datos de Mercado Libre y los convierte en métricas, tendencias y anomalías.",
+    "Stock de filamentos 3D",
+    "Centraliza el stock de distintos proveedores para buscar, comparar y armar pedidos.",
+    "Reporte privado de uso de IA",
+    "Genera métricas de uso de IA sin enviar prompts, respuestas, código ni secretos.",
+    "Seguimiento de reviews",
+    "Centraliza las reviews de Mercado Libre y muestra cómo evoluciona la valoración de cada producto.",
+    "Datos para entender.",
+    "Producto para decidir.",
+    "Busco soluciones que respondan a una necesidad concreta y conviertan información dispersa en conocimiento útil.",
+  ];
+
+  for (const copy of expectedCopy) {
+    assert.match(normalizedHtml, new RegExp(escapeRegExp(copy)));
+  }
+
+  const methodSteps = [
+    ["Entender", "el problema"],
+    ["Definir", "qué importa"],
+    ["Construir", "la solución"],
+    ["Mejorar", "con el uso"],
+  ];
+
+  for (const [action, detail] of methodSteps) {
+    assert.match(
+      html,
+      new RegExp(`<strong>${escapeRegExp(action)}</strong><small>${escapeRegExp(detail)}</small>`),
+    );
+  }
+
+  assert.doesNotMatch(
+    html,
+    /Productos que operan|tienen que convivir|Del ruido inicial|la apuesta|Cuatro fricciones|Static data product|Privacy flow|Operational intelligence|operables después del deploy/,
+  );
 });
 
 test("home keeps every public project route", () => {
@@ -76,6 +123,25 @@ test("home exposes accessible desktop section navigation", () => {
   assert.match(css, /scroll-margin-top/);
 });
 
+test("home exposes branded GitHub and LinkedIn links", () => {
+  const html = read("index.html");
+  const css = read("styles.css");
+
+  assert.match(html, /id="icon-github"/);
+  assert.match(html, /id="icon-linkedin"/);
+  assert.equal(
+    html.match(/https:\/\/www\.linkedin\.com\/in\/gabrielalejandrogarcia\//g)?.length,
+    2,
+  );
+  assert.match(html, /class="nav-links"[\s\S]*class="social-link"/);
+  assert.match(html, /class="closing-links"/);
+  assert.match(css, /\.social-icon\s*\{/);
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[\s\S]*\.nav-links \.social-link span\s*\{[\s\S]*display:\s*none/,
+  );
+});
+
 test("shared stylesheet defines the approved visual system", () => {
   const css = read("styles.css");
   const tokens = [
@@ -106,32 +172,107 @@ test("wide and tall desktops use the balanced editorial hero", () => {
   assert.match(css, /align-content:\s*center/);
 });
 
-test("hero exposes a visibility-aware heartbeat orb", () => {
+test("header brand uses the GG monogram without a portrait", () => {
+  const html = read("index.html");
+  const css = read("styles.css");
+
+  assert.match(html, /<span class="brand-mark" aria-hidden="true">GG<\/span>/);
+  assert.doesNotMatch(html, /gabriel-garcia-portrait\.png|brand-avatar|hero-portrait/);
+  assert.doesNotMatch(css, /brand-avatar|hero-portrait/);
+});
+
+test("hero exposes a visibility-aware ambient data series", () => {
   const html = read("index.html");
   const css = read("styles.css");
   const javascript = read("script.js");
 
   assert.match(
     html,
-    /class="hero-heartbeat-orb"[^>]*data-hero-orb[^>]*aria-hidden="true"/,
+    /class="hero-data-series"[^>]*data-hero-series[^>]*aria-hidden="true"/,
   );
-  assert.match(css, /@keyframes\s+hero-heartbeat\s*\{/);
-  assert.match(css, /animation:\s*hero-heartbeat 4\.8s/);
+  assert.match(html, /id="hero-data-path"/);
+  assert.doesNotMatch(html, /hero-series-point/);
   assert.match(
     css,
-    /\.hero-heartbeat-orb\.is-ambient-active[\s\S]*animation-play-state:\s*running/,
-  );
-  assert.match(
-    css,
-    /@media\s*\(max-width:\s*760px\)[\s\S]*\.hero-heartbeat-orb\s*\{[\s\S]*display:\s*none/,
+    /\.hero-data-series\s*\{[\s\S]*?left:\s*50%[\s\S]*?width:\s*100vw[\s\S]*?transform:\s*translateX\(-50%\)/,
   );
   assert.match(
     css,
-    /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*\.hero-heartbeat-orb[\s\S]*animation:\s*none/,
+    /\.editorial-hero\s*\{[\s\S]*?overflow:\s*visible/,
   );
-  assert.match(javascript, /querySelector\("\[data-hero-orb\]"\)/);
+  assert.match(css, /body\s*\{[\s\S]*?overflow-x:\s*clip/);
+  assert.match(css, /@keyframes\s+hero-data-travel\s*\{/);
+  assert.match(css, /animation:\s*hero-data-travel 12s/);
+  assert.match(css, /stroke-dasharray:\s*34 1200/);
+  assert.doesNotMatch(css, /stroke-dasharray:\s*34 980/);
+  assert.match(
+    css,
+    /\.hero-data-series\.is-ambient-active[\s\S]*animation-play-state:\s*running/,
+  );
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[\s\S]*\.hero-data-series\s*\{[\s\S]*display:\s*none/,
+  );
+  assert.match(
+    css,
+    /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*\.hero-series-signal[\s\S]*display:\s*none/,
+  );
+  assert.match(javascript, /querySelector\("\[data-hero-series\]"\)/);
   assert.match(javascript, /classList\.toggle\(\s*"is-ambient-active"/);
   assert.match(javascript, /visibilitychange/);
+  assert.match(javascript, /pauseAnimations/);
+  assert.match(javascript, /prefers-reduced-motion/);
+});
+
+test("hero title uses a subtle responsive ink cloud", () => {
+  const css = read("styles.css");
+  const titleRule = css.match(/\.hero-statement h1\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
+  const cloudRule = css.match(/\.hero-statement h1::before\s*\{([\s\S]*?)\n\}/)?.[1] ?? "";
+
+  assert.match(titleRule, /position:\s*relative/);
+  assert.match(titleRule, /isolation:\s*isolate/);
+  assert.match(cloudRule, /content:\s*""/);
+  assert.match(cloudRule, /radial-gradient/);
+  assert.match(cloudRule, /filter:\s*blur\(/);
+  assert.match(cloudRule, /pointer-events:\s*none/);
+  assert.doesNotMatch(cloudRule, /animation/);
+  assert.match(
+    css,
+    /@media\s*\(max-width:\s*760px\)[\s\S]*?\.hero-statement h1::before\s*\{[\s\S]*?content:\s*none/,
+  );
+});
+
+test("hero CTA adopts its hover color in sync with the ambient data series", () => {
+  const html = read("index.html");
+  const css = read("styles.css");
+  const attentionKeyframes = css.slice(
+    css.indexOf("@keyframes hero-cta-attention"),
+    css.indexOf(".closing-links"),
+  );
+
+  assert.match(html, /class="arrow-link hero-cta"/);
+  assert.match(html, /class="hero-cta-label"/);
+  assert.match(html, /class="hero-cta-arrow"/);
+  assert.doesNotMatch(html, /hero-cta-attention/);
+  assert.match(css, /\.hero-cta\s*\{[\s\S]*animation:\s*hero-cta-attention 12s/);
+  assert.match(css, /animation:\s*hero-cta-attention 12s linear/);
+  assert.match(css, /@keyframes\s+hero-cta-attention\s*\{/);
+  assert.match(attentionKeyframes, /color:\s*var\(--signal\)/);
+  assert.match(attentionKeyframes, /color:\s*var\(--text\)/);
+  assert.match(attentionKeyframes, /62%/);
+  assert.match(attentionKeyframes, /70\.333%/);
+  assert.match(attentionKeyframes, /57\.833%/);
+  assert.match(attentionKeyframes, /74\.5%/);
+  assert.doesNotMatch(css, /hero-cta-shimmer/);
+  assert.doesNotMatch(css, /hero-cta-arrow-pulse/);
+  assert.match(
+    css,
+    /\.hero-data-series\.is-ambient-active\s*~\s*\.hero-statement\s+\.hero-cta\s*\{[\s\S]*animation-play-state:\s*running/,
+  );
+  assert.match(
+    css,
+    /@media\s*\(prefers-reduced-motion:\s*reduce\)[\s\S]*\.hero-cta[\s\S]*animation:\s*none/,
+  );
 });
 
 test("project rows expose the animated accent selection", () => {

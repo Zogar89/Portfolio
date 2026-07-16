@@ -64,26 +64,32 @@ if ("IntersectionObserver" in window && sectionLinks.length) {
   pageSections.forEach((section) => sectionObserver.observe(section));
 }
 
-const heroOrb = document.querySelector("[data-hero-orb]");
-const heroSection = heroOrb?.closest(".editorial-hero");
+const heroSeries = document.querySelector("[data-hero-series]");
+const heroSection = heroSeries?.closest(".editorial-hero");
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-if (heroOrb && heroSection) {
+if (heroSeries && heroSection) {
   let heroVisible = true;
 
-  const syncHeroOrb = () => {
-    heroOrb.classList.toggle(
-      "is-ambient-active",
-      heroVisible && !document.hidden,
-    );
+  const syncHeroSeries = () => {
+    const isActive = heroVisible && !document.hidden && !reducedMotion.matches;
+
+    heroSeries.classList.toggle("is-ambient-active", isActive);
+
+    if (isActive) {
+      heroSeries.unpauseAnimations?.();
+    } else {
+      heroSeries.pauseAnimations?.();
+    }
   };
 
-  syncHeroOrb();
+  syncHeroSeries();
 
   if ("IntersectionObserver" in window) {
     const heroObserver = new IntersectionObserver(
       ([entry]) => {
         heroVisible = entry.isIntersecting;
-        syncHeroOrb();
+        syncHeroSeries();
       },
       { threshold: 0.15 },
     );
@@ -91,7 +97,8 @@ if (heroOrb && heroSection) {
     heroObserver.observe(heroSection);
   }
 
-  document.addEventListener("visibilitychange", syncHeroOrb);
+  document.addEventListener("visibilitychange", syncHeroSeries);
+  reducedMotion.addEventListener?.("change", syncHeroSeries);
 }
 
 const revealNodes = document.querySelectorAll("[data-reveal]");

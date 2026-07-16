@@ -8,18 +8,34 @@
       content="Portfolio de Gabriel Garcia: productos digitales construidos desde problemas reales, con decisiones de producto, datos, APIs y sistemas operables."
     />
     <title>Gabriel Garcia | Producto e ingeniería</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260715-monogram" />
   </head>
   <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.084-.729.084-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.305-5.466-1.334-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 0 1 3-.405c1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.624-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z" />
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM6.814 20.452H3.861V9h2.953v11.452z" />
+      </symbol>
+    </svg>
+
     <header class="site-header">
       <nav class="nav" aria-label="Principal">
         <a class="brand" href="#inicio" aria-label="Ir al inicio">
-          <span class="brand-mark" aria-hidden="true">G</span>
+          <span class="brand-mark" aria-hidden="true">GG</span>
           <span>Gabriel Garcia</span>
         </a>
         <div class="nav-links">
           <a href="#proyectos">Trabajo seleccionado</a>
-          <a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a>
+          <a class="social-link" href="https://github.com/Zogar89" rel="noreferrer" aria-label="GitHub">
+            <svg class="social-icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+            <span>GitHub</span>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/gabrielalejandrogarcia/" rel="noreferrer" aria-label="LinkedIn">
+            <svg class="social-icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
+            <span>LinkedIn</span>
+          </a>
         </div>
       </nav>
     </header>
@@ -51,44 +67,68 @@
 
     <main>
       <section class="editorial-hero" id="inicio" data-section>
-        <span class="hero-heartbeat-orb" data-hero-orb aria-hidden="true"></span>
+        <svg
+          class="hero-data-series"
+          data-hero-series
+          aria-hidden="true"
+          viewBox="0 0 920 420"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="hero-data-area" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ff7142" stop-opacity="0.26" />
+              <stop offset="1" stop-color="#ff7142" stop-opacity="0" />
+            </linearGradient>
+            <path
+              id="hero-data-path"
+              d="M0 300 C88 286 124 174 210 196 S350 302 435 186 S578 58 662 132 S795 236 920 78"
+            />
+          </defs>
+          <path class="hero-series-grid" d="M0 300H920 M0 220H920 M0 140H920 M0 60H920" />
+          <path
+            class="hero-series-area"
+            d="M0 300 C88 286 124 174 210 196 S350 302 435 186 S578 58 662 132 S795 236 920 78 L920 420 L0 420Z"
+          />
+          <use class="hero-series-base" href="#hero-data-path"></use>
+          <use class="hero-series-signal" href="#hero-data-path"></use>
+        </svg>
         <div class="hero-header" data-reveal>
           <p class="kicker">Producto × Ingeniería</p>
           <p class="hero-edition" aria-label="Edición del portfolio">Portfolio / 2026</p>
         </div>
         <div class="hero-statement" data-reveal>
-          <h1>Problemas reales. Productos que operan.</h1>
+          <h1>Problemas reales. Productos que hacen su trabajo.</h1>
           <div class="hero-aside">
             <p>
-              Diseño y construyo herramientas donde datos, APIs y decisiones de
-              producto tienen que convivir.
+              Diseño y construyo herramientas combinando datos, APIs y criterio de
+              producto.
             </p>
-            <a class="arrow-link" href="#proyectos">Explorar los proyectos <span aria-hidden="true">↘</span></a>
+            <a class="arrow-link hero-cta" href="#proyectos">
+              <span class="hero-cta-label">Explorar los proyectos</span>
+              <span class="hero-cta-arrow" aria-hidden="true">↘</span>
+            </a>
           </div>
         </div>
       </section>
 
       <section class="method" id="metodo" data-section aria-labelledby="method-title" data-reveal>
         <div class="method-heading">
-          <p class="kicker">Una forma de trabajar</p>
-          <h2 id="method-title">Del ruido inicial a un sistema que queda funcionando.</h2>
+          <p class="kicker">Cómo trabajo</p>
+          <h2 id="method-title">Entender qué falla, decidir qué importa y construir una solución que se sostenga.</h2>
         </div>
         <ol class="method-list">
-          <li><span>01</span><strong>Detectar</strong><small>la fricción</small></li>
-          <li><span>02</span><strong>Diseñar</strong><small>la apuesta</small></li>
-          <li><span>03</span><strong>Construir</strong><small>el sistema</small></li>
-          <li><span>04</span><strong>Operar</strong><small>el producto</small></li>
+          <li><span>01</span><strong>Entender</strong><small>el problema</small></li>
+          <li><span>02</span><strong>Definir</strong><small>qué importa</small></li>
+          <li><span>03</span><strong>Construir</strong><small>la solución</small></li>
+          <li><span>04</span><strong>Mejorar</strong><small>con el uso</small></li>
         </ol>
       </section>
 
       <section class="selected-work" id="proyectos" data-section>
         <header class="section-intro" data-reveal>
           <p class="kicker">Trabajo seleccionado / 01–04</p>
-          <h2>Cuatro fricciones convertidas en producto.</h2>
-          <p>
-            Cada proyecto conecta el contexto, la decisión y la ingeniería que
-            permitió dejar algo útil en pie.
-          </p>
+          <h2>Una selección de mi trabajo.</h2>
+          <p>Proyectos en los que combiné definición de producto y ejecución técnica.</p>
         </header>
 
         <div class="work-index">
@@ -102,9 +142,9 @@
             >
               <span class="work-number">01</span>
               <div class="work-copy">
-                <span class="work-category">Business intelligence</span>
+                <span class="work-category">Analítica para sellers</span>
                 <h3>Meli Core Dumper</h3>
-                <p>De exportar datos a producir inteligencia dentro del producto.</p>
+                <p>Sincroniza datos de Mercado Libre y los convierte en métricas, tendencias y anomalías.</p>
               </div>
               <span class="work-action">Ver Proyecto <span aria-hidden="true">↗</span></span>
               <img
@@ -125,9 +165,9 @@
             >
               <span class="work-number">02</span>
               <div class="work-copy">
-                <span class="work-category">Static data product</span>
+                <span class="work-category">Stock de filamentos 3D</span>
                 <h3>Stock Central</h3>
-                <p>Jobs como backend. GitHub Pages como runtime.</p>
+                <p>Centraliza el stock de distintos proveedores para buscar, comparar y armar pedidos.</p>
               </div>
               <span class="work-action">Ver Proyecto <span aria-hidden="true">↗</span></span>
               <img
@@ -149,9 +189,9 @@
             >
               <span class="work-number">03</span>
               <div class="work-copy">
-                <span class="work-category">Privacy flow</span>
+                <span class="work-category">Reporte privado de uso de IA</span>
                 <h3>Silver Usage Report</h3>
-                <p>Privacidad convertida en una decisión de arquitectura.</p>
+                <p>Genera métricas de uso de IA sin enviar prompts, respuestas, código ni secretos.</p>
               </div>
               <span class="work-action">Ver Proyecto <span aria-hidden="true">↗</span></span>
               <img
@@ -173,9 +213,9 @@
             >
               <span class="work-number">04</span>
               <div class="work-copy">
-                <span class="work-category">Operational intelligence</span>
+                <span class="work-category">Seguimiento de reviews</span>
                 <h3>Monitor de Reviews</h3>
-                <p>Una grieta concreta en la operación de sellers.</p>
+                <p>Centraliza las reviews de Mercado Libre y muestra cómo evoluciona la valoración de cada producto.</p>
               </div>
               <span class="work-action">Ver Proyecto <span aria-hidden="true">↗</span></span>
               <img
@@ -192,19 +232,19 @@
           <div class="work-previews" aria-hidden="true">
             <figure class="work-preview is-active" data-preview="meli">
               <img src="assets/projects/meli-core-dumper.png" alt="" width="1600" height="900" />
-              <figcaption><span>01</span> Inteligencia para sellers, dentro del producto.</figcaption>
+              <figcaption><span>01</span> Métricas, tendencias y anomalías de Mercado Libre.</figcaption>
             </figure>
             <figure class="work-preview" data-preview="stock">
               <img src="assets/projects/stock-central.png" alt="" loading="lazy" width="1600" height="900" />
-              <figcaption><span>02</span> Backend automatizado. Runtime estático.</figcaption>
+              <figcaption><span>02</span> Stock de proveedores centralizado y actualizado.</figcaption>
             </figure>
             <figure class="work-preview" data-preview="silver">
               <img src="assets/projects/silver-usage-report.png" alt="" loading="lazy" width="1600" height="900" />
-              <figcaption><span>03</span> Telemetría útil sin entregar contenido privado.</figcaption>
+              <figcaption><span>03</span> Métricas de IA sin enviar contenido privado.</figcaption>
             </figure>
             <figure class="work-preview" data-preview="reviews">
               <img src="assets/projects/monitor-reviews.png" alt="" loading="lazy" width="1600" height="900" />
-              <figcaption><span>04</span> Reviews dispersas convertidas en seguimiento.</figcaption>
+              <figcaption><span>04</span> Evolución de reviews por producto.</figcaption>
             </figure>
           </div>
         </div>
@@ -213,12 +253,21 @@
       <section class="closing-statement" id="cierre" data-section data-reveal>
         <p class="kicker">Criterio de trabajo</p>
         <div>
-          <h2>Producto para decidir.<br />Ingeniería para sostenerlo.</h2>
+          <h2>Datos para entender.<br />Producto para decidir.</h2>
           <p>
-            Me interesan los sistemas que nacen de una necesidad concreta, hacen
-            explícitas sus decisiones y siguen siendo operables después del deploy.
+            Busco soluciones que respondan a una necesidad concreta y conviertan
+            información dispersa en conocimiento útil.
           </p>
-          <a class="arrow-link" href="https://github.com/Zogar89" rel="noreferrer">Ver trabajo en GitHub <span aria-hidden="true">↗</span></a>
+          <div class="closing-links">
+            <a class="arrow-link" href="https://github.com/Zogar89" rel="noreferrer">
+              <svg class="social-icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+              Ver trabajo en GitHub <span aria-hidden="true">↗</span>
+            </a>
+            <a class="arrow-link" href="https://www.linkedin.com/in/gabrielalejandrogarcia/" rel="noreferrer">
+              <svg class="social-icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
+              Conectar en LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>
