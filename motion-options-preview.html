@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Opciones de movimiento ambiental</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #0c0c0f;
+        --paper: #f3f0e8;
+        --signal: #ff7142;
+        --muted: #a6a5ad;
+        --line: rgba(243, 240, 232, 0.18);
+        --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans: Aptos, "Segoe UI", system-ui, sans-serif;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--paper);
+        font-family: var(--sans);
+      }
+
+      main {
+        width: min(1680px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 52px 0 72px;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 32px;
+        margin-bottom: 36px;
+      }
+
+      .kicker,
+      .option-label {
+        color: var(--signal);
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 14ch;
+        margin: 10px 0 0;
+        font-family: var(--serif);
+        font-size: clamp(2.4rem, 5vw, 5.5rem);
+        font-weight: 500;
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+      }
+
+      header p:last-child {
+        max-width: 42ch;
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .options {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+
+      .option {
+        position: relative;
+        min-width: 0;
+        padding: 28px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        transition: background 240ms ease;
+      }
+
+      .option.is-selected {
+        background: rgba(255, 113, 66, 0.07);
+      }
+
+      .stage {
+        display: flex;
+        min-height: 430px;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .statement {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(3.6rem, 5vw, 6.4rem);
+        font-weight: 500;
+        line-height: 0.82;
+        letter-spacing: -0.065em;
+      }
+
+      .statement > span { display: block; }
+
+      .description {
+        min-height: 62px;
+        margin: 20px 0 18px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      button {
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--paper);
+        font: 700 0.72rem var(--mono);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      button:hover,
+      button[aria-pressed="true"] {
+        border-color: var(--signal);
+        color: var(--signal);
+      }
+
+      .ink-sweep {
+        color: transparent;
+        background: linear-gradient(
+          100deg,
+          var(--paper) 0%,
+          var(--paper) 42%,
+          var(--signal) 49%,
+          #ffb49c 52%,
+          var(--paper) 59%,
+          var(--paper) 100%
+        );
+        background-size: 320% 100%;
+        background-position: 100% 0;
+        background-clip: text;
+        -webkit-background-clip: text;
+        animation: ink-sweep 8s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+      }
+
+      .pulse-dot {
+        display: inline-block;
+        color: var(--paper);
+        animation: punctuation-pulse 8s ease-in-out infinite;
+      }
+
+      .echo-word {
+        position: relative;
+        display: inline-block;
+      }
+
+      .echo-word::after {
+        content: attr(data-word);
+        position: absolute;
+        inset: 0;
+        color: var(--signal);
+        opacity: 0;
+        pointer-events: none;
+        animation: quiet-echo 8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+      }
+
+      @keyframes ink-sweep {
+        0%, 12% { background-position: 100% 0; }
+        36%, 100% { background-position: 0 0; }
+      }
+
+      @keyframes punctuation-pulse {
+        0%, 12%, 34%, 100% { color: var(--paper); text-shadow: none; }
+        21% { color: var(--signal); text-shadow: 0 0 22px rgba(255, 113, 66, 0.5); }
+      }
+
+      @keyframes quiet-echo {
+        0%, 12%, 38%, 100% { opacity: 0; transform: translate3d(0, 0, 0); }
+        20% { opacity: 0.3; transform: translate3d(4px, -2px, 0); }
+        31% { opacity: 0; transform: translate3d(10px, -4px, 0); }
+      }
+
+      @media (max-width: 1100px) {
+        .options { grid-template-columns: 1fr; }
+        .stage { min-height: 320px; }
+        header { align-items: start; flex-direction: column; }
+      }
+
+      @media (max-width: 600px) {
+        main { width: min(100% - 28px, 1680px); padding-top: 28px; }
+        .option { padding: 22px; }
+        .stage { min-height: 280px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <span class="kicker">Movimiento ambiental / 01–03</span>
+          <h1>Tres maneras de darle vida al hero.</h1>
+        </div>
+        <p>Todos los ejemplos mantienen la geometría intacta y repiten su gesto cada ocho segundos.</p>
+      </header>
+
+      <section class="options" aria-label="Opciones de movimiento">
+        <article class="option" data-option="1">
+          <span class="option-label">01 · Barrido de tinta</span>
+          <div class="stage">
+            <p class="statement">
+              <span>Problemas reales.</span>
+              <span class="ink-sweep">Productos que operan.</span>
+            </p>
+          </div>
+          <p class="description">Una luz naranja atraviesa lentamente la frase y luego deja varios segundos de reposo.</p>
+          <button type="button" aria-pressed="false">Elegir opción 1</button>
+        </article>
+
+        <article class="option" data-option="2">
+          <span class="option-label">02 · Punto con respiración</span>
+          <div class="stage">
+            <p class="statement">
+              <span>Problemas reales.</span>
+              <span>Productos que operan<span class="pulse-dot">.</span></span>
+            </p>
+          </div>
+          <p class="description">El punto final toma el acento naranja y emite un resplandor breve, casi imperceptible.</p>
+          <button type="button" aria-pressed="false">Elegir opción 2</button>
+        </article>
+
+        <article class="option" data-option="3">
+          <span class="option-label">03 · Eco tipográfico</span>
+          <div class="stage">
+            <p class="statement">
+              <span>Problemas reales.</span>
+              <span>Productos que <span class="echo-word" data-word="operan.">operan.</span></span>
+            </p>
+          </div>
+          <p class="description">Un eco naranja se desprende unos píxeles de “operan.” y desaparece sin mover el texto real.</p>
+          <button type="button" aria-pressed="false">Elegir opción 3</button>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const options = document.querySelectorAll(".option");
+
+      options.forEach((option) => {
+        option.querySelector("button").addEventListener("click", () => {
+          options.forEach((item) => {
+            const selected = item === option;
+            item.classList.toggle("is-selected", selected);
+            item.querySelector("button").setAttribute("aria-pressed", String(selected));
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

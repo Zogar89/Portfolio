@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Opciones de movimiento para el fondo</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #0c0c0f;
+        --paper: #f3f0e8;
+        --signal: #ff7142;
+        --muted: #a6a5ad;
+        --line: rgba(243, 240, 232, 0.18);
+        --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        --sans: Aptos, "Segoe UI", system-ui, sans-serif;
+        --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--paper);
+        font-family: var(--sans);
+      }
+
+      main {
+        width: min(1720px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 46px 0 70px;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 32px;
+      }
+
+      .kicker,
+      .label {
+        color: var(--signal);
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 16ch;
+        margin: 10px 0 0;
+        font-family: var(--serif);
+        font-size: clamp(2.4rem, 4.8vw, 5.2rem);
+        font-weight: 500;
+        line-height: 0.9;
+        letter-spacing: -0.05em;
+      }
+
+      header p:last-child {
+        max-width: 44ch;
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .options {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+        border-left: 1px solid var(--line);
+      }
+
+      .option {
+        padding: 24px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        transition: background 250ms ease;
+      }
+
+      .option.is-selected { background: rgba(255, 113, 66, 0.075); }
+
+      .stage {
+        position: relative;
+        display: flex;
+        min-height: 480px;
+        align-items: center;
+        margin: 18px 0 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #09090c;
+        isolation: isolate;
+      }
+
+      .stage::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        opacity: 0.18;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
+        pointer-events: none;
+      }
+
+      .statement {
+        position: relative;
+        z-index: 2;
+        max-width: 8.7ch;
+        margin: 0;
+        padding: 34px;
+        font-family: var(--serif);
+        font-size: clamp(4.2rem, 5.7vw, 7rem);
+        font-weight: 500;
+        line-height: 0.81;
+        letter-spacing: -0.067em;
+      }
+
+      .moving-light {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 440px;
+        height: 440px;
+        z-index: 0;
+        border-radius: 50%;
+        opacity: 0.7;
+        background: radial-gradient(circle, rgba(255, 113, 66, 0.48) 0, rgba(255, 113, 66, 0.19) 34%, transparent 72%);
+        filter: blur(10px);
+        transform: translate3d(-55%, -50%, 0);
+        animation: light-drift 8s ease-in-out infinite alternate;
+      }
+
+      .heartbeat-orb {
+        position: absolute;
+        top: 15%;
+        right: 8%;
+        width: 132px;
+        height: 132px;
+        z-index: 0;
+        border-radius: 50%;
+        background: var(--signal);
+        box-shadow: 0 0 70px rgba(255, 113, 66, 0.32);
+        animation: orb-heartbeat 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      .eclipse-glow {
+        position: absolute;
+        top: 14%;
+        right: 7%;
+        width: 310px;
+        height: 310px;
+        z-index: 0;
+        border-radius: 50%;
+        opacity: 0.68;
+        background: radial-gradient(circle, rgba(255, 113, 66, 0.55) 0, rgba(255, 113, 66, 0.2) 28%, transparent 70%);
+        filter: blur(7px);
+        animation: eclipse-drift 9s ease-in-out infinite alternate;
+      }
+
+      .eclipse-core {
+        position: absolute;
+        top: calc(14% + 110px);
+        right: calc(7% + 110px);
+        width: 90px;
+        height: 90px;
+        z-index: 1;
+        border-radius: 50%;
+        background: var(--signal);
+        box-shadow: 0 0 36px rgba(255, 113, 66, 0.46);
+        animation: orb-heartbeat 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      .description {
+        min-height: 66px;
+        margin: 18px 0 16px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      button {
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--paper);
+        font: 700 0.72rem var(--mono);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      button:hover,
+      button[aria-pressed="true"] {
+        border-color: var(--signal);
+        color: var(--signal);
+      }
+
+      @keyframes light-drift {
+        0% { transform: translate3d(-55%, -56%, 0) scale(0.88); }
+        50% { transform: translate3d(20%, -42%, 0) scale(1.08); }
+        100% { transform: translate3d(68%, -56%, 0) scale(0.94); }
+      }
+
+      @keyframes orb-heartbeat {
+        0%, 8%, 16%, 100% { transform: scale(1); opacity: 0.78; }
+        4% { transform: scale(1.1); opacity: 0.98; }
+        12% { transform: scale(1.055); opacity: 0.9; }
+      }
+
+      @keyframes eclipse-drift {
+        0% { transform: translate3d(-24px, 10px, 0) scale(0.92); }
+        100% { transform: translate3d(34px, -20px, 0) scale(1.08); }
+      }
+
+      @media (max-width: 1160px) {
+        .options { grid-template-columns: 1fr; }
+        .stage { min-height: 390px; }
+        header { align-items: start; flex-direction: column; }
+      }
+
+      @media (max-width: 600px) {
+        main { width: min(100% - 28px, 1720px); padding-top: 28px; }
+        .option { padding: 18px; }
+        .statement { padding: 24px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <span class="kicker">Fondo ambiental / 01–03</span>
+          <h1>Movimiento detrás del mensaje.</h1>
+        </div>
+        <p>El titular permanece inmóvil. Los tres gestos viven detrás y usan únicamente el naranja del proyecto.</p>
+      </header>
+
+      <section class="options" aria-label="Opciones de fondo animado">
+        <article class="option">
+          <span class="label">01 · Luz en movimiento</span>
+          <div class="stage">
+            <div class="moving-light" aria-hidden="true"></div>
+            <p class="statement">Problemas reales. Productos que operan.</p>
+          </div>
+          <p class="description">Una masa de luz difusa recorre lentamente el hero y cambia la profundidad del fondo.</p>
+          <button type="button" aria-pressed="false">Elegir opción 1</button>
+        </article>
+
+        <article class="option">
+          <span class="label">02 · Círculo con latido</span>
+          <div class="stage">
+            <div class="heartbeat-orb" aria-hidden="true"></div>
+            <p class="statement">Problemas reales. Productos que operan.</p>
+          </div>
+          <p class="description">Un círculo naranja sólido respira con un doble pulso corto y permanece quieto entre latidos.</p>
+          <button type="button" aria-pressed="false">Elegir opción 2</button>
+        </article>
+
+        <article class="option">
+          <span class="label">03 · Eclipse vivo</span>
+          <div class="stage">
+            <div class="eclipse-glow" aria-hidden="true"></div>
+            <div class="eclipse-core" aria-hidden="true"></div>
+            <p class="statement">Problemas reales. Productos que operan.</p>
+          </div>
+          <p class="description">El círculo late mientras su halo se desplaza en otra cadencia, generando un fondo más orgánico.</p>
+          <button type="button" aria-pressed="false">Elegir opción 3</button>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const options = document.querySelectorAll(".option");
+
+      options.forEach((option) => {
+        option.querySelector("button").addEventListener("click", () => {
+          options.forEach((item) => {
+            const selected = item === option;
+            item.classList.toggle("is-selected", selected);
+            item.querySelector("button").setAttribute("aria-pressed", String(selected));
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
