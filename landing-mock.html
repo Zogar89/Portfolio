@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Mock de landing para el portfolio de Gabriel Garcia, orientado a mostrar producto real, contexto de uso y resultados concretos."
+    />
+    <title>Mock landing | Gabriel Garcia</title>
+    <link rel="stylesheet" href="landing-mock.css" />
+  </head>
+  <body>
+    <header class="mock-header">
+      <nav class="mock-nav" aria-label="Principal">
+        <a class="mock-brand" href="#inicio" aria-label="Ir al inicio">
+          <span class="mock-brand-mark">G</span>
+          <span>Gabriel Garcia</span>
+        </a>
+        <div class="mock-nav-links">
+          <a href="#evidencia">Evidencia</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="index.html">Landing actual</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="mock-hero">
+        <div class="mock-hero-copy">
+          <p class="mock-kicker">Portfolio tecnico para problemas reales</p>
+          <h1>Herramientas de datos para vender y decidir mejor.</h1>
+          <p class="mock-lead">
+            Integro APIs, scraping y dashboards para convertir datos de Mercado Libre, proveedores y operaciones en productos listos para usar.
+          </p>
+          <div class="mock-actions" aria-label="Acciones principales">
+            <a class="mock-button mock-primary" href="#proyectos">Ver proyectos concretos</a>
+            <a class="mock-button mock-secondary" href="https://github.com/Zogar89" rel="noreferrer">Abrir GitHub</a>
+          </div>
+        </div>
+
+        <aside class="mock-proof-board" aria-label="Evidencia visual de proyectos">
+          <a class="mock-shot mock-shot-main" href="projects/meli-core-dumper/">
+            <img
+              src="assets/projects/meli-core-dumper.png"
+              alt="Dashboard operativo de Meli Core Dumper"
+              width="1600"
+              height="900"
+            />
+            <span>Meli Core Dumper</span>
+          </a>
+          <a class="mock-shot" href="projects/stock-central/">
+            <img
+              src="assets/projects/stock-central.png"
+              alt="Catalogo publico de Stock Central"
+              width="1600"
+              height="900"
+            />
+            <span>Stock Central</span>
+          </a>
+          <a class="mock-shot" href="projects/monitor-reviews/">
+            <img
+              src="assets/projects/monitor-reviews.png"
+              alt="Panel de Monitor de Reviews"
+              width="1600"
+              height="900"
+            />
+            <span>Monitor Reviews</span>
+          </a>
+        </aside>
+      </section>
+
+      <section class="mock-proof-strip" id="evidencia" aria-label="Resumen de valor">
+        <div class="mock-proof-main">
+          <strong>Problema</strong>
+          <p>Los proyectos nacen donde la informacion esta repartida entre Mercado Libre, planillas, HTML de proveedores y procesos manuales.</p>
+        </div>
+        <div>
+          <strong>Producto</strong>
+          <p>Ingestion, limpieza, UI, deploy, documentacion y checks de calidad en un flujo usable.</p>
+        </div>
+        <div>
+          <strong>Resultado</strong>
+          <p>Menos friccion para decidir, monitorear stock, analizar publicaciones y compartir informacion.</p>
+        </div>
+      </section>
+
+      <section class="mock-section" id="proyectos">
+        <div class="mock-section-heading">
+          <p class="mock-kicker">Case studies con contexto</p>
+          <h2>Cada proyecto muestra una decision de producto, no solo una pantalla linda.</h2>
+        </div>
+
+        <div class="mock-project-grid">
+          <article class="mock-project-card mock-project-feature">
+            <a href="projects/meli-core-dumper/">
+              <img
+                src="assets/projects/meli-core-dumper.png"
+                alt="Interfaz de Meli Core Dumper con datos de Mercado Libre"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
+              <div class="mock-project-copy">
+                <span>Mercado Libre BI</span>
+                <h3>Meli Core Dumper</h3>
+                <p>
+                  De datos de ventas y publicaciones a una plataforma de inteligencia para detectar patrones, anomalias y oportunidades operativas.
+                </p>
+              </div>
+            </a>
+          </article>
+
+          <article class="mock-project-card">
+            <a href="projects/stock-central/">
+              <img
+                src="assets/projects/stock-central.png"
+                alt="Catalogo de filamentos en Stock Central"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
+              <div class="mock-project-copy">
+                <span>Catalogo publico</span>
+                <h3>Stock Central</h3>
+                <p>Unifica proveedores, planillas y datos web en una pagina estatica facil de consultar.</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="mock-project-card">
+            <a href="projects/silver-usage-report/">
+              <img
+                src="assets/projects/silver-usage-report.png"
+                alt="Flujo privado de Silver Usage Report"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
+              <div class="mock-project-copy">
+                <span>Privacidad y entrega</span>
+                <h3>Silver Usage Report</h3>
+                <p>Un flujo armado rapido para capturar datos sensibles de candidatos sin friccion innecesaria.</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="mock-project-card">
+            <a href="projects/monitor-reviews/">
+              <img
+                src="assets/projects/monitor-reviews.png"
+                alt="Panel de reviews e insights operativos"
+                loading="lazy"
+                width="1600"
+                height="900"
+              />
+              <div class="mock-project-copy">
+                <span>Reviews e insights</span>
+                <h3>Monitor Reviews</h3>
+                <p>Centraliza senales de publicaciones para ver que cambia, que duele y donde actuar primero.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
