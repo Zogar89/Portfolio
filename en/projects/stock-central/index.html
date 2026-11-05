@@ -49,6 +49,7 @@ html[data-theme="light"] {
 .nav:not(.is-open) .nav__actions > .theme-toggle { display: inline-grid; }
 html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .theme-toggle .i-moon { display: none; }
 .frame__img { object-position: top left; }
+#problem .panel { --p-h: 400px; }
 .hero--split { --ly-h1: clamp(36px, 1.9vw + 28px, 56px); }
 .hero-facts { grid-template-columns: 1fr; gap: var(--s-3); }
 .hero-facts > div { display: grid; grid-template-columns: 112px 1fr; gap: var(--s-4); align-items: baseline; }
@@ -67,6 +68,13 @@ html:not([data-theme="light"]) .ic-chip > img.ic-ink { filter: none; }
 }
 @media (max-width: 1279px) and (min-width: 640px) {
   .close__word { font-size: 13vw; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  #problem .panel { --p-h: 216px; }
+  #problem .stack-6 { gap: var(--s-5); }
+  #problem .t-lead { font-size: 17px; }
+  #problem h2 { font-size: 34px; }
+  #decisions .t-h2 { font-size: 26px; }
 }
 @media (min-width: 1024px) and (max-width: 1279px) {
   #problem .panel { --p-h: 300px; }
@@ -141,7 +149,7 @@ html:not([data-theme="light"]) .ic-chip > img.ic-ink { filter: none; }
             </div>
           </div>
           <div class="span-6 start-7">
-            <div class="panel" style="--p-h: 400px"><div class="dg" data-diagram><script type="application/json">{"layout":"fanin","alt":"Spreadsheets, supplier sites and an official catalog go through quality checks and are published as a static site on GitHub Pages.","sources":[{"label":"Google Sheets","icon":"google-sheets","sub":"Spreadsheets"},{"label":"Suppliers","icon":"ui:globe","sub":"HTML"},{"label":"Official catalog","icon":"ui:store","sub":"Sitemap"}],"target":{"label":"Quality gates","icon":"ui:shield-check"},"then":{"label":"GitHub Pages","icon":"github","meta":"4 times a day"}}</script></div></div>
+            <div class="panel"><div class="dg" data-diagram><script type="application/json">{"layout":"fanin","alt":"Spreadsheets, supplier sites and an official catalog go through quality checks and are published as a static site on GitHub Pages.","sources":[{"label":"Google Sheets","icon":"google-sheets","sub":"Spreadsheets"},{"label":"Suppliers","icon":"ui:globe","sub":"HTML"},{"label":"Official catalog","icon":"ui:store","sub":"Sitemap"}],"target":{"label":"Quality gates","icon":"ui:shield-check"},"then":{"label":"GitHub Pages","icon":"github","meta":"4 times a day"}}</script></div></div>
           </div>
         </div>
       </div>
