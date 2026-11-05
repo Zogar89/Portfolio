@@ -36,6 +36,7 @@
   --display-tracking-xl: -0.04em;
 }
 .frame__img { object-position: top left; }
+#articulos .panel { --p-h: 300px; }
 @media (max-width: 639px) {
   .nav:not(.is-open) .nav__actions { display: none; }
   .nav:not(.is-open) .nav__actions + .nav__toggle { margin-left: auto; }
@@ -55,6 +56,7 @@
     <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Gabriel Garcia</a>
     <nav class="nav__links" aria-label="Principal">
       <div class="nav__item"><a class="nav__link" href="#proyectos">Proyectos</a></div>
+      <div class="nav__item"><a class="nav__link" href="#articulos">Artículos</a></div>
       <div class="nav__item"><a class="nav__link" href="https://github.com/Zogar89" rel="noreferrer">GitHub</a></div>
       <div class="nav__item"><a class="nav__link" href="#contact">Contacto</a></div>
     </nav>
@@ -92,7 +94,7 @@
     </div>
   </section>
 
-  <section class="section" id="proyectos" aria-labelledby="proyectos-h">
+  <section class="section" id="proyectos" aria-labelledby="proyectos-h" style="--hm: 2">
     <div class="wrap">
       <div class="section-head">
         <h2 id="proyectos-h">Cuatro proyectos de datos y producto. <span class="muted">Cada uno parte de un problema concreto.</span></h2>
@@ -130,6 +132,32 @@
     </div>
   </section>
 
+  <section class="section" id="articulos" aria-labelledby="articulos-h" style="--hm: 2">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="articulos-h">Dos guías técnicas publicadas. <span class="muted">Problemas que resolví y documenté paso a paso.</span></h2>
+      </div>
+      <div class="grid">
+        <article class="card card--open card--row span-6">
+          <h3>Recuperar el cambio de modo del GameSir Nova Lite</h3>
+          <p>Qué combinación de firmware entre mando y receptor funciona, con pasos, capturas y el kit del dongle para descargar.</p>
+          <a class="link" href="https://zogar89.github.io/gamesir-nova-lite-solucion/" rel="noreferrer">Leer la guía</a>
+          <a class="panel" href="https://zogar89.github.io/gamesir-nova-lite-solucion/" rel="noreferrer" tabindex="-1" aria-hidden="true">
+            <img class="frame__img" src="assets/articles/nova-lite-solucion.png" alt="" width="1440" height="810" loading="lazy">
+          </a>
+        </article>
+        <article class="card card--open card--row span-6">
+          <h3>Error 87 de LoadLibrary en AMD al dejar NVIDIA</h3>
+          <p>Causa raíz, diagnóstico y reparación guiada cuando faltan OpenGL y Vulkan de AMD tras cambiar la placa de video.</p>
+          <a class="link" href="https://zogar89.github.io/amd-loadlibrary-error-87-fix/" rel="noreferrer">Leer la guía</a>
+          <a class="panel" href="https://zogar89.github.io/amd-loadlibrary-error-87-fix/" rel="noreferrer" tabindex="-1" aria-hidden="true">
+            <img class="frame__img" src="assets/articles/amd-loadlibrary-error-87.png" alt="" width="1440" height="810" loading="lazy">
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
@@ -150,7 +178,7 @@
           <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Gabriel Garcia</a>
           <p class="footer__lede">Productos de datos y herramientas internas, construidos desde problemas reales.</p>
         </div>
-        <div class="span-3 footer__col"><h4>Portfolio</h4><ul><li><a href="#proyectos">Proyectos</a></li><li><a href="#top">Volver arriba</a></li></ul></div>
+        <div class="span-3 footer__col"><h4>Portfolio</h4><ul><li><a href="#proyectos">Proyectos</a></li><li><a href="#articulos">Artículos</a></li></ul></div>
         <div class="span-3 footer__col"><h4>Perfiles</h4><ul><li><a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a></li><li><a href="https://www.linkedin.com/in/gabrielalejandrogarcia/" rel="noreferrer">LinkedIn</a></li></ul></div>
       </div>
       <div class="footer__legal">
