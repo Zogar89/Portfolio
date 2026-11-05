@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://zogar89.github.io/Portfolio/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/"/>
+  </url>
+  <url>
+    <loc>https://zogar89.github.io/Portfolio/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/"/>
+  </url>
+  <url>
+    <loc>https://zogar89.github.io/Portfolio/projects/meli-core-dumper/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/projects/meli-core-dumper/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/projects/meli-core-dumper/"/>
+  </url>
+  <url>
+    <loc>https://zogar89.github.io/Portfolio/en/projects/meli-core-dumper/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/projects/meli-core-dumper/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/projects/meli-core-dumper/"/>
+  </url>
+  <url>
+    <loc>https://zogar89.github.io/Portfolio/projects/stock-central/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/projects/stock-central/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/projects/stock-central/"/>
+  </url>
+  <url>
+    <loc>https://zogar89.github.io/Portfolio/en/projects/stock-central/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/projects/stock-central/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/projects/stock-central/"/>
+  </url>
+  <url>
+    <loc>https://zogar89.github.io/Portfolio/projects/monitor-reviews/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/projects/monitor-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/projects/monitor-reviews/"/>
+  </url>
+  <url>
+    <loc>https://zogar89.github.io/Portfolio/en/projects/monitor-reviews/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/projects/monitor-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/projects/monitor-reviews/"/>
+  </url>
+</urlset>

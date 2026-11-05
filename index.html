@@ -55,6 +55,11 @@ html[data-theme="light"] {
 .nav:not(.is-open) .nav__actions > .theme-toggle { display: inline-grid; }
 html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .theme-toggle .i-moon { display: none; }
 .frame__img { object-position: top left; }
+.hero-fx { position: relative; overflow: hidden; }
+.hero-fx__shot { position: absolute; z-index: 1; left: 40px; top: 40px; width: calc(100% - 40px); height: calc(100% - 40px); object-fit: cover; object-position: top left; border-top-left-radius: var(--r-md); }
+@media (max-width: 639px) { .hero-fx__shot { left: 16px; top: 16px; width: calc(100% - 16px); height: calc(100% - 16px); } }
+.about__img { object-position: center 20%; }
+.about__frame { aspect-ratio: 1 / 1; }
 #articulos .panel { --p-h: 300px; }
 #articulos h3 { font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; }
 @media (max-width: 639px) { #articulos h3 { font-size: 24px; } }
@@ -79,6 +84,7 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
     <nav class="nav__links" aria-label="Principal">
       <div class="nav__item"><a class="nav__link" href="#proyectos">Proyectos</a></div>
       <div class="nav__item"><a class="nav__link" href="#articulos">Artículos</a></div>
+      <div class="nav__item"><a class="nav__link" href="#sobre-mi">Sobre mí</a></div>
       <div class="nav__item"><a class="nav__link" href="#contact">Contacto</a></div>
       <div class="nav__item"><a class="nav__link" href="en/" hreflang="en" lang="en">English</a></div>
     </nav>
@@ -113,8 +119,8 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
             <div><dt>Punto de partida</dt><dd>Problemas reales</dd></div>
           </dl>
         </div>
-        <div class="hero-visual frame frame--photo span-6 start-7">
-          <img class="frame__img" src="assets/projects/meli-core-dumper.png" alt="Panel de Meli Core Dumper con métricas, tendencias y anomalías de Mercado Libre" width="1600" height="900" fetchpriority="high">
+        <div class="hero-visual frame hero-fx span-6 start-7" data-fx="grain-gradient" data-fx-seed="7">
+          <img class="hero-fx__shot" src="assets/projects/meli-core-dumper.png" alt="Panel de Meli Core Dumper con métricas, tendencias y anomalías de Mercado Libre" width="1600" height="900" fetchpriority="high">
         </div>
       </div>
     </div>
@@ -178,6 +184,21 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
     </div>
   </section>
 
+  <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-h">
+    <div class="wrap">
+      <div class="grid grid--top">
+        <div class="span-6 stack-6">
+          <h2 id="sobre-mi-h">Analista de datos y BI con más de 7 años de experiencia. <span class="muted">Convierto datos en decisiones.</span></h2>
+          <p class="t-lead">Trabajo en automatización, dashboards y productos de inteligencia operativa, con Python, SQL, Power BI y PostgreSQL.</p>
+          <p class="t-lead">También tengo un emprendimiento de impresión 3D que alcanzó 1.000 ventas anuales en Mercado Libre.</p>
+        </div>
+        <div class="frame frame--photo about__frame span-5 start-8">
+          <img class="frame__img about__img" src="assets/about/gabriel.webp" alt="Retrato de Gabriel Garcia" width="800" height="800" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer closing ground-inverse" id="contact" aria-labelledby="close-h">
@@ -198,7 +219,7 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
           <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Gabriel Garcia</a>
           <p class="footer__lede">Productos de datos y herramientas internas, construidos desde problemas reales.</p>
         </div>
-        <div class="span-3 footer__col"><h4>Portfolio</h4><ul><li><a href="#proyectos">Proyectos</a></li><li><a href="#articulos">Artículos</a></li></ul></div>
+        <div class="span-3 footer__col"><h4>Portfolio</h4><ul><li><a href="#proyectos">Proyectos</a></li><li><a href="#articulos">Artículos</a></li><li><a href="#sobre-mi">Sobre mí</a></li></ul></div>
         <div class="span-3 footer__col"><h4>Perfiles</h4><ul><li><a href="https://github.com/Zogar89" rel="noreferrer">GitHub</a></li><li><a href="https://www.linkedin.com/in/gabrielalejandrogarcia/" rel="noreferrer">LinkedIn</a></li></ul></div>
       </div>
       <div class="footer__legal">
