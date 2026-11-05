@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-05T08:58:34.719Z",
+        "reason": "user confirmed a subtle hero effect (item 4); it is the taste-skill grain-gradient ground in the hero frame, not decorative glow added elsewhere"
+      },
+      {
+        "rule": "radial-halo",
+        "value": "*",
+        "files": [
+          "en/index.html"
+        ],
+        "createdAt": "2026-11-05T08:58:35.084Z",
+        "reason": "user confirmed a subtle hero effect (item 4); it is the taste-skill grain-gradient ground in the hero frame, not decorative glow added elsewhere"
+      }
+    ]
+  }
+}
