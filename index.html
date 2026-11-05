@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gabriel Garcia | Herramientas de datos y APIs</title>
-<meta name="description" content="Portfolio de Gabriel Garcia: cuatro productos de datos construidos desde problemas reales, con decisiones de producto, APIs y sistemas operables.">
+<meta name="description" content="Portfolio de Gabriel Garcia: tres productos de datos construidos desde problemas reales, con decisiones de producto, APIs y sistemas operables.">
 <link rel="canonical" href="https://zogar89.github.io/Portfolio/">
 <link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/">
 <link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/">
@@ -39,11 +39,13 @@
   --display-weight: 500;
   --display-tracking: -0.035em;
   --display-tracking-xl: -0.04em;
+  --ground-bg: #1a1a1f; --ground-surface: #23232a; --ground-ink: #f2f3f5; --ground-muted: #9b9ba4; --ground-accent: #ff7142;
 }
 /* Modo claro: el crema de antes (#f3f0e8). Oscuro es el predeterminado. El pie (contacto) siempre es el inverso de la página: crema en oscuro, oscuro en claro. */
 html[data-theme="light"] {
   --p-bg: #f3f0e8; --p-surface: #e9e5da; --p-ink: #0c0c0f; --p-muted: #5d5d66;
   --p-accent: #ff7142; --p-accent-ink: #0c0c0f; --p-action: #ff7142; --p-action-ink: #0c0c0f;
+  --ground-bg: #dedad0; --ground-surface: #ebe7dd; --ground-ink: #0c0c0f; --ground-muted: #5d5d66; --ground-accent: #ff7142;
   --p-inv-bg: #0c0c0f; --p-inv-surface: #141418; --p-inv-ink: #f2f3f5; --p-inv-muted: #9b9ba4;
 }
 .theme-toggle { display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; margin: 0;
@@ -100,13 +102,13 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
       <div class="hero-text grid hero-split">
         <div class="hero-copy span-5">
           <h1 id="hero-h">Herramientas de datos y APIs para decidir</h1>
-          <p class="t-lead">Soy Gabriel Garcia. Diseño y construyo productos que combinan datos, APIs y criterio de producto. Estos son cuatro.</p>
+          <p class="t-lead">Soy Gabriel Garcia. Diseño y construyo productos que combinan datos, APIs y criterio de producto. Estos son tres.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="https://www.linkedin.com/in/gabrielalejandrogarcia/" rel="noreferrer">Escribirme por LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
             <a class="btn btn--secondary" href="#proyectos">Ver los proyectos</a>
           </div>
           <dl class="hero-facts">
-            <div><dt>Proyectos</dt><dd>4</dd></div>
+            <div><dt>Proyectos</dt><dd>3</dd></div>
             <div><dt>Base</dt><dd>Datos y APIs</dd></div>
             <div><dt>Punto de partida</dt><dd>Problemas reales</dd></div>
           </dl>
@@ -121,7 +123,7 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
   <section class="section" id="proyectos" aria-labelledby="proyectos-h" style="--hm: 2">
     <div class="wrap">
       <div class="section-head">
-        <h2 id="proyectos-h">Cuatro proyectos de datos y producto. <span class="muted">Cada uno parte de un problema concreto.</span></h2>
+        <h2 id="proyectos-h">Tres proyectos de datos y producto. <span class="muted">Cada uno parte de un problema concreto.</span></h2>
       </div>
       <div class="grid grid--top fill" data-peek>
         <ul class="rows span-6">
@@ -135,11 +137,6 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
             <p>Centraliza el stock de distintos proveedores para buscar, comparar y armar pedidos.</p>
             <span class="rows__value">Filamentos 3D</span>
           </li>
-          <li data-peek-to="silver" tabindex="0">
-            <span class="rows__name"><a href="projects/silver-usage-report/">Silver Usage Report</a></span>
-            <p>Genera métricas de uso de IA sin enviar prompts, respuestas, código ni secretos.</p>
-            <span class="rows__value">Uso de IA privado</span>
-          </li>
           <li data-peek-to="reviews" tabindex="0">
             <span class="rows__name"><a href="projects/monitor-reviews/">Monitor de Reviews</a></span>
             <p>Centraliza las reviews de Mercado Libre y muestra cómo evoluciona la valoración de cada producto.</p>
@@ -149,7 +146,6 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
         <div class="frame frame--photo frame--fill span-6 start-7">
           <img class="frame__img" data-peek-for="meli" src="assets/projects/meli-core-dumper.png" alt="Panel operativo de Meli Core Dumper" width="1600" height="900">
           <img class="frame__img" data-peek-for="stock" src="assets/projects/stock-central.png" alt="Catálogo público de filamentos de Stock Central" width="1600" height="900" loading="lazy" hidden>
-          <img class="frame__img" data-peek-for="silver" src="assets/projects/silver-usage-report.png" alt="Flujo privado de Silver Usage Report" width="1600" height="900" loading="lazy" hidden>
           <img class="frame__img" data-peek-for="reviews" src="assets/projects/monitor-reviews.png" alt="Panel de Monitor de Reviews con señales operativas" width="1600" height="900" loading="lazy" hidden>
         </div>
       </div>

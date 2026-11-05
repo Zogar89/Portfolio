@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" data-type="software" data-radius="sharp" data-buttons="pill" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Review Monitor | Gabriel Garcia</title>
+<meta name="description" content="Review Monitor: a tracking surface that brings reviews together and shows how the perception of products published on Mercado Libre changes over time.">
+<link rel="canonical" href="https://zogar89.github.io/Portfolio/en/projects/monitor-reviews/">
+<link rel="alternate" hreflang="es" href="https://zogar89.github.io/Portfolio/projects/monitor-reviews/">
+<link rel="alternate" hreflang="en" href="https://zogar89.github.io/Portfolio/en/projects/monitor-reviews/">
+<link rel="alternate" hreflang="x-default" href="https://zogar89.github.io/Portfolio/projects/monitor-reviews/">
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/kit/system.css">
+<link rel="stylesheet" href="../../../assets/kit/ui/cards.css">
+<link rel="stylesheet" href="../../../assets/kit/motion/motion.css">
+<link rel="stylesheet" href="../../../assets/kit/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="../../../assets/kit/layout/layout.css">
+<link rel="stylesheet" href="../../../assets/kit/icons/icon.css">
+<link rel="stylesheet" href="../../../assets/kit/diagrams/diagram.css">
+<script>try{if(localStorage.getItem('theme')==='light'){document.documentElement.dataset.theme='light'}}catch(e){}</script>
+<style>
+:root {
+  --p-bg: #0c0c0f; --p-surface: #141418; --p-ink: #f2f3f5; --p-muted: #9b9ba4;
+  --p-accent: #ff7142; --p-accent-ink: #0c0c0f; --p-action: #ff7142; --p-action-ink: #0c0c0f;
+  --p-inv-bg: #f3f0e8; --p-inv-surface: #e9e5da; --p-inv-ink: #0c0c0f; --p-inv-muted: #5d5d66;
+  --p-inv-accent: #ff7142; --p-inv-accent-ink: #0c0c0f; --p-inv-action: #ff7142; --p-inv-action-ink: #0c0c0f;
+  --font-display: "Host Grotesk", system-ui, sans-serif;
+  --font-text: "Host Grotesk", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.04em;
+  --ground-bg: #1a1a1f; --ground-surface: #23232a; --ground-ink: #f2f3f5; --ground-muted: #9b9ba4; --ground-accent: #ff7142;
+}
+html[data-theme="light"] {
+  --ground-bg: #dedad0; --ground-surface: #ebe7dd; --ground-ink: #0c0c0f; --ground-muted: #5d5d66; --ground-accent: #ff7142;
+  --p-bg: #f3f0e8; --p-surface: #e9e5da; --p-ink: #0c0c0f; --p-muted: #5d5d66;
+  --p-accent: #ff7142; --p-accent-ink: #0c0c0f; --p-action: #ff7142; --p-action-ink: #0c0c0f;
+  --p-inv-bg: #0c0c0f; --p-inv-surface: #141418; --p-inv-ink: #f2f3f5; --p-inv-muted: #9b9ba4;
+}
+.theme-toggle { display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; margin: 0;
+  border: 1px solid color-mix(in oklab, var(--ink) 22%, transparent); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; }
+.theme-toggle:hover { background: color-mix(in oklab, var(--ink) 8%, transparent); }
+.theme-toggle:focus-visible { outline: 2px solid var(--action); outline-offset: 2px; }
+.nav:not(.is-open) .nav__actions > .theme-toggle { display: inline-grid; }
+html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .theme-toggle .i-moon { display: none; }
+.frame__img { object-position: top left; }
+.hero--split { --ly-h1: clamp(36px, 1.9vw + 28px, 56px); }
+.hero-facts { grid-template-columns: 1fr; gap: var(--s-3); }
+.hero-facts > div { display: grid; grid-template-columns: 112px 1fr; gap: var(--s-4); align-items: baseline; }
+.tech-grid { row-gap: var(--s-7); }
+.tech-grid h3 { font-size: var(--t-lead); margin: 0 0 var(--s-3); }
+.chips { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+html:not([data-theme="light"]) .ic-chip > img.ic { box-sizing: content-box; padding: 3px; border-radius: 7px; background: #f2f3f5; }
+html:not([data-theme="light"]) .ic-chip > img.ic-ink { filter: none; }
+.outcome { margin-top: var(--s-8); max-width: 62ch; }
+@media (max-width: 639px) {
+  .nav:not(.is-open) .nav__actions { display: flex; margin-left: auto; }
+  .nav:not(.is-open) .nav__actions .btn { display: none; }
+  .nav:not(.is-open) .nav__actions + .nav__toggle { margin-left: 0; }
+  .close__word { font-size: 11vw; }
+  .hero-facts > div { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (max-width: 1279px) and (min-width: 640px) {
+  .close__word { font-size: 13vw; }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #problem .panel { --p-h: 300px; }
+  #problem .stack-6 { gap: var(--s-5); }
+  #problem .t-lead { font-size: 17px; }
+  #problem h2 { font-size: 36px; }
+  #decisions .t-h2 { font-size: 28px; }
+}
+</style>
+<link rel="stylesheet" href="../../../assets/kit/ui/base.css">
+<script src="../../../assets/kit/backgrounds/backgrounds.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="nav__logo" href="../../"><span class="mark" data-mark="ring" aria-hidden="true"></span>Gabriel Garcia</a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item"><a class="nav__link" href="../../#projects">Projects</a></div>
+      <div class="nav__item"><a class="nav__link" href="../../#articles">Articles</a></div>
+      <div class="nav__item"><a class="nav__link" href="#contact">Contact</a></div>
+      <div class="nav__item"><a class="nav__link" href="../../../projects/monitor-reviews/" hreflang="es" lang="es">Español</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="https://www.linkedin.com/in/gabrielalejandrogarcia/" rel="noreferrer">Message me on LinkedIn</a>
+      <button class="theme-toggle" type="button" data-theme-toggle data-label-light="Switch to light mode" data-label-dark="Switch to dark mode" aria-label="Switch to light mode" title="Switch to light mode">
+        <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+      </button>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero hero--split" aria-labelledby="hero-h">
+    <div class="wrap">
+      <div class="hero-text grid hero-split">
+        <div class="hero-copy span-5">
+          <h1 id="hero-h">Review Monitor</h1>
+          <p class="t-lead">Scattered reviews turned into a per-product tracking surface.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="https://www.linkedin.com/in/gabrielalejandrogarcia/" rel="noreferrer">Message me on LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+            <a class="btn btn--secondary" href="../../#projects">Back to projects</a>
+          </div>
+          <dl class="hero-facts">
+            <div><dt>Role</dt><dd>Product, backend, sync and security</dd></div>
+            <div><dt>Constraint</dt><dd>No dedicated webhook in the API and shared entities</dd></div>
+            <div><dt>Delivery</dt><dd>Centralized review tracking</dd></div>
+          </dl>
+        </div>
+        <div class="hero-visual frame frame--photo span-6 start-7">
+          <img class="frame__img" src="../../../assets/projects/monitor-reviews.png" alt="Review Monitor dashboard with critical reviews and insights" width="1600" height="900" fetchpriority="high">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section g2" id="problem" aria-labelledby="problem-h">
+    <div class="wrap">
+      <div class="group">
+        <div class="grid grid--top">
+          <div class="span-6 stack-6">
+            <h2 id="problem-h">Mercado Libre had statistics, but not this view.</h2>
+            <p class="t-lead">A seller could check metrics, but had no single place to read the reviews of their listings and follow how the perception of each product evolved.</p>
+            <div class="stack-6">
+            <div class="stack-4"><h3 class="t-card">The gap</h3><p>Reviews carry qualitative signals that do not fit well on a screen of aggregate statistics.</p></div>
+            <div class="stack-4"><h3 class="t-card">The difficulty</h3><p>The API requires polling and can share reviews across catalogs or product families. Centralizing without mixing products takes its own modeling.</p></div>
+            </div>
+          </div>
+          <div class="span-6 start-7">
+            <div class="panel" style="--p-h: 400px"><div class="dg" data-diagram><script type="application/json">{"layout":"lanes","curve":"curve","alt":"The Mercado Libre API is synced three ways: daily polling, at login when data is stale, and manually.","input":{"label":"Mercado Libre API","icon":"ui:plug"},"core":{"label":"Sync","icon":"ui:refresh-cw"},"lanes":[{"label":"Daily polling","icon":"ui:calendar-clock"},{"label":"At login","icon":"ui:log-in","meta":"if stale"},{"label":"Manual","icon":"ui:hand"}]}</script></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="span-12 stack-6" id="decisions">
+          <h3 class="t-h2">The scope was narrowed to one precise question.</h3>
+          <ul class="rows">
+          <li>
+            <span class="rows__name">Track perception, not the whole operation</span>
+            <p>The product focuses on what reviews say and how the perceived health of products changes.</p>
+            <span class="rows__value">01</span>
+          </li>
+          <li>
+            <span class="rows__name">Sync at several cadences</span>
+            <p>Daily polling, sync at login when data is stale and manual refresh make up for the missing webhook.</p>
+            <span class="rows__value">02</span>
+          </li>
+          <li>
+            <span class="rows__name">Isolate accounts and entities</span>
+            <p>Multi-account OAuth, renewable tokens and dedicated models avoid mixing users, listings and product families.</p>
+            <span class="rows__value">03</span>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tech" aria-labelledby="tech-h" style="--hm: 2">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="tech-h">A technical base to close the gap between reputation and product.</h2>
+      </div>
+      <div class="grid tech-grid">
+        <div class="span-4">
+          <h3>Backend and API</h3>
+          <div class="chips"><span class="ic-chip"><img class="ic" src="../../../assets/kit/icons/django.svg" alt="" width="40" height="40">Django 5</span><span class="ic-chip">django-allauth</span><span class="ic-chip">OAuth2</span><span class="ic-chip">Mercado Libre API</span></div>
+        </div>
+        <div class="span-4">
+          <h3>Data</h3>
+          <div class="chips"><span class="ic-chip"><img class="ic" src="../../../assets/kit/icons/postgres.svg" alt="" width="39" height="40">PostgreSQL 16</span><span class="ic-chip">Review models</span><span class="ic-chip">Product tracking</span></div>
+        </div>
+        <div class="span-4">
+          <h3>Jobs and sync</h3>
+          <div class="chips"><span class="ic-chip">Django-Q2</span><span class="ic-chip"><img class="ic" src="../../../assets/kit/icons/redis.svg" alt="" width="40" height="34">Redis</span><span class="ic-chip">Polling</span><span class="ic-chip">Manual sync</span></div>
+        </div>
+        <div class="span-4">
+          <h3>Frontend</h3>
+          <div class="chips"><span class="ic-chip"><img class="ic ic-land" src="../../../assets/kit/icons/htmx.svg" alt="" width="40" height="26">HTMX</span><span class="ic-chip"><img class="ic ic-wide" src="../../../assets/kit/icons/alpinejs.svg" alt="" width="40" height="18">Alpine.js</span><span class="ic-chip"><img class="ic ic-land" src="../../../assets/kit/icons/tailwindcss.svg" alt="" width="40" height="24">Tailwind CSS</span><span class="ic-chip"><img class="ic" src="../../../assets/kit/icons/daisyUI-icon.svg" alt="" width="40" height="40">DaisyUI</span></div>
+        </div>
+        <div class="span-4">
+          <h3>Infrastructure</h3>
+          <div class="chips"><span class="ic-chip">Gunicorn</span><span class="ic-chip">WhiteNoise</span><span class="ic-chip"><img class="ic" src="../../../assets/kit/icons/sentry.svg" alt="" width="40" height="35">Sentry-ready</span></div>
+        </div>
+        <div class="span-4">
+          <h3>Product</h3>
+          <div class="chips"><span class="ic-chip">Centralized reviews</span><span class="ic-chip">Rating history</span><span class="ic-chip">Seller operations</span></div>
+        </div>
+      </div>
+      <p class="t-lead outcome"><span class="muted">Result.</span> Qualitative information turned into operational tracking, without hiding the complexity of the external platform.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer closing ground-inverse" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--word">
+      <div class="section-head--split">
+        <div>
+          <h2 id="close-h">Tell me what problem you want to solve</h2>
+          <p class="t-lead">Message me on LinkedIn and let's talk.</p>
+        </div>
+        <a class="btn btn--primary" href="https://www.linkedin.com/in/gabrielalejandrogarcia/" rel="noreferrer">Message me on LinkedIn<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      </div>
+      <p class="close__word" aria-hidden="true">Gabriel Garcia</p>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-6 stack-4">
+          <a class="nav__logo" href="../../"><span class="mark" data-mark="ring" aria-hidden="true"></span>Gabriel Garcia</a>
+          <p class="footer__lede">Data products and internal tools, built from real problems.</p>
+        </div>
+        <div class="span-3 footer__col"><h4>More projects</h4><ul><li><a href="../meli-core-dumper/">Meli Core Dumper</a></li><li><a href="../stock-central/">Stock Central</a></li></ul></div>
+        <div class="span-3 footer__col"><h4>Portfolio</h4><ul><li><a href="../../">Home</a></li><li><a href="../../#articles">Articles</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 Gabriel Garcia</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="../../../assets/kit/system.js"></script>
+<script type="module" src="../../../assets/kit/motion/motion.js"></script>
+<script type="module" src="../../../assets/kit/layout/layout.js"></script>
+<script type="module" src="../../../assets/kit/diagrams/mount.js"></script>
+<script>
+(function () {
+  var root = document.documentElement, btn = document.querySelector('[data-theme-toggle]');
+  if (!btn) return;
+  function paint() {
+    var light = root.dataset.theme === 'light';
+    var label = light ? btn.dataset.labelDark : btn.dataset.labelLight;
+    btn.setAttribute('aria-label', label); btn.title = label;
+  }
+  paint();
+  btn.addEventListener('click', function () {
+    var light = root.dataset.theme !== 'light';
+    if (light) root.dataset.theme = 'light'; else delete root.dataset.theme;
+    root.dataset.tone = light ? 'light' : 'dark';
+    try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+    paint();
+  });
+})();
+</script>
+</body>
+</html>
