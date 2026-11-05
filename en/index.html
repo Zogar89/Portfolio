@@ -26,7 +26,7 @@
 :root {
   --p-bg: #0c0c0f; --p-surface: #141418; --p-ink: #f2f3f5; --p-muted: #9b9ba4;
   --p-accent: #ff7142; --p-accent-ink: #0c0c0f; --p-action: #ff7142; --p-action-ink: #0c0c0f;
-  --p-inv-bg: #08080a; --p-inv-surface: #0c0c0f; --p-inv-ink: #f2f3f5; --p-inv-muted: #9b9ba4;
+  --p-inv-bg: #f3f0e8; --p-inv-surface: #e9e5da; --p-inv-ink: #0c0c0f; --p-inv-muted: #5d5d66;
   --p-inv-accent: #ff7142; --p-inv-accent-ink: #0c0c0f; --p-inv-action: #ff7142; --p-inv-action-ink: #0c0c0f;
   --font-display: "Host Grotesk", system-ui, sans-serif;
   --font-text: "Host Grotesk", system-ui, sans-serif;
@@ -35,10 +35,11 @@
   --display-tracking: -0.035em;
   --display-tracking-xl: -0.04em;
 }
-/* Modo claro: el crema de antes (#f3f0e8). Oscuro es el predeterminado. El pie sigue oscuro en ambos modos. */
+/* Modo claro: el crema de antes (#f3f0e8). Oscuro es el predeterminado. El pie (contacto) siempre es el inverso de la página: crema en oscuro, oscuro en claro. */
 html[data-theme="light"] {
   --p-bg: #f3f0e8; --p-surface: #e9e5da; --p-ink: #0c0c0f; --p-muted: #5d5d66;
   --p-accent: #ff7142; --p-accent-ink: #0c0c0f; --p-action: #ff7142; --p-action-ink: #0c0c0f;
+  --p-inv-bg: #0c0c0f; --p-inv-surface: #141418; --p-inv-ink: #f2f3f5; --p-inv-muted: #9b9ba4;
 }
 .theme-toggle { display: inline-grid; place-items: center; flex: none; width: 44px; height: 44px; padding: 0; margin: 0;
   border: 1px solid color-mix(in oklab, var(--ink) 22%, transparent); border-radius: 999px; background: transparent; color: var(--ink); cursor: pointer; }
@@ -178,7 +179,7 @@ html[data-theme="light"] .theme-toggle .i-sun, html:not([data-theme="light"]) .t
 
 </main>
 
-<footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
+<footer class="footer closing ground-inverse" id="contact" aria-labelledby="close-h">
   <div class="wrap">
     <div class="closing__cta close--word">
       <div class="section-head--split">
